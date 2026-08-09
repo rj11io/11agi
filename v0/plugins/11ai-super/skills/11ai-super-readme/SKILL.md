@@ -1,9 +1,9 @@
 ---
-name: 11ai-super-readme
+name: 11agi-super-readme
 description: "Audit, update, and repeatedly improve a repository's README files until they meet a high documentation bar — fix existing READMEs that no longer match the code, add missing information, create new READMEs in folders that need one, and keep running fresh review passes until no material issue remains. Use when Codex needs to refresh, audit, fix, or generate READMEs or repository documentation, when docs are stale or out of date, or when the user asks to \"update the readmes\" in any form and wants them iterated to a high-confidence quality bar. Stops and reports when the change set becomes unmanageable or troubleshooting outweighs progress."
 ---
 
-# 11ai Super Readme
+# 11agi Super Readme
 
 Audit every README against the code it describes, fix what is wrong or missing, create READMEs where folders need one, and repeat with fresh review lenses until the exit criteria are met. Do not equate one improvement pass with finished documentation.
 

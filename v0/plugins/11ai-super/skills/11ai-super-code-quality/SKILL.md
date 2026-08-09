@@ -1,9 +1,9 @@
 ---
-name: 11ai-super-code-quality
+name: 11agi-super-code-quality
 description: "Audit, repair, and repeatedly raise the quality of a codebase, module, diff, or file until it reaches a high, evidence-backed bar, while keeping observable behavior unchanged. Use when Codex must clean up or refactor code, reduce complexity, remove duplication and dead weight, fix misleading names and unclear structure, repair swallowed errors and unsafe boundaries, improve comments, close gaps in test coverage for risky behavior, or keep improving a codebase after an initial cleanup is done. Owns the correctness of what it touches: it protects behavior with characterization tests before any rewrite and never claims a rewrite is safe because it compiles. Every change must retire a countable defect rather than express a style preference. Excludes feature work, architecture redesign, dependency upgrades, and performance tuning, and honors audit-only requests by reporting findings without editing."
 ---
 
-# 11ai Super Code Quality
+# 11agi Super Code Quality
 
 ## Mission
 

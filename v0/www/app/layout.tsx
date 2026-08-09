@@ -18,8 +18,8 @@ const fontMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://ai.rj11.io"),
   title: {
-    default: "11ai · Open source AI agent skills and plugins",
-    template: "%s · 11ai",
+    default: "11agi · Open source AI agent skills and plugins",
+    template: "%s · 11agi",
   },
   description:
     "Playbooks, routines, automations, and long running tasks for building software and more.",
@@ -53,18 +53,18 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "11ai · Open source AI agent skills and plugins",
+    title: "11agi · Open source AI agent skills and plugins",
     description:
       "Playbooks, routines, automations, and long running tasks for building software and more.",
     url: "https://ai.rj11.io",
-    siteName: "11ai",
+    siteName: "11agi",
     type: "website",
     images: [
       {
         url: "/static/ai-rj11io-web-og.png",
         width: 1200,
         height: 630,
-        alt: "11ai · Open source AI agent skills and plugins",
+        alt: "11agi · Open source AI agent skills and plugins",
       },
     ],
   },

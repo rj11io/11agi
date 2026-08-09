@@ -1,4 +1,4 @@
-# 11ai Directors
+# 11agi Directors
 
 Director skills. A director does not do the task, it wraps one: preconditions,
 handoff, quality gate, report, abort.
@@ -7,8 +7,8 @@ handoff, quality gate, report, abort.
 
 | Skill | Use it for |
 | --- | --- |
-| [`11ai-director-git-main`](./skills/11ai-director-git-main/SKILL.md) | Running a complete repository task directly on main: sync a clean tree, do the task, quality-check, and report, committing or pushing only when explicitly asked |
-| [`11ai-director-git-branch`](./skills/11ai-director-git-branch/SKILL.md) | Landing a complete repository task through a branch and pull request: branch from a clean tree, do the task, open a detailed PR, address review comments, merging or closing only when explicitly asked |
+| [`11agi-director-git-main`](./skills/11agi-director-git-main/SKILL.md) | Running a complete repository task directly on main: sync a clean tree, do the task, quality-check, and report, committing or pushing only when explicitly asked |
+| [`11agi-director-git-branch`](./skills/11agi-director-git-branch/SKILL.md) | Landing a complete repository task through a branch and pull request: branch from a clean tree, do the task, open a detailed PR, address review comments, merging or closing only when explicitly asked |
 
 The directors wrap a task in a Git transaction; they do not define the task. Name
 the work (or the task skill) in the same request, and the director handles

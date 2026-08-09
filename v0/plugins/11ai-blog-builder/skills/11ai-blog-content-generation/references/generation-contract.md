@@ -1,4 +1,4 @@
-# 11ai blog content generation contract
+# 11agi blog content generation contract
 
 ## 1. Start from the user's requested outcome
 
@@ -43,7 +43,7 @@ Use existing IDs and numbering conventions when editing a repo.
 
 ## 3. Markdown body pattern
 
-Use this structure for 11ai-style post content:
+Use this structure for 11agi-style post content:
 
 ```md
 # Exact post title
@@ -145,7 +145,7 @@ YouTube convention:
 
 Before returning or writing generated content:
 
-1. Apply `$11ai-blog-content-format`.
+1. Apply `$11agi-blog-content-format`.
 2. Check Markdown structure and metadata.
 3. If editing a repo, update imports/registries consistently.
 4. Run relevant formatting/tests where available.

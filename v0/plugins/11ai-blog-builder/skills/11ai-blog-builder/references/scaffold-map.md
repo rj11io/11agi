@@ -1,6 +1,6 @@
-# 11ai blog scaffold map
+# 11agi blog scaffold map
 
-Use this when rebuilding the full 11ai-style blog from the plugin skills. Treat file names as a recommended map, not a mandatory path, when the host project already has conventions.
+Use this when rebuilding the full 11agi-style blog from the plugin skills. Treat file names as a recommended map, not a mandatory path, when the host project already has conventions.
 
 ## Route and component inventory
 
@@ -32,7 +32,7 @@ app/v1/blog/content/publications/<publication>/posts/<post>.ts
 - `routes.ts`: centralize `blogHref`, `publicationHref`, `postHref`, and `authorHref`.
 - `authors.ts`: seed author records with `id`, `name`, `displayName`, `bio`, `tags`, optional `avatar`, and optional `links`.
 - publication `index.ts` files: define publication metadata and nested posts with `created`, optional `updated`, `authorIds`, tags, and imported Markdown content modules.
-- post content: use `$11ai-blog-content-format` for metadata/body normalization and `$11ai-blog-content-generation` when creating new editorial material.
+- post content: use `$11agi-blog-content-format` for metadata/body normalization and `$11agi-blog-content-generation` when creating new editorial material.
 - `registry.ts`: import all publications and authors, validate them, derive `allPosts`, `postPreviews`, `publicationPreviews`, `authorPreviews`, lookup helpers, `getPostContent`, and `stripLeadingH1`.
 - `validation.ts`: fail duplicate IDs/slugs, malformed `created`, `updated` before `created`, empty copy, bad tags, bad links, empty author arrays, duplicate post authors, unknown author references, and missing readable content.
 
@@ -47,7 +47,7 @@ app/v1/blog/content/publications/<publication>/posts/<post>.ts
 - Author page: breadcrumb, avatar/initials, name, display name, bio, tags, external links, post count, attributed post list.
 - TOC: desktop sticky nav and mobile `details` disclosure sharing the Markdown heading IDs and active state.
 
-Use `$11ai-blog-ui` only as a standalone optional add-on when exact 11ai visual polish is requested.
+Use `$11agi-blog-ui` only as a standalone optional add-on when exact 11agi visual polish is requested.
 
 ## Test inventory
 

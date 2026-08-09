@@ -1,5 +1,5 @@
 ---
-name: 11ai-ai-chat-session-mgmt
+name: 11agi-ai-chat-session-mgmt
 description: "Manage multi-session AI chat state — session entity shape, a CRUD hook with reactive refresh, pinned-first sorting, and persistence via localStorage or a service API. Use when adding chat history, pin/rename/delete, or session switching to an AI chat."
 ---
 
@@ -25,7 +25,7 @@ export interface ChatSession {
 
 Store `UIMessage[]` as-is: it round-trips directly into `useChat({ messages })` for history restore, including tool-call parts.
 
-If the chat supports multiple models (see `11ai-ai-chat-multiple-models`), persist `modelId` in the same write as `messages`, restore the picker from it on session select, and stamp the current selection onto newly created sessions.
+If the chat supports multiple models (see `11agi-ai-chat-multiple-models`), persist `modelId` in the same write as `messages`, restore the picker from it on session select, and stamp the current selection onto newly created sessions.
 
 ## Sorting: pinned first, then most recent
 
@@ -174,7 +174,7 @@ const saveMessages = useCallback(async (id: string, messages: UIMessage[]) => {
 Service-API notes:
 
 - The list endpoint should omit `messages` (sidebar only needs title/pinned/updatedAt); `getSession` fetches the full record on selection.
-- `saveMessages` fires once per completed stream (not per token — see `11ai-ai-chat-client-hooks`), so a plain PATCH-the-array approach is fine to start.
+- `saveMessages` fires once per completed stream (not per token — see `11agi-ai-chat-client-hooks`), so a plain PATCH-the-array approach is fine to start.
 - Apply mutations optimistically to local state if refresh round-trips feel slow.
 
 ## Page-level session lifecycle
@@ -221,4 +221,4 @@ async function handleDelete(id: string) {
 }
 ```
 
-**Switching** — set both `activeId` and the full `activeSession` object; the chat area remounts via `key={activeSession.id}` (see `11ai-ai-chat-client-hooks`).
+**Switching** — set both `activeId` and the full `activeSession` object; the chat area remounts via `key={activeSession.id}` (see `11agi-ai-chat-client-hooks`).

@@ -1,9 +1,9 @@
 ---
-name: 11ai-super-ux
+name: 11agi-super-ux
 description: "Audit, repair, and iteratively improve a project's user interface and user experience using the running product, source code, and objective quality gates. Use when Codex must review UI/UX, fix critical or major usability and accessibility defects, improve responsive behavior, interaction states, information architecture, visual hierarchy, consistency, or polish, and continue validating improvements until the experience meets a high bar. Apply to web, mobile, and desktop interfaces, and honor audit-only requests by reporting findings without editing. Stops and reports when the change set becomes unmanageable or troubleshooting outweighs progress."
 ---
 
-# 11ai Super UX
+# 11agi Super UX
 
 ## Mission
 

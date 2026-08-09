@@ -1,14 +1,14 @@
 ---
-name: 11ai-saas-fleet-automation-creator
-description: "Create a complete SaaS product-fleet agent automation for a niche and goal of the user's choice, combining the 11ai-automation method with the 11ai-saas-fleet-automation lifecycle (milestone ticks + the five-probe depth bar that blocks brochure-ware + the payments boundary). Runs a short interview about the niche, target users, stack, and caps — then generates the conductor, ledger, runner, and per-product scaffolding conventions. Use when the user says \"create an agent automation that builds SaaS products / POCs / MVPs for X\", \"set up an autonomous product factory\", or wants a cron-driven agent shipping many products in a chosen market unattended. For ONE product deepened to production grade, use 11ai-single-saas-automation-creator instead."
+name: 11agi-saas-fleet-automation-creator
+description: "Create a complete SaaS product-fleet agent automation for a niche and goal of the user's choice, combining the 11agi-automation method with the 11agi-saas-fleet-automation lifecycle (milestone ticks + the five-probe depth bar that blocks brochure-ware + the payments boundary). Runs a short interview about the niche, target users, stack, and caps — then generates the conductor, ledger, runner, and per-product scaffolding conventions. Use when the user says \"create an agent automation that builds SaaS products / POCs / MVPs for X\", \"set up an autonomous product factory\", or wants a cron-driven agent shipping many products in a chosen market unattended. For ONE product deepened to production grade, use 11agi-single-saas-automation-creator instead."
 ---
 
 # SaaS Fleet Automation Creator
 
 You are going to generate a complete, ready-to-run **product-fleet**
-automation tailored to the user's niche. First read the **`11ai-automation`**
+automation tailored to the user's niche. First read the **`11agi-automation`**
 skill (method + conductor template + runner + operations) and the
-**`11ai-saas-fleet-automation`** skill (state machine, depth bar, anti-theater
+**`11agi-saas-fleet-automation`** skill (state machine, depth bar, anti-theater
 rules, payments boundary) — the generated automation embeds both.
 
 ## Step 1 — Interview (two batches)
@@ -42,7 +42,7 @@ rules, payments boundary) — the generated automation embeds both.
 In the target repo:
 
 - **`CONDUCTOR.md`** — the core conductor template filled with the SaaS
-  lifecycle verbatim from `11ai-saas-fleet-automation`: the
+  lifecycle verbatim from `11agi-saas-fleet-automation`: the
   `scoping → building → hardening → shipping → done` machine with milestones
   as the tick unit, the five-probe depth bar as §5 (instantiated with the
   user's stack — name the actual e2e commands that will prove input,

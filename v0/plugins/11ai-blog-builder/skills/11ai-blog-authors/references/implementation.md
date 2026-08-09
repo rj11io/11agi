@@ -40,7 +40,7 @@ post.authorName + post.authorAvatar + separate author page data
 
 Use stable URL-safe IDs for authors. Names and display names can change later; IDs should not change without redirects.
 
-Use `$11ai-blog-content-format` to normalize author-facing copy fields such as `bio`, tags, links, and display names. Use `$11ai-blog-content-generation` only when the user asks to generate author profiles or placeholder contributor records, and clearly label placeholders.
+Use `$11agi-blog-content-format` to normalize author-facing copy fields such as `bio`, tags, links, and display names. Use `$11agi-blog-content-generation` only when the user asks to generate author profiles or placeholder contributor records, and clearly label placeholders.
 
 ```ts
 export type AuthorLink = {
@@ -209,7 +209,7 @@ If the blog has a library or collection browser with content pills/tabs, add Aut
 Content: Posts | Publications | Authors
 ```
 
-If the host library selector is URL-backed, extend the same `content` query-param contract instead of adding author-only state. The expected 11ai behavior is:
+If the host library selector is URL-backed, extend the same `content` query-param contract instead of adding author-only state. The expected 11agi behavior is:
 
 - `/blog` defaults to Posts.
 - `/blog?content=posts` also selects Posts and is allowed.

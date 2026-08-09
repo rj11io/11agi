@@ -1,4 +1,4 @@
 interface:
-  display_name: "11ai NPM Publishing"
+  display_name: "11agi NPM Publishing"
   short_description: "Publish scoped npm packages with token auth"
-  default_prompt: "Use $11ai-npm-publishing to prepare and publish a scoped npm package."
+  default_prompt: "Use $11agi-npm-publishing to prepare and publish a scoped npm package."

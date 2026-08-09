@@ -1,9 +1,9 @@
 ---
-name: 11ai-super-metadata
+name: 11agi-super-metadata
 description: "Audit, repair, and iteratively improve a web project's search metadata, technical SEO, social sharing metadata, structured data, indexability controls, sitemap, robots directives, canonical URLs, favicons, and Open Graph images, including generating or replacing social preview images when needed. Use when asked to review or fix SEO, metadata, search appearance, link previews, OG or Twitter images, canonicalization, robots.txt, sitemaps, JSON-LD, or route-level metadata in a website or web application. Continue until all critical and major findings are resolved and the project meets a high-confidence quality bar, always ending with a session summary. Stops and reports when the change set becomes unmanageable or troubleshooting outweighs progress."
 ---
 
-# 11ai Super Metadata
+# 11agi Super Metadata
 
 ## Goal
 

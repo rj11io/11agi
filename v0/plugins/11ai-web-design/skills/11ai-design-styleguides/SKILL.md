@@ -1,9 +1,9 @@
 ---
-name: 11ai-design-styleguides
-description: "Apply the visual and interaction language of v0/www to new or existing web interfaces: neutral semantic color tokens, Inter/mono typography, type-led hierarchy, restrained shadcn components, compact analytical variants, accessible responsive layouts, and honest data visualization. Use when designing, restyling, reviewing, or implementing a website, dashboard, catalog, report, benchmark UI, or data-heavy frontend that should look and behave like 11ai."
+name: 11agi-design-styleguides
+description: "Apply the visual and interaction language of v0/www to new or existing web interfaces: neutral semantic color tokens, Inter/mono typography, type-led hierarchy, restrained shadcn components, compact analytical variants, accessible responsive layouts, and honest data visualization. Use when designing, restyling, reviewing, or implementing a website, dashboard, catalog, report, benchmark UI, or data-heavy frontend that should look and behave like 11agi."
 ---
 
-# 11ai Design Styleguides
+# 11agi Design Styleguides
 
 Create quiet, precise interfaces where typography and information structure do
 the work. Inspect the existing stack first and reuse its tokens, theme wiring,

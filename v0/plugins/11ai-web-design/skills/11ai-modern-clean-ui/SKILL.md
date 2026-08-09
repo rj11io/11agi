@@ -1,9 +1,9 @@
 ---
-name: 11ai-modern-clean-ui
+name: 11agi-modern-clean-ui
 description: "Build or restyle a web interface toward the contemporary 'modern clean' look used by products like Linear, Vercel, and shadcn/ui: neutral surfaces with one accent color, generous whitespace, clear type hierarchy, soft borders and shadows instead of heavy chrome, and restrained motion. Framework-agnostic principles with concrete Tailwind/shadcn guidance. Use when the user asks for a UI that looks modern, clean, minimal, polished, or professional; wants a design system or styleguide for a new app; says a page looks '90s', cluttered, generic, or like a template; or is starting a new product's frontend and wants it to look and feel high quality from the first screen."
 ---
 
-# 11ai Modern Clean UI
+# 11agi Modern Clean UI
 
 A standalone styleguide for the modern, clean aesthetic that most well-regarded
 web products share today: quiet neutral color, one clear accent, real

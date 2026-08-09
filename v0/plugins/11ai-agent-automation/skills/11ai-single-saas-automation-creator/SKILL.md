@@ -1,17 +1,17 @@
 ---
-name: 11ai-single-saas-automation-creator
-description: "Create an agent automation that builds and continuously deepens ONE SaaS product to production grade, for a product of the user's choice — combining the 11ai-automation method with the 11ai-single-saas-automation lifecycle (capability items, the production depth bar with accounts/ tenancy/test-mode payments/migrations, the walking skeleton, the spine e2e). Runs an interview about the product's mission, users, monetization, stack, and initial capability backlog — then generates PRODUCT.md, the conductor, a pre-seeded ledger, and the runner. Use when the user says \"set up an agent to build my product\", \"create an automation that takes this SaaS to production\", or names one specific product to work on. For a fleet of many products, use 11ai-saas-fleet-automation-creator."
+name: 11agi-single-saas-automation-creator
+description: "Create an agent automation that builds and continuously deepens ONE SaaS product to production grade, for a product of the user's choice — combining the 11agi-automation method with the 11agi-single-saas-automation lifecycle (capability items, the production depth bar with accounts/ tenancy/test-mode payments/migrations, the walking skeleton, the spine e2e). Runs an interview about the product's mission, users, monetization, stack, and initial capability backlog — then generates PRODUCT.md, the conductor, a pre-seeded ledger, and the runner. Use when the user says \"set up an agent to build my product\", \"create an automation that takes this SaaS to production\", or names one specific product to work on. For a fleet of many products, use 11agi-saas-fleet-automation-creator."
 ---
 
 # Single-SaaS Automation Creator
 
 You are going to generate a complete automation that pours every scheduled
-run into **one product**. First read the **`11ai-automation`** skill (method
+run into **one product**. First read the **`11agi-automation`** skill (method
 + conductor template + runner + operations) and the
-**`11ai-single-saas-automation`** skill (capability lifecycle, production
+**`11agi-single-saas-automation`** skill (capability lifecycle, production
 depth bar, walking skeleton, spine e2e, shared-codebase rules) — the
 generated automation embeds both. If the user actually wants many small
-products, hand off to **`11ai-saas-fleet-automation-creator`**.
+products, hand off to **`11agi-saas-fleet-automation-creator`**.
 
 ## Step 1 — Interview (two batches)
 

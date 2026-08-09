@@ -1,15 +1,15 @@
 ---
-name: 11ai-cleanup-creator
-description: "Create a new 11ai cleanup skill for any kind of idle, hanging, or abandoned resource — ports, node_modules folders, caches, agent sessions, Docker containers, stale branches, whatever the user names. Use whenever the user asks to create, make, or generate a cleanup skill for something, wants a scan-and-clean workflow for a resource, or wants to extend the 11ai cleanup skill family. The generated skill always follows the same pattern: scan → judge → report → ask → execute → verify, and never destroys anything the user didn't explicitly pick."
+name: 11agi-cleanup-creator
+description: "Create a new 11agi cleanup skill for any kind of idle, hanging, or abandoned resource — ports, node_modules folders, caches, agent sessions, Docker containers, stale branches, whatever the user names. Use whenever the user asks to create, make, or generate a cleanup skill for something, wants a scan-and-clean workflow for a resource, or wants to extend the 11agi cleanup skill family. The generated skill always follows the same pattern: scan → judge → report → ask → execute → verify, and never destroys anything the user didn't explicitly pick."
 ---
 
-# 11ai Cleanup Creator
+# 11agi Cleanup Creator
 
 ## Overview
 
-This is a skill that writes skills. The 11ai cleanup family shares one shape: find things that look abandoned, show the user a short honest report, let the user choose what goes, and remove exactly that. This skill turns any resource the user names into a new member of that family.
+This is a skill that writes skills. The 11agi cleanup family shares one shape: find things that look abandoned, show the user a short honest report, let the user choose what goes, and remove exactly that. This skill turns any resource the user names into a new member of that family.
 
-The canonical example is `11ai-cleanup-idle-ports` (sibling directory) — read it when you want to see the pattern fully worked out.
+The canonical example is `11agi-cleanup-idle-ports` (sibling directory) — read it when you want to see the pattern fully worked out.
 
 ## The pattern every cleanup skill follows
 
@@ -50,11 +50,11 @@ Put it at `scripts/scan_<target>.sh` inside the new skill. Requirements:
 
 Create `SKILL.md` from `assets/TEMPLATE.md` and `agents/openai.yaml` from `assets/openai.yaml`. Fill every placeholder. Conventions:
 
-- Name: `11ai-cleanup-<target>` (kebab-case).
-- Location: `v0/plugins/11ai-cleanup/skills/11ai-cleanup-<target>/` alongside the others.
+- Name: `11agi-cleanup-<target>` (kebab-case).
+- Location: `v0/plugins/11agi-cleanup/skills/11agi-cleanup-<target>/` alongside the others.
 - Description: state what it scans and cleans, and be generous with trigger phrasings — include the complaints a user would actually type ("disk full", "port already in use"), not just the skill's own vocabulary. Skills tend to under-trigger; a slightly pushy description compensates.
 - Frontmatter must contain exactly `name` and `description`. Keep `description` as one JSON-compatible double-quoted line; never use YAML block scalars such as `>-`.
-- `agents/openai.yaml` must contain quoted `display_name`, `short_description` (25–64 characters), and `default_prompt`; the prompt must mention the exact `$11ai-cleanup-<target>` name.
+- `agents/openai.yaml` must contain quoted `display_name`, `short_description` (25–64 characters), and `default_prompt`; the prompt must mention the exact `$11agi-cleanup-<target>` name.
 - Keep the body under ~120 lines. The six steps carry the structure; the skill-specific content is the signals, the flags, and the exact execute commands.
 
 ### 4. Make the script executable

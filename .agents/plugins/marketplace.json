@@ -1,14 +1,14 @@
 {
-  "name": "11ai",
+  "name": "11agi",
   "interface": {
-    "displayName": "11ai"
+    "displayName": "11agi"
   },
   "plugins": [
     {
-      "name": "11ai-agent-automation",
+      "name": "11agi-agent-automation",
       "source": {
         "source": "local",
-        "path": "./v0/plugins/11ai-agent-automation"
+        "path": "./v0/plugins/11agi-agent-automation"
       },
       "policy": {
         "installation": "AVAILABLE"
@@ -16,10 +16,10 @@
       "category": "Developer Tools"
     },
     {
-      "name": "11ai-ai-chat",
+      "name": "11agi-ai-chat",
       "source": {
         "source": "local",
-        "path": "./v0/plugins/11ai-ai-chat"
+        "path": "./v0/plugins/11agi-ai-chat"
       },
       "policy": {
         "installation": "AVAILABLE"
@@ -27,10 +27,10 @@
       "category": "Developer Tools"
     },
     {
-      "name": "11ai-operator-antdesign-v6",
+      "name": "11agi-operator-antdesign-v6",
       "source": {
         "source": "local",
-        "path": "./v0/plugins/11ai-operator-antdesign-v6"
+        "path": "./v0/plugins/11agi-operator-antdesign-v6"
       },
       "policy": {
         "installation": "AVAILABLE"
@@ -38,10 +38,10 @@
       "category": "Developer Tools"
     },
     {
-      "name": "11ai-operator-aws-cli-v2",
+      "name": "11agi-operator-aws-cli-v2",
       "source": {
         "source": "local",
-        "path": "./v0/plugins/11ai-operator-aws-cli-v2"
+        "path": "./v0/plugins/11agi-operator-aws-cli-v2"
       },
       "policy": {
         "installation": "AVAILABLE"
@@ -49,10 +49,10 @@
       "category": "Developer Tools"
     },
     {
-      "name": "11ai-benchmarks",
+      "name": "11agi-benchmarks",
       "source": {
         "source": "local",
-        "path": "./v0/plugins/11ai-benchmarks"
+        "path": "./v0/plugins/11agi-benchmarks"
       },
       "policy": {
         "installation": "AVAILABLE"
@@ -60,10 +60,10 @@
       "category": "Developer Tools"
     },
     {
-      "name": "11ai-blog-builder",
+      "name": "11agi-blog-builder",
       "source": {
         "source": "local",
-        "path": "./v0/plugins/11ai-blog-builder"
+        "path": "./v0/plugins/11agi-blog-builder"
       },
       "policy": {
         "installation": "AVAILABLE"
@@ -71,10 +71,10 @@
       "category": "Developer Tools"
     },
     {
-      "name": "11ai-cleanup",
+      "name": "11agi-cleanup",
       "source": {
         "source": "local",
-        "path": "./v0/plugins/11ai-cleanup"
+        "path": "./v0/plugins/11agi-cleanup"
       },
       "policy": {
         "installation": "AVAILABLE"
@@ -82,10 +82,10 @@
       "category": "Developer Tools"
     },
     {
-      "name": "11ai-codebase",
+      "name": "11agi-codebase",
       "source": {
         "source": "local",
-        "path": "./v0/plugins/11ai-codebase"
+        "path": "./v0/plugins/11agi-codebase"
       },
       "policy": {
         "installation": "AVAILABLE"
@@ -93,10 +93,10 @@
       "category": "Developer Tools"
     },
     {
-      "name": "11ai-directors",
+      "name": "11agi-directors",
       "source": {
         "source": "local",
-        "path": "./v0/plugins/11ai-directors"
+        "path": "./v0/plugins/11agi-directors"
       },
       "policy": {
         "installation": "AVAILABLE"
@@ -104,10 +104,10 @@
       "category": "Developer Tools"
     },
     {
-      "name": "11ai-core-skills",
+      "name": "11agi-core-skills",
       "source": {
         "source": "local",
-        "path": "./v0/plugins/11ai-core-skills"
+        "path": "./v0/plugins/11agi-core-skills"
       },
       "policy": {
         "installation": "AVAILABLE"
@@ -115,10 +115,10 @@
       "category": "Developer Tools"
     },
     {
-      "name": "11ai-operator-docker",
+      "name": "11agi-operator-docker",
       "source": {
         "source": "local",
-        "path": "./v0/plugins/11ai-operator-docker"
+        "path": "./v0/plugins/11agi-operator-docker"
       },
       "policy": {
         "installation": "AVAILABLE"
@@ -126,10 +126,10 @@
       "category": "Developer Tools"
     },
     {
-      "name": "11ai-operator-git",
+      "name": "11agi-operator-git",
       "source": {
         "source": "local",
-        "path": "./v0/plugins/11ai-operator-git"
+        "path": "./v0/plugins/11agi-operator-git"
       },
       "policy": {
         "installation": "AVAILABLE"
@@ -137,10 +137,10 @@
       "category": "Developer Tools"
     },
     {
-      "name": "11ai-operator-nodejs-api-v24",
+      "name": "11agi-operator-nodejs-api-v24",
       "source": {
         "source": "local",
-        "path": "./v0/plugins/11ai-operator-nodejs-api-v24"
+        "path": "./v0/plugins/11agi-operator-nodejs-api-v24"
       },
       "policy": {
         "installation": "AVAILABLE"
@@ -148,10 +148,10 @@
       "category": "Developer Tools"
     },
     {
-      "name": "11ai-super",
+      "name": "11agi-super",
       "source": {
         "source": "local",
-        "path": "./v0/plugins/11ai-super"
+        "path": "./v0/plugins/11agi-super"
       },
       "policy": {
         "installation": "AVAILABLE"
@@ -159,10 +159,10 @@
       "category": "Developer Tools"
     },
     {
-      "name": "11ai-audit",
+      "name": "11agi-audit",
       "source": {
         "source": "local",
-        "path": "./v0/plugins/11ai-audit"
+        "path": "./v0/plugins/11agi-audit"
       },
       "policy": {
         "installation": "AVAILABLE"
@@ -170,10 +170,10 @@
       "category": "Security"
     },
     {
-      "name": "11ai-web-design",
+      "name": "11agi-web-design",
       "source": {
         "source": "local",
-        "path": "./v0/plugins/11ai-web-design"
+        "path": "./v0/plugins/11agi-web-design"
       },
       "policy": {
         "installation": "AVAILABLE"
@@ -181,10 +181,10 @@
       "category": "Developer Tools"
     },
     {
-      "name": "11ai-xharness",
+      "name": "11agi-xharness",
       "source": {
         "source": "local",
-        "path": "./v0/plugins/11ai-xharness"
+        "path": "./v0/plugins/11agi-xharness"
       },
       "policy": {
         "installation": "AVAILABLE"
@@ -192,10 +192,10 @@
       "category": "Developer Tools"
     },
     {
-      "name": "11ai-operator-jest-v30",
+      "name": "11agi-operator-jest-v30",
       "source": {
         "source": "local",
-        "path": "./v0/plugins/11ai-operator-jest-v30"
+        "path": "./v0/plugins/11agi-operator-jest-v30"
       },
       "policy": {
         "installation": "AVAILABLE"
@@ -203,10 +203,10 @@
       "category": "Developer Tools"
     },
     {
-      "name": "11ai-operator-mongodb-v8",
+      "name": "11agi-operator-mongodb-v8",
       "source": {
         "source": "local",
-        "path": "./v0/plugins/11ai-operator-mongodb-v8"
+        "path": "./v0/plugins/11agi-operator-mongodb-v8"
       },
       "policy": {
         "installation": "AVAILABLE"
@@ -214,10 +214,10 @@
       "category": "Developer Tools"
     },
     {
-      "name": "11ai-operator-ssh",
+      "name": "11agi-operator-ssh",
       "source": {
         "source": "local",
-        "path": "./v0/plugins/11ai-operator-ssh"
+        "path": "./v0/plugins/11agi-operator-ssh"
       },
       "policy": {
         "installation": "AVAILABLE"
@@ -225,10 +225,10 @@
       "category": "Developer Tools"
     },
     {
-      "name": "11ai-operator-bash",
+      "name": "11agi-operator-bash",
       "source": {
         "source": "local",
-        "path": "./v0/plugins/11ai-operator-bash"
+        "path": "./v0/plugins/11agi-operator-bash"
       },
       "policy": {
         "installation": "AVAILABLE"
@@ -236,10 +236,10 @@
       "category": "Developer Tools"
     },
     {
-      "name": "11ai-operator-supabase",
+      "name": "11agi-operator-supabase",
       "source": {
         "source": "local",
-        "path": "./v0/plugins/11ai-operator-supabase"
+        "path": "./v0/plugins/11agi-operator-supabase"
       },
       "policy": {
         "installation": "AVAILABLE"
@@ -247,10 +247,10 @@
       "category": "Developer Tools"
     },
     {
-      "name": "11ai-operator-workos",
+      "name": "11agi-operator-workos",
       "source": {
         "source": "local",
-        "path": "./v0/plugins/11ai-operator-workos"
+        "path": "./v0/plugins/11agi-operator-workos"
       },
       "policy": {
         "installation": "AVAILABLE"
@@ -258,10 +258,10 @@
       "category": "Developer Tools"
     },
     {
-      "name": "11ai-operator-convex",
+      "name": "11agi-operator-convex",
       "source": {
         "source": "local",
-        "path": "./v0/plugins/11ai-operator-convex"
+        "path": "./v0/plugins/11agi-operator-convex"
       },
       "policy": {
         "installation": "AVAILABLE"
@@ -269,10 +269,10 @@
       "category": "Developer Tools"
     },
     {
-      "name": "11ai-operator-clerk-core-3",
+      "name": "11agi-operator-clerk-core-3",
       "source": {
         "source": "local",
-        "path": "./v0/plugins/11ai-operator-clerk-core-3"
+        "path": "./v0/plugins/11agi-operator-clerk-core-3"
       },
       "policy": {
         "installation": "AVAILABLE"
@@ -280,10 +280,10 @@
       "category": "Developer Tools"
     },
     {
-      "name": "11ai-operator-stripe",
+      "name": "11agi-operator-stripe",
       "source": {
         "source": "local",
-        "path": "./v0/plugins/11ai-operator-stripe"
+        "path": "./v0/plugins/11agi-operator-stripe"
       },
       "policy": {
         "installation": "AVAILABLE"
@@ -291,10 +291,10 @@
       "category": "Developer Tools"
     },
     {
-      "name": "11ai-operator-pokeapi-v2",
+      "name": "11agi-operator-pokeapi-v2",
       "source": {
         "source": "local",
-        "path": "./v0/plugins/11ai-operator-pokeapi-v2"
+        "path": "./v0/plugins/11agi-operator-pokeapi-v2"
       },
       "policy": {
         "installation": "AVAILABLE"
@@ -302,10 +302,10 @@
       "category": "Developer Tools"
     },
     {
-      "name": "11ai-operator-html-5",
+      "name": "11agi-operator-html-5",
       "source": {
         "source": "local",
-        "path": "./v0/plugins/11ai-operator-html-5"
+        "path": "./v0/plugins/11agi-operator-html-5"
       },
       "policy": {
         "installation": "AVAILABLE"
@@ -313,10 +313,10 @@
       "category": "Developer Tools"
     },
     {
-      "name": "11ai-operator-css-3",
+      "name": "11agi-operator-css-3",
       "source": {
         "source": "local",
-        "path": "./v0/plugins/11ai-operator-css-3"
+        "path": "./v0/plugins/11agi-operator-css-3"
       },
       "policy": {
         "installation": "AVAILABLE"
@@ -324,10 +324,10 @@
       "category": "Developer Tools"
     },
     {
-      "name": "11ai-operator-javascript-es2026",
+      "name": "11agi-operator-javascript-es2026",
       "source": {
         "source": "local",
-        "path": "./v0/plugins/11ai-operator-javascript-es2026"
+        "path": "./v0/plugins/11agi-operator-javascript-es2026"
       },
       "policy": {
         "installation": "AVAILABLE"
@@ -335,10 +335,10 @@
       "category": "Developer Tools"
     },
     {
-      "name": "11ai-operator-typescript-v7",
+      "name": "11agi-operator-typescript-v7",
       "source": {
         "source": "local",
-        "path": "./v0/plugins/11ai-operator-typescript-v7"
+        "path": "./v0/plugins/11agi-operator-typescript-v7"
       },
       "policy": {
         "installation": "AVAILABLE"
@@ -346,10 +346,10 @@
       "category": "Developer Tools"
     },
     {
-      "name": "11ai-operator-reactjs-v19",
+      "name": "11agi-operator-reactjs-v19",
       "source": {
         "source": "local",
-        "path": "./v0/plugins/11ai-operator-reactjs-v19"
+        "path": "./v0/plugins/11agi-operator-reactjs-v19"
       },
       "policy": {
         "installation": "AVAILABLE"
@@ -357,10 +357,10 @@
       "category": "Developer Tools"
     },
     {
-      "name": "11ai-operator-nextjs-v16",
+      "name": "11agi-operator-nextjs-v16",
       "source": {
         "source": "local",
-        "path": "./v0/plugins/11ai-operator-nextjs-v16"
+        "path": "./v0/plugins/11agi-operator-nextjs-v16"
       },
       "policy": {
         "installation": "AVAILABLE"
@@ -368,10 +368,10 @@
       "category": "Developer Tools"
     },
     {
-      "name": "11ai-operator-vercel-ai-sdk-v7",
+      "name": "11agi-operator-vercel-ai-sdk-v7",
       "source": {
         "source": "local",
-        "path": "./v0/plugins/11ai-operator-vercel-ai-sdk-v7"
+        "path": "./v0/plugins/11agi-operator-vercel-ai-sdk-v7"
       },
       "policy": {
         "installation": "AVAILABLE"
@@ -379,10 +379,10 @@
       "category": "Developer Tools"
     },
     {
-      "name": "11ai-operator-vercel-chat-sdk-v4",
+      "name": "11agi-operator-vercel-chat-sdk-v4",
       "source": {
         "source": "local",
-        "path": "./v0/plugins/11ai-operator-vercel-chat-sdk-v4"
+        "path": "./v0/plugins/11agi-operator-vercel-chat-sdk-v4"
       },
       "policy": {
         "installation": "AVAILABLE"
@@ -390,10 +390,10 @@
       "category": "Developer Tools"
     },
     {
-      "name": "11ai-operator-vercel-eve-v0",
+      "name": "11agi-operator-vercel-eve-v0",
       "source": {
         "source": "local",
-        "path": "./v0/plugins/11ai-operator-vercel-eve-v0"
+        "path": "./v0/plugins/11agi-operator-vercel-eve-v0"
       },
       "policy": {
         "installation": "AVAILABLE"
@@ -401,10 +401,10 @@
       "category": "Developer Tools"
     },
     {
-      "name": "11ai-operator-vercel-ai-gateway",
+      "name": "11agi-operator-vercel-ai-gateway",
       "source": {
         "source": "local",
-        "path": "./v0/plugins/11ai-operator-vercel-ai-gateway"
+        "path": "./v0/plugins/11agi-operator-vercel-ai-gateway"
       },
       "policy": {
         "installation": "AVAILABLE"
@@ -412,10 +412,10 @@
       "category": "Developer Tools"
     },
     {
-      "name": "11ai-operator-vercel-sandbox-v2",
+      "name": "11agi-operator-vercel-sandbox-v2",
       "source": {
         "source": "local",
-        "path": "./v0/plugins/11ai-operator-vercel-sandbox-v2"
+        "path": "./v0/plugins/11agi-operator-vercel-sandbox-v2"
       },
       "policy": {
         "installation": "AVAILABLE"
@@ -423,10 +423,10 @@
       "category": "Developer Tools"
     },
     {
-      "name": "11ai-operator-vercel-workflows-v4",
+      "name": "11agi-operator-vercel-workflows-v4",
       "source": {
         "source": "local",
-        "path": "./v0/plugins/11ai-operator-vercel-workflows-v4"
+        "path": "./v0/plugins/11agi-operator-vercel-workflows-v4"
       },
       "policy": {
         "installation": "AVAILABLE"
@@ -434,10 +434,10 @@
       "category": "Developer Tools"
     },
     {
-      "name": "11ai-operator-vercel-passport",
+      "name": "11agi-operator-vercel-passport",
       "source": {
         "source": "local",
-        "path": "./v0/plugins/11ai-operator-vercel-passport"
+        "path": "./v0/plugins/11agi-operator-vercel-passport"
       },
       "policy": {
         "installation": "AVAILABLE"
@@ -445,10 +445,10 @@
       "category": "Developer Tools"
     },
     {
-      "name": "11ai-operator-vercel-core",
+      "name": "11agi-operator-vercel-core",
       "source": {
         "source": "local",
-        "path": "./v0/plugins/11ai-operator-vercel-core"
+        "path": "./v0/plugins/11agi-operator-vercel-core"
       },
       "policy": {
         "installation": "AVAILABLE"
@@ -456,10 +456,10 @@
       "category": "Developer Tools"
     },
     {
-      "name": "11ai-operator-tailwind-v3",
+      "name": "11agi-operator-tailwind-v3",
       "source": {
         "source": "local",
-        "path": "./v0/plugins/11ai-operator-tailwind-v3"
+        "path": "./v0/plugins/11agi-operator-tailwind-v3"
       },
       "policy": {
         "installation": "AVAILABLE"
@@ -467,10 +467,10 @@
       "category": "Developer Tools"
     },
     {
-      "name": "11ai-operator-tailwind-v4",
+      "name": "11agi-operator-tailwind-v4",
       "source": {
         "source": "local",
-        "path": "./v0/plugins/11ai-operator-tailwind-v4"
+        "path": "./v0/plugins/11agi-operator-tailwind-v4"
       },
       "policy": {
         "installation": "AVAILABLE"
@@ -478,10 +478,10 @@
       "category": "Developer Tools"
     },
     {
-      "name": "11ai-operator-mui-v9",
+      "name": "11agi-operator-mui-v9",
       "source": {
         "source": "local",
-        "path": "./v0/plugins/11ai-operator-mui-v9"
+        "path": "./v0/plugins/11agi-operator-mui-v9"
       },
       "policy": {
         "installation": "AVAILABLE"
@@ -489,10 +489,10 @@
       "category": "Developer Tools"
     },
     {
-      "name": "11ai-operator-shadcn-v4",
+      "name": "11agi-operator-shadcn-v4",
       "source": {
         "source": "local",
-        "path": "./v0/plugins/11ai-operator-shadcn-v4"
+        "path": "./v0/plugins/11agi-operator-shadcn-v4"
       },
       "policy": {
         "installation": "AVAILABLE"
@@ -500,10 +500,10 @@
       "category": "Developer Tools"
     },
     {
-      "name": "11ai-security",
+      "name": "11agi-security",
       "source": {
         "source": "local",
-        "path": "./v0/plugins/11ai-security"
+        "path": "./v0/plugins/11agi-security"
       },
       "policy": {
         "installation": "AVAILABLE"
@@ -511,10 +511,10 @@
       "category": "Security"
     },
     {
-      "name": "11ai-plugins-marketplace",
+      "name": "11agi-plugins-marketplace",
       "source": {
         "source": "local",
-        "path": "./v0/plugins/11ai-plugins-marketplace"
+        "path": "./v0/plugins/11agi-plugins-marketplace"
       },
       "policy": {
         "installation": "AVAILABLE"

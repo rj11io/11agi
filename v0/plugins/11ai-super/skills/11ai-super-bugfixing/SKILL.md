@@ -1,9 +1,9 @@
 ---
-name: 11ai-super-bugfixing
+name: 11agi-super-bugfixing
 description: "Continuously inspect, reproduce, prioritize, fix, verify, and re-audit software defects until the project reaches a high-confidence quality bar. Use when Codex must find and fix bugs across a project, debug failing tests or builds, eliminate regressions, repair runtime, type, API, data, integration, UI, state, concurrency, or resource-lifecycle errors, or keep hunting for additional defects after a known bug is resolved. Stops and reports when the change set becomes unmanageable or troubleshooting outweighs progress."
 ---
 
-# 11ai Super Bugfixing
+# 11agi Super Bugfixing
 
 ## Mission
 

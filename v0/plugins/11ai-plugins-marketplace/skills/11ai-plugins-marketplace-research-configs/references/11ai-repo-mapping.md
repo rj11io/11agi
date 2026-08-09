@@ -1,4 +1,4 @@
-# How the 11ai repository maps onto the ecosystems
+# How the 11agi repository maps onto the ecosystems
 
 Research date: 2026-08-06 — a **dated snapshot**. Counts, versions, and the issues list
 below reflect the repo at version 1.32.0 (459 skills, 47 plugins) and may have been
@@ -65,7 +65,7 @@ kept for history; re-verify against the working tree before citing any item.
 4. **Stale scratch file:** the gitignored `.dir` at the repo root pointed at obsolete
    paths and named plugins that no longer exist. Nothing reads it.
 5. **A stray template:** a 460th openai.yaml existed as a scaffolding template under
-   `11ai-cleanup/skills/11ai-cleanup-creator/assets/` — correctly outside the validated
+   `11agi-cleanup/skills/11agi-cleanup-creator/assets/` — correctly outside the validated
    path, but easy to miscount.
 6. **Dead validator code:** both manifest validators hard-fail unless `skills` equals
    the exact string `"./skills/"`, then carry unreachable array-handling branches.

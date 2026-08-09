@@ -1,9 +1,9 @@
 ---
-name: 11ai-blog-content-format
-description: "Format, normalize, migrate, or audit generated/draft editorial content for an 11ai blog content model: publication/post metadata, author IDs, tags, excerpts, dates, slugs, and Markdown bodies with the expected leading H1, h2-h5 body headings, GFM tables/lists, fenced code, images, links, YouTube embeds, and renderer/TOC-safe structure. Use when converting raw prose, outlines, AI drafts, imported articles, or Markdown files into the exact format consumed by the 11ai blog builder."
+name: 11agi-blog-content-format
+description: "Format, normalize, migrate, or audit generated/draft editorial content for an 11agi blog content model: publication/post metadata, author IDs, tags, excerpts, dates, slugs, and Markdown bodies with the expected leading H1, h2-h5 body headings, GFM tables/lists, fenced code, images, links, YouTube embeds, and renderer/TOC-safe structure. Use when converting raw prose, outlines, AI drafts, imported articles, or Markdown files into the exact format consumed by the 11agi blog builder."
 ---
 
-# 11ai Blog Content Format
+# 11agi Blog Content Format
 
 Format content according to [references/content-contract.md](references/content-contract.md). Read it before rewriting or generating content files.
 

@@ -1,4 +1,4 @@
-# 11ai editorial blog UI contract
+# 11agi editorial blog UI contract
 
 ## Visual identity
 
@@ -77,7 +77,7 @@ For posts/publications/authors:
 - Two-column layout on large screens: TOC column plus article.
 - Header includes publication pill, large title, excerpt, author byline chips, date/read time/tags.
 - Body uses centered `max-w-3xl`.
-- Markdown body styles should cover the `$11ai-blog-markdown-components` surface: headings, paragraphs, emphasis, inline code, fenced code, quotes, lists, tables, links, images, task lists, and embeds.
+- Markdown body styles should cover the `$11agi-blog-markdown-components` surface: headings, paragraphs, emphasis, inline code, fenced code, quotes, lists, tables, links, images, task lists, and embeds.
 - Adjacent post nav uses bordered rounded cards.
 
 ## Author pages

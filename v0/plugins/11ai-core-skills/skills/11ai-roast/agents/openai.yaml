@@ -1,4 +1,4 @@
 interface:
   display_name: "Roast"
   short_description: "Deliver a blunt read-only quality review"
-  default_prompt: "Use $11ai-roast to apply the Roast workflow to this task."
+  default_prompt: "Use $11agi-roast to apply the Roast workflow to this task."

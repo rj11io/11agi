@@ -1,35 +1,35 @@
-# 11ai Blog Builder Plugin
+# 11agi Blog Builder Plugin
 
-This plugin rebuilds file-backed editorial blogs through composable skills. The core skills recreate behavior; `11ai-blog-ui` is an optional standalone visual add-on.
+This plugin rebuilds file-backed editorial blogs through composable skills. The core skills recreate behavior; `11agi-blog-ui` is an optional standalone visual add-on.
 
 ## Recommended execution order
 
-1. `$11ai-blog-builder` — orchestrates the full build and points to the scaffold map.
-2. `$11ai-blog-cms` — creates publications, posts, registry, validation, library browsing, publication pages, and post readers.
-3. `$11ai-blog-authors` — adds author metadata/tags, post attribution, bylines, author pages, and Authors library browsing.
-4. `$11ai-blog-markdown-components` — adds polished `react-markdown` rendering, GFM, code blocks, links, images, embeds, demo coverage, and renderer/TOC heading parity.
-5. `$11ai-blog-content-format` — normalizes drafts/imports/generated copy into the metadata and Markdown body format the blog expects.
-6. `$11ai-blog-content-generation` — generates requested posts, publications, author profiles, calendars, or seed content, then formats it for the blog.
-7. `$11ai-blog-toc` — adds table of contents UI, active section behavior, and TOC tests over the shared Markdown heading contract.
+1. `$11agi-blog-builder` — orchestrates the full build and points to the scaffold map.
+2. `$11agi-blog-cms` — creates publications, posts, registry, validation, library browsing, publication pages, and post readers.
+3. `$11agi-blog-authors` — adds author metadata/tags, post attribution, bylines, author pages, and Authors library browsing.
+4. `$11agi-blog-markdown-components` — adds polished `react-markdown` rendering, GFM, code blocks, links, images, embeds, demo coverage, and renderer/TOC heading parity.
+5. `$11agi-blog-content-format` — normalizes drafts/imports/generated copy into the metadata and Markdown body format the blog expects.
+6. `$11agi-blog-content-generation` — generates requested posts, publications, author profiles, calendars, or seed content, then formats it for the blog.
+7. `$11agi-blog-toc` — adds table of contents UI, active section behavior, and TOC tests over the shared Markdown heading contract.
 
 Optional:
 
-- `$11ai-blog-ui` — standalone add-on that applies the 11ai-style editorial visual system after the functional blog exists.
+- `$11agi-blog-ui` — standalone add-on that applies the 11agi-style editorial visual system after the functional blog exists.
 
 ## Also in this plugin
 
 Two more skills share this plugin's editorial and publishing theme, but they
 are not steps in the pipeline above — each builds its own thing, standalone:
 
-- `$11ai-platform-cta` — a marketing/services page for an author or agency
+- `$11agi-platform-cta` — a marketing/services page for an author or agency
   platform. Not a blog.
-- `$11ai-publications-cms` — a different, file-backed CMS for serial
-  publications with nested chapters. Use this instead of `11ai-blog-cms`
+- `$11agi-publications-cms` — a different, file-backed CMS for serial
+  publications with nested chapters. Use this instead of `11agi-blog-cms`
   when the content is chapters in a publication, not blog posts.
 
 ## Scope
 
-The plugin is intended for React/Next.js-style blogs but keeps contracts white-label. It should preserve each target project's route prefix, framework version, style tokens, and existing conventions. Use `11ai-blog-ui` only when the user asks for the 11ai visual treatment or equivalent polish.
+The plugin is intended for React/Next.js-style blogs but keeps contracts white-label. It should preserve each target project's route prefix, framework version, style tokens, and existing conventions. Use `11agi-blog-ui` only when the user asks for the 11agi visual treatment or equivalent polish.
 
 ## Validation expectation
 

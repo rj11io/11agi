@@ -1,5 +1,5 @@
 ---
-name: 11ai-director-git-main
+name: 11agi-director-git-main
 description: "Wrap any repository task in a safe main-branch Git transaction: verify a clean tree, fetch and pull the latest changes (fast-forwarding or cleanly merging incoming work), perform the requested task, quality-check it, and report everything done. Stages, commits, or pushes only when the user explicitly asks. Aborts, reverts session changes, and restores a clean tree if the worktree becomes unmanageable or Git troubleshooting starts to outweigh the task. Use when working directly on the main branch of a repository and the work needs clean synchronization, disciplined rollback, and a full session report — pair it with any task skill that does the work itself."
 ---
 

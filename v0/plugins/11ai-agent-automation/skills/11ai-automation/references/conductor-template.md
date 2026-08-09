@@ -74,7 +74,7 @@ scoping → building (one tick per milestone) → hardening → shipping → don
 | `scoping`   | Research a new item in `theme` (dedupe against every existing item). **If the item carries a human `seed`, build the spec from it — keep its intent, honor its constraints, read its links — instead of researching a new idea; never delete or rewrite the `seed`.** Write the spec: problem, user, scope, **the depth bar for this item** (§5), and a plan of 3–7 milestones, each a user-visible capability with numbered testable acceptance criteria. Review, persist → `building`. |
 | `building`  | Take the first `todo` milestone. Author its failing checks, implement to green, run the review (§4) and the gate (§6), mark the milestone `done`. When the last milestone is done → `hardening`. |
 | `hardening` | ONE evidence-driven pass: fix real defects, harden real input paths, budget real hot paths. §5's anti-theater rule applies — if a check needs an invented threat, skip it and say so in the commit. → `shipping`. |
-| `shipping`  | Build the outward surfaces (landing, pricing → request-access, docs — for SaaS, see the `11ai-saas-fleet-automation` skill) with real copy. The captured lead/output must be persisted and retrievable. → `done`. |
+| `shipping`  | Build the outward surfaces (landing, pricing → request-access, docs — for SaaS, see the `11agi-saas-fleet-automation` skill) with real copy. The captured lead/output must be persisted and retrievable. → `done`. |
 | `done`      | Terminal. |
 | `blocked`   | Terminal until a human clears `blockedReason`. |
 
@@ -125,7 +125,7 @@ tick; genuinely stuck → `blocked`.
 ## 5. Depth bar (paste your domain's bar here)
 
 > For SaaS/software products, copy the five-probe bar from the
-> `11ai-saas-fleet-automation` skill. For other domains, write 3–6 automatable
+> `11agi-saas-fleet-automation` skill. For other domains, write 3–6 automatable
 > probes that prove a stranger could actually use the output. Include the
 > anti-theater rule: never manufacture a concern to have something to fix or
 > test.

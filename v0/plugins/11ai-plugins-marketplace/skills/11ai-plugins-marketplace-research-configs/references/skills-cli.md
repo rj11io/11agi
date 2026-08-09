@@ -4,8 +4,8 @@ Research date: 2026-08-06. Verified against github.com/vercel-labs/skills and
 skills.sh/docs/cli.
 
 Maintained by **Vercel Labs**, MIT-licensed. skills.sh is the public catalog, populated
-partly by install telemetry. This is the CLI the 11ai README recommends:
-`npx skills add rj11io/11ai --full-depth`.
+partly by install telemetry. This is the CLI the 11agi README recommends:
+`npx skills add rj11io/11agi --full-depth`.
 
 ## Commands
 
@@ -20,7 +20,7 @@ partly by install telemetry. This is the CLI the 11ai README recommends:
 - `--copy` — copy files instead of symlinking
 - `-y`, `--all`, `-l` / `--list`
 - `--full-depth` — discovers SKILL.md files outside the standard container directories
-  (for example under examples/ or tests/). This is why 11ai needs it: the collection
+  (for example under examples/ or tests/). This is why 11agi needs it: the collection
   organizes skills under `v0/plugins/PLUGIN/skills/` instead of one top-level `skills/`
   directory.
 
@@ -34,7 +34,7 @@ skills shadow deeper ones with the same name.
 ## Supported agents
 
 Roughly 76 agents at research time. Mappings that matter here: Claude Code installs to
-`.claude/skills/` (project) — note this differs from 11ai's plugin-based Claude
+`.claude/skills/` (project) — note this differs from 11agi's plugin-based Claude
 distribution; Codex installs to `.agents/skills/` (project) and `~/.codex/skills`
 (global — the CLI's mapping, even though Codex's own official user path is
 `~/.agents/skills`); plus Cursor, Gemini CLI, GitHub Copilot, OpenCode, Windsurf, Amp,

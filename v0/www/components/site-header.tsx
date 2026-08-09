@@ -11,7 +11,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex h-14 w-full max-w-6xl items-center gap-6 px-4 sm:px-6">
         <Link href="/" className="font-mono text-sm font-semibold tracking-tight">
-          <span className="text-muted-foreground">~/</span>11ai
+          <span className="text-muted-foreground">~/</span>11agi
         </Link>
         <nav className="flex items-center gap-1 text-sm">
           <Link
@@ -38,7 +38,7 @@ export function SiteHeader() {
             href={GITHUB_REPO_URL}
             target="_blank"
             rel="noreferrer"
-            aria-label="11ai on GitHub"
+            aria-label="11agi on GitHub"
             className={cn(
               buttonVariants({ variant: "ghost", size: "icon-sm" }),
               "text-muted-foreground hover:text-foreground",

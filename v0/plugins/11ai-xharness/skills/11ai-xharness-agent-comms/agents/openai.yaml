@@ -1,4 +1,4 @@
 interface:
-  display_name: "11ai Cross-Harness Agent Comms"
+  display_name: "11agi Cross-Harness Agent Comms"
   short_description: "Call an agent in another harness and collect its output"
-  default_prompt: "Use $11ai-xharness-agent-comms to delegate this task to an agent in another harness and return its output."
+  default_prompt: "Use $11agi-xharness-agent-comms to delegate this task to an agent in another harness and return its output."

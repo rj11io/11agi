@@ -1,6 +1,6 @@
-# 11ai website
+# 11agi website
 
-The Next.js 16 application for the 11ai project site at https://ai.rj11.io/. It turns the repository's `SKILL.md` files into a searchable catalog with plugin and skill detail pages.
+The Next.js 16 application for the 11agi project site at https://ai.rj11.io/. It turns the repository's `SKILL.md` files into a searchable catalog with plugin and skill detail pages.
 
 ## Run locally
 

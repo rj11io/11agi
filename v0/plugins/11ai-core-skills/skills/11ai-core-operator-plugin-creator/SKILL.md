@@ -1,10 +1,10 @@
 ---
-name: 11ai-core-operator-plugin-creator
-description: "Scaffold a version-focused 11ai operator plugin for a tool, CLI, service, or SDK so it matches the existing operator plugins exactly, covering version selection, identity naming, first-party native-skill discovery and compatibility, skill archetypes, safety, manifests, and catalog wiring. Use when asked to create or extend an operator plugin, add skills for a technology, or check that an operator plugin follows the house pattern and targets the requested or latest stable version."
+name: 11agi-core-operator-plugin-creator
+description: "Scaffold a version-focused 11agi operator plugin for a tool, CLI, service, or SDK so it matches the existing operator plugins exactly, covering version selection, identity naming, first-party native-skill discovery and compatibility, skill archetypes, safety, manifests, and catalog wiring. Use when asked to create or extend an operator plugin, add skills for a technology, or check that an operator plugin follows the house pattern and targets the requested or latest stable version."
 ---
-# 11ai meta operator plugin creator
+# 11agi meta operator plugin creator
 
-Build a plugin named `11ai-operator-TOOL-ID` that a reader cannot tell apart from the ones already in this repository. `TOOL-ID` includes the technology's version identifier when applicable. The shape is fixed: `v0/scripts/validate-skills.mjs` rejects off-pattern frontmatter, missing Codex metadata, broken links, and catalog counts that do not add up. Read [references/plugin-blueprint.md](references/plugin-blueprint.md) before writing any file.
+Build a plugin named `11agi-operator-TOOL-ID` that a reader cannot tell apart from the ones already in this repository. `TOOL-ID` includes the technology's version identifier when applicable. The shape is fixed: `v0/scripts/validate-skills.mjs` rejects off-pattern frontmatter, missing Codex metadata, broken links, and catalog counts that do not add up. Read [references/plugin-blueprint.md](references/plugin-blueprint.md) before writing any file.
 
 ## Confirm the scope
 
@@ -15,7 +15,7 @@ Settle these before creating a directory:
 - Five to eight domain areas that each carry their own commands, failure modes, and safety rules.
 - Whether an existing plugin already covers the tool. Extend that plugin rather than adding a second one.
 - Which archetypes apply. Every plugin gets a cheatsheet, an environment skill, a setup skill, an integrations skill, and a troubleshooting skill; the rest are domain skills.
-- Whether the publisher documents first-party Agent Skills. Search official product documentation and publisher-owned repositories; when they exist, add one common `11ai-operator-TOOL-ID-native-skills` bridge.
+- Whether the publisher documents first-party Agent Skills. Search official product documentation and publisher-owned repositories; when they exist, add one common `11agi-operator-TOOL-ID-native-skills` bridge.
 
 A domain area earns its own skill when it has commands the other areas do not, its own way of going wrong, and its own destructive operation to guard. If it has none of those, fold it into a neighbour.
 
@@ -30,11 +30,11 @@ Treat native skills as versioned dependencies of the operator. Before recommendi
 ## Lay out the files
 
 ```text
-v0/plugins/11ai-operator-TOOL-ID/
+v0/plugins/11agi-operator-TOOL-ID/
   .claude-plugin/plugin.json
   .codex-plugin/plugin.json
   README.md
-  skills/11ai-operator-TOOL-ID-AREA/
+  skills/11agi-operator-TOOL-ID-AREA/
     SKILL.md
     agents/openai.yaml
     references/setup.md

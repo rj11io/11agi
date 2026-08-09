@@ -499,7 +499,7 @@ function validatePackageConfiguration() {
     fail(packageFile, "scripts.publish-public-local must use the versioned publishing helper")
   }
 
-  const installCommand = "npx skills add rj11io/11ai --full-depth"
+  const installCommand = "npx skills add rj11io/11agi --full-depth"
   const readme = fs.readFileSync(path.join(root, "README.md"), "utf8")
   if (!readme.includes(installCommand)) {
     fail(path.join(root, "README.md"), `install command must be '${installCommand}'`)

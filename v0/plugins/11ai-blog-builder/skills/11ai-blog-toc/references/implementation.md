@@ -19,9 +19,9 @@ Build four cooperating pieces:
 3. A server/build integration that gives the interactive component a small serializable heading list.
 4. A client scrollspy that renders native fragment links and tracks the current section.
 
-The hard invariant is heading parity: the TOC and rendered article must share heading recognition, label normalization, slugging, duplicate handling, ordering, and offsets. For `react-markdown`/GFM blogs, use `$11ai-blog-markdown-components` to define the shared AST heading contract. Prefer one AST traversal that both assigns IDs and collects metadata. If the host exposes renderer heading components but not an AST, centralize helpers and prove parity with tests.
+The hard invariant is heading parity: the TOC and rendered article must share heading recognition, label normalization, slugging, duplicate handling, ordering, and offsets. For `react-markdown`/GFM blogs, use `$11agi-blog-markdown-components` to define the shared AST heading contract. Prefer one AST traversal that both assigns IDs and collects metadata. If the host exposes renderer heading components but not an AST, centralize helpers and prove parity with tests.
 
-Use `$11ai-blog-content-format` for imported/generated articles so body content avoids extra H1s, uses meaningful `h2`-`h5` section headings, and does not rely on headings inside fenced code blocks.
+Use `$11agi-blog-content-format` for imported/generated articles so body content avoids extra H1s, uses meaningful `h2`-`h5` section headings, and does not rely on headings inside fenced code blocks.
 
 ```ts
 export type TocHeading = {
@@ -53,7 +53,7 @@ source -> line renderer using the same heading helpers -> heading IDs
 
 The label must match the heading's visible plain text. With an AST, collect text descendants and define how code, images, links, entities, and inline HTML contribute. Never inject heading HTML into a temporary DOM solely to recover text.
 
-For a deliberately limited Markdown dialect like 11ai, a small normalizer is acceptable when the renderer supports the same inline syntax for headings:
+For a deliberately limited Markdown dialect like 11agi, a small normalizer is acceptable when the renderer supports the same inline syntax for headings:
 
 ```ts
 export function headingLabel(source: string) {
@@ -95,7 +95,7 @@ Start a fresh factory for each document and visit headings in the same order dur
 
 ### Limited line-parser fallback
 
-If the host is intentionally line-oriented, define fence behavior explicitly. The latest 11ai extractor is fence-aware and ignores heading-like text inside fenced code. If the renderer can receive fenced code, it should either render/skip fenced blocks consistently or the content contract must state that fenced blocks are unsupported.
+If the host is intentionally line-oriented, define fence behavior explicitly. The latest 11agi extractor is fence-aware and ignores heading-like text inside fenced code. If the renderer can receive fenced code, it should either render/skip fenced blocks consistently or the content contract must state that fenced blocks are unsupported.
 
 Track the opening marker character and length; close only with the same marker and at least the opening length.
 
@@ -187,7 +187,7 @@ Recommended large-screen layout:
 
 ### Selection rule
 
-Resolve the elements named by `headings` at selection/update time. Ignore missing elements without throwing, but report the parity violation in development. Re-resolving on every update matches the latest 11ai implementation and prevents stale targets when hydration or layout changes happen around a deep link. On every update:
+Resolve the elements named by `headings` at selection/update time. Ignore missing elements without throwing, but report the parity violation in development. Re-resolving on every update matches the latest 11agi implementation and prevents stale targets when hydration or layout changes happen around a deep link. On every update:
 
 1. If anchor navigation is locked, retain the target.
 2. If the viewport is at document bottom within a small rounding tolerance, select the final resolved heading.
@@ -258,7 +258,7 @@ function scheduleUpdate() {
 }
 ```
 
-For short/medium 11ai-style posts, direct update on passive scroll is acceptable. For long articles, schedule as above. Use passive scroll, wheel, and touch listeners. Listen to resize because both viewport geometry and responsive offsets can change. Remove every listener and cancel pending animation frames in effect cleanup.
+For short/medium 11agi-style posts, direct update on passive scroll is acceptable. For long articles, schedule as above. Use passive scroll, wheel, and touch listeners. Listen to resize because both viewport geometry and responsive offsets can change. Remove every listener and cancel pending animation frames in effect cleanup.
 
 `IntersectionObserver` is a valid alternative only after testing upward scrolling, initial deep links, short final sections, responsive offsets, and dynamically inserted headings. It still usually needs an explicit bottom rule.
 

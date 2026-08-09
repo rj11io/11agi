@@ -1,8 +1,8 @@
 ---
-name: 11ai-benchmarks-faq
-description: "Answer questions about the 11ai-benchmarks plugin: which reporting skill fits a job, how the analyzers discover and classify harness usage, how pricing, timing, and cost states are derived, what each report section and warning means, and how the skills are maintained. Routes every question to the plugin's own contracts, references, scripts, and tests and answers with a citation. Use when a user asks how the benchmark skills behave, why a report shows a value, which benchmarks skill to run, or what a report section means."
+name: 11agi-benchmarks-faq
+description: "Answer questions about the 11agi-benchmarks plugin: which reporting skill fits a job, how the analyzers discover and classify harness usage, how pricing, timing, and cost states are derived, what each report section and warning means, and how the skills are maintained. Routes every question to the plugin's own contracts, references, scripts, and tests and answers with a citation. Use when a user asks how the benchmark skills behave, why a report shows a value, which benchmarks skill to run, or what a report section means."
 ---
-# 11ai Benchmarks FAQ
+# 11agi Benchmarks FAQ
 
 Answer questions about this plugin by routing them to the plugin's own files, not from
 memory. This skill owns no behavior: the sibling skills' contracts, references, scripts,
@@ -20,7 +20,7 @@ question. The only content this skill owns is the comparison table and the gloss
   the tests.
 - If a routed sibling file is missing because only this skill was installed, read the
   same skill's page at https://ai.rj11.io/skills/ followed by the skill name, or the
-  rj11io/11ai repository on GitHub, instead.
+  rj11io/11agi repository on GitHub, instead.
 
 ## Ground-truth ladder
 
@@ -32,19 +32,19 @@ question. The only content this skill owns is the comparison table and the gloss
 
 ## Covered skills
 
-- `11ai-benchmarks-machine` — machine-wide usage, cost, and timing reports.
-- `11ai-benchmarks-project` — reports for one repository and its attributed threads.
-- `11ai-benchmarks-single-thread` — a report for one exact thread and its sub-agents.
-- `11ai-benchmarks-pricing-update` — maintains the bundled pricing catalogs; writes no report.
+- `11agi-benchmarks-machine` — machine-wide usage, cost, and timing reports.
+- `11agi-benchmarks-project` — reports for one repository and its attributed threads.
+- `11agi-benchmarks-single-thread` — a report for one exact thread and its sub-agents.
+- `11agi-benchmarks-pricing-update` — maintains the bundled pricing catalogs; writes no report.
 
 ## Which skill do I want?
 
 | Skill | Scope | Input | Output |
 | --- | --- | --- | --- |
-| 11ai-benchmarks-single-thread | One thread plus its spawned sub-agent threads | A thread selector, or the active thread | Markdown and HTML report package under the thread folder |
-| 11ai-benchmarks-project | One repository and every thread attributed to it | The repository root folder | Markdown and HTML report package under the thread folder |
-| 11ai-benchmarks-machine | Every readable usage store on the machine | Nothing | Markdown and HTML report package on the Desktop |
-| 11ai-benchmarks-pricing-update | The bundled pricing catalogs of the three reporting skills | Official provider pricing pages | Updated, synchronized catalog copies |
+| 11agi-benchmarks-single-thread | One thread plus its spawned sub-agent threads | A thread selector, or the active thread | Markdown and HTML report package under the thread folder |
+| 11agi-benchmarks-project | One repository and every thread attributed to it | The repository root folder | Markdown and HTML report package under the thread folder |
+| 11agi-benchmarks-machine | Every readable usage store on the machine | Nothing | Markdown and HTML report package on the Desktop |
+| 11agi-benchmarks-pricing-update | The bundled pricing catalogs of the three reporting skills | Official provider pricing pages | Updated, synchronized catalog copies |
 
 ## Routing table
 
@@ -55,72 +55,72 @@ tier on the ground-truth ladder.
 
 | Question | Source | Anchor | Tier |
 | --- | --- | --- | --- |
-| What does the machine-wide skill promise end to end? | `../11ai-benchmarks-machine/SKILL.md` | "## Contract" | contract |
-| What does the project skill promise end to end? | `../11ai-benchmarks-project/SKILL.md` | "## Contract" | contract |
-| What does the single-thread skill promise end to end? | `../11ai-benchmarks-single-thread/SKILL.md` | "## Contract" | contract |
-| What does the pricing-update skill actually do? | `../11ai-benchmarks-pricing-update/SKILL.md` | "## Workflow" | contract |
-| How do I run the machine-wide analyzer and which flags exist? | `../11ai-benchmarks-machine/SKILL.md` | "## Contract" | contract |
-| How do I select one exact thread to analyze? | `../11ai-benchmarks-single-thread/SKILL.md` | "## Workflow" | contract |
-| How do I include exported usage from an unsupported harness? | `../11ai-benchmarks-machine/SKILL.md` | "--include" | contract |
-| What checks must pass before a run counts as complete? | `../11ai-benchmarks-machine/SKILL.md` | "## Completion checks" | contract |
+| What does the machine-wide skill promise end to end? | `../11agi-benchmarks-machine/SKILL.md` | "## Contract" | contract |
+| What does the project skill promise end to end? | `../11agi-benchmarks-project/SKILL.md` | "## Contract" | contract |
+| What does the single-thread skill promise end to end? | `../11agi-benchmarks-single-thread/SKILL.md` | "## Contract" | contract |
+| What does the pricing-update skill actually do? | `../11agi-benchmarks-pricing-update/SKILL.md` | "## Workflow" | contract |
+| How do I run the machine-wide analyzer and which flags exist? | `../11agi-benchmarks-machine/SKILL.md` | "## Contract" | contract |
+| How do I select one exact thread to analyze? | `../11agi-benchmarks-single-thread/SKILL.md` | "## Workflow" | contract |
+| How do I include exported usage from an unsupported harness? | `../11agi-benchmarks-machine/SKILL.md` | "--include" | contract |
+| What checks must pass before a run counts as complete? | `../11agi-benchmarks-machine/SKILL.md` | "## Completion checks" | contract |
 
 ### Harness coverage and classification
 
 | Question | Source | Anchor | Tier |
 | --- | --- | --- | --- |
-| Which coding harnesses are covered and where do their usage stores live? | `../11ai-benchmarks-machine/references/harnesses.md` | "# Native harness stores" | reference |
-| How are user-facing surface and underlying runtime told apart? | `../11ai-benchmarks-machine/references/harnesses.md` | "## Surface and billing semantics" | reference |
-| Which usage shapes count as authoritative, and which never become costs? | `../11ai-benchmarks-machine/SKILL.md` | "## Supported usage shapes" | contract |
-| How does declared workspace metadata attribute usage to a project? | `../11ai-benchmarks-machine/references/harnesses.md` | "## Supplemental workspace attribution" | reference |
+| Which coding harnesses are covered and where do their usage stores live? | `../11agi-benchmarks-machine/references/harnesses.md` | "# Native harness stores" | reference |
+| How are user-facing surface and underlying runtime told apart? | `../11agi-benchmarks-machine/references/harnesses.md` | "## Surface and billing semantics" | reference |
+| Which usage shapes count as authoritative, and which never become costs? | `../11agi-benchmarks-machine/SKILL.md` | "## Supported usage shapes" | contract |
+| How does declared workspace metadata attribute usage to a project? | `../11agi-benchmarks-machine/references/harnesses.md` | "## Supplemental workspace attribution" | reference |
 
 ### Cowork sessions and sub-agents
 
 | Question | Source | Anchor | Tier |
 | --- | --- | --- | --- |
-| How are Cowork root and sub-agent transcripts grouped into sessions? | `../11ai-benchmarks-machine/references/harnesses.md` | "## Claude Cowork" | reference |
-| What happens to detected remote Cowork sessions without readable usage? | `../11ai-benchmarks-machine/scripts/analyze-llm-cost-global.mjs` | "remote Cowork" | behavior |
-| Where do measured Cowork sessions and sub-agent runs show up in a report? | `../11ai-benchmarks-machine/scripts/analyze-llm-cost-global.mjs` | "Cowork coverage" | behavior |
-| Is Claude usage ever counted twice across Desktop, Cowork, and CLI surfaces? | `../11ai-benchmarks-machine/references/harnesses.md` | "Claude Desktop metadata" | reference |
+| How are Cowork root and sub-agent transcripts grouped into sessions? | `../11agi-benchmarks-machine/references/harnesses.md` | "## Claude Cowork" | reference |
+| What happens to detected remote Cowork sessions without readable usage? | `../11agi-benchmarks-machine/scripts/analyze-llm-cost-global.mjs` | "remote Cowork" | behavior |
+| Where do measured Cowork sessions and sub-agent runs show up in a report? | `../11agi-benchmarks-machine/scripts/analyze-llm-cost-global.mjs` | "Cowork coverage" | behavior |
+| Is Claude usage ever counted twice across Desktop, Cowork, and CLI surfaces? | `../11agi-benchmarks-machine/references/harnesses.md` | "Claude Desktop metadata" | reference |
 
 ### Pricing and cost states
 
 | Question | Source | Anchor | Tier |
 | --- | --- | --- | --- |
-| Where do prices come from, and can I override them locally? | `../11ai-benchmarks-machine/SKILL.md` | "## Pricing" | contract |
-| Which rate applies when usage predates the known price history? | `../11ai-benchmarks-pricing-update/tests/pricing-history.test.mjs` | "uses the earliest available rate when usage predates known history" | behavior |
-| Which rate applies when a thread crosses a price-change boundary? | `../11ai-benchmarks-pricing-update/tests/pricing-history.test.mjs` | "uses the main price at the finish date when an aggregated thread crosses a boundary" | behavior |
-| Which rate applies when usage has no date at all? | `../11ai-benchmarks-pricing-update/tests/pricing-history.test.mjs` | "uses the latest rate active at report time when usage is undated" | behavior |
-| Why is a model listed as requiring a pricing update, and what does that exclude? | `../11ai-benchmarks-machine/scripts/analyze-llm-cost-global.mjs` | "Models requiring a pricing update" | behavior |
-| Which official sources may feed the catalog, and how are they reviewed? | `../11ai-benchmarks-pricing-update/references/provider-sources.md` | "# Official provider pricing sources" | reference |
-| What schema and rate periods does the pricing catalog use? | `../11ai-benchmarks-pricing-update/references/provider-sources.md` | "## Catalog schema" | reference |
-| Is a specific model priced in the bundled catalog right now? | `../11ai-benchmarks-pricing-update/references/pricing.json` | - | reference |
-| How are the three bundled catalog copies kept identical? | `../11ai-benchmarks-pricing-update/scripts/sync-pricing-catalog.mjs` | - | behavior |
-| Who is allowed to change the bundled catalogs? | `../11ai-benchmarks-pricing-update/SKILL.md` | "## Catalog ownership" | contract |
-| Why does the report not match my invoice or subscription bill? | `../11ai-benchmarks-machine/SKILL.md` | "API-equivalent estimate" | contract |
-| How is response latency measured and which harnesses does it cover? | `../11ai-benchmarks-machine/SKILL.md` | "Response latency" | contract |
+| Where do prices come from, and can I override them locally? | `../11agi-benchmarks-machine/SKILL.md` | "## Pricing" | contract |
+| Which rate applies when usage predates the known price history? | `../11agi-benchmarks-pricing-update/tests/pricing-history.test.mjs` | "uses the earliest available rate when usage predates known history" | behavior |
+| Which rate applies when a thread crosses a price-change boundary? | `../11agi-benchmarks-pricing-update/tests/pricing-history.test.mjs` | "uses the main price at the finish date when an aggregated thread crosses a boundary" | behavior |
+| Which rate applies when usage has no date at all? | `../11agi-benchmarks-pricing-update/tests/pricing-history.test.mjs` | "uses the latest rate active at report time when usage is undated" | behavior |
+| Why is a model listed as requiring a pricing update, and what does that exclude? | `../11agi-benchmarks-machine/scripts/analyze-llm-cost-global.mjs` | "Models requiring a pricing update" | behavior |
+| Which official sources may feed the catalog, and how are they reviewed? | `../11agi-benchmarks-pricing-update/references/provider-sources.md` | "# Official provider pricing sources" | reference |
+| What schema and rate periods does the pricing catalog use? | `../11agi-benchmarks-pricing-update/references/provider-sources.md` | "## Catalog schema" | reference |
+| Is a specific model priced in the bundled catalog right now? | `../11agi-benchmarks-pricing-update/references/pricing.json` | - | reference |
+| How are the three bundled catalog copies kept identical? | `../11agi-benchmarks-pricing-update/scripts/sync-pricing-catalog.mjs` | - | behavior |
+| Who is allowed to change the bundled catalogs? | `../11agi-benchmarks-pricing-update/SKILL.md` | "## Catalog ownership" | contract |
+| Why does the report not match my invoice or subscription bill? | `../11agi-benchmarks-machine/SKILL.md` | "API-equivalent estimate" | contract |
+| How is response latency measured and which harnesses does it cover? | `../11agi-benchmarks-machine/SKILL.md` | "Response latency" | contract |
 
 ### Timing
 
 | Question | Source | Anchor | Tier |
 | --- | --- | --- | --- |
-| What is the difference between wall time and estimated active time? | `../11ai-benchmarks-machine/SKILL.md` | "## Timing" | contract |
-| How is timing measured for one thread and its sub-agents? | `../11ai-benchmarks-single-thread/SKILL.md` | "## Timing semantics" | contract |
+| What is the difference between wall time and estimated active time? | `../11agi-benchmarks-machine/SKILL.md` | "## Timing" | contract |
+| How is timing measured for one thread and its sub-agents? | `../11agi-benchmarks-single-thread/SKILL.md` | "## Timing semantics" | contract |
 
 ### Reports and outputs
 
 | Question | Source | Anchor | Tier |
 | --- | --- | --- | --- |
-| Where are report packages written by default? | `../11ai-benchmarks-machine/SKILL.md` | "11ai-benchmarks-machine-reports" | contract |
-| Where does the project report land, and how is its folder named? | `../11ai-benchmarks-project/SKILL.md` | "11ai-benchmarks-project-reports" | contract |
-| Where does the single-thread report land, and how is its folder named? | `../11ai-benchmarks-single-thread/SKILL.md` | "11ai-benchmarks-single-thread-reports" | contract |
-| Are unreadable or malformed records silently dropped from the totals? | `../11ai-benchmarks-machine/scripts/analyze-llm-cost-global.mjs` | "malformed" | behavior |
-| What must every report contain, and how does the HTML behave? | `../11ai-benchmarks-machine/SKILL.md` | "## Report requirements" | contract |
-| How is usage attributed to monthly, quarterly, and yearly periods? | `../11ai-benchmarks-machine/SKILL.md` | "## Period attribution" | contract |
-| What does the Pricing coverage section of a report tell me? | `../11ai-benchmarks-machine/scripts/analyze-llm-cost-global.mjs` | "## Pricing coverage" | behavior |
-| What does the Anomalies and limitations section flag? | `../11ai-benchmarks-machine/scripts/analyze-llm-cost-global.mjs` | "## Anomalies and limitations" | behavior |
-| What does the Historical pricing selection detail show? | `../11ai-benchmarks-machine/scripts/analyze-llm-cost-global.mjs` | "Historical pricing selection" | behavior |
-| How is cost broken down by model and reasoning effort? | `../11ai-benchmarks-machine/scripts/analyze-llm-cost-global.mjs` | "Cost by model by effort" | behavior |
-| How does a report classify each observed harness? | `../11ai-benchmarks-machine/scripts/harness-support.mjs` | "classifyThread" | behavior |
+| Where are report packages written by default? | `../11agi-benchmarks-machine/SKILL.md` | "11agi-benchmarks-machine-reports" | contract |
+| Where does the project report land, and how is its folder named? | `../11agi-benchmarks-project/SKILL.md` | "11agi-benchmarks-project-reports" | contract |
+| Where does the single-thread report land, and how is its folder named? | `../11agi-benchmarks-single-thread/SKILL.md` | "11agi-benchmarks-single-thread-reports" | contract |
+| Are unreadable or malformed records silently dropped from the totals? | `../11agi-benchmarks-machine/scripts/analyze-llm-cost-global.mjs` | "malformed" | behavior |
+| What must every report contain, and how does the HTML behave? | `../11agi-benchmarks-machine/SKILL.md` | "## Report requirements" | contract |
+| How is usage attributed to monthly, quarterly, and yearly periods? | `../11agi-benchmarks-machine/SKILL.md` | "## Period attribution" | contract |
+| What does the Pricing coverage section of a report tell me? | `../11agi-benchmarks-machine/scripts/analyze-llm-cost-global.mjs` | "## Pricing coverage" | behavior |
+| What does the Anomalies and limitations section flag? | `../11agi-benchmarks-machine/scripts/analyze-llm-cost-global.mjs` | "## Anomalies and limitations" | behavior |
+| What does the Historical pricing selection detail show? | `../11agi-benchmarks-machine/scripts/analyze-llm-cost-global.mjs` | "Historical pricing selection" | behavior |
+| How is cost broken down by model and reasoning effort? | `../11agi-benchmarks-machine/scripts/analyze-llm-cost-global.mjs` | "Cost by model by effort" | behavior |
+| How does a report classify each observed harness? | `../11agi-benchmarks-machine/scripts/harness-support.mjs` | "classifyThread" | behavior |
 
 ### Maintenance and regression
 

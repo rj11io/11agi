@@ -1,8 +1,8 @@
 ---
-name: 11ai-plugins-marketplace-research-configs
-description: "Answer questions about marketplace, plugin, and skill configuration formats across Claude Code, Claude Cowork, claude.ai, the Claude API, OpenAI Codex, ChatGPT, the open Agent Skills standard, and the skills.sh CLI, from bundled research references verified against official docs, JSON schemas, and vendor source code on 2026-08-06. Covers file locations, every schema field and enum value, source variants, policy values, install flows, settings, caching, and how this repository's own config surfaces and validator map onto each ecosystem. Use when a user asks how any of these config files work, which fields or values are allowed, how the ecosystems differ, or where 11ai deviates from a spec."
+name: 11agi-plugins-marketplace-research-configs
+description: "Answer questions about marketplace, plugin, and skill configuration formats across Claude Code, Claude Cowork, claude.ai, the Claude API, OpenAI Codex, ChatGPT, the open Agent Skills standard, and the skills.sh CLI, from bundled research references verified against official docs, JSON schemas, and vendor source code on 2026-08-06. Covers file locations, every schema field and enum value, source variants, policy values, install flows, settings, caching, and how this repository's own config surfaces and validator map onto each ecosystem. Use when a user asks how any of these config files work, which fields or values are allowed, how the ecosystems differ, or where 11agi deviates from a spec."
 ---
-# 11ai Plugins Marketplace Research Configs
+# 11agi Plugins Marketplace Research Configs
 
 Answer configuration questions from the bundled references, not from memory. Every
 reference was verified against a primary source (official docs pages, published JSON
@@ -17,7 +17,7 @@ URLs at the end.
   of fast-moving specs, not live truth. For "is this still current?" questions, fetch the
   source URL listed in the reference and compare.
 - For questions about this repository's current state (counts, manifests, validator
-  behavior), treat [references/11ai-repo-mapping.md](references/11ai-repo-mapping.md) as a
+  behavior), treat [references/11agi-repo-mapping.md](references/11agi-repo-mapping.md) as a
   dated snapshot and re-verify against the working tree: `v0/scripts/validate-skills.mjs`
   is the live authority for packaging rules.
 - If the references do not cover a question, say so and name the source URL most likely
@@ -38,11 +38,11 @@ URLs at the end.
 | Codex config.toml keys, ChatGPT skills and plugin sharing | [references/openai-codex-chatgpt.md](references/openai-codex-chatgpt.md) |
 | The skills.sh CLI, npx skills add, discovery, lockfiles, supported agents | [references/skills-cli.md](references/skills-cli.md) |
 | Cross-ecosystem comparison: shared source vocabulary, manifest shapes, which product reads which file | [references/cross-ecosystem.md](references/cross-ecosystem.md) |
-| How 11ai maps onto each ecosystem, what the validator enforces, known gaps and deviations | [references/11ai-repo-mapping.md](references/11ai-repo-mapping.md) |
+| How 11agi maps onto each ecosystem, what the validator enforces, known gaps and deviations | [references/11agi-repo-mapping.md](references/11agi-repo-mapping.md) |
 
 ## Escalation
 
 - What a spec allows: the ecosystem reference.
-- Whether a specific 11ai file conforms: the repo-mapping reference, then the file itself
+- Whether a specific 11agi file conforms: the repo-mapping reference, then the file itself
   and `v0/scripts/validate-skills.mjs`.
 - Whether the spec changed since 2026-08-06: fetch the source URL the reference cites.

@@ -1,6 +1,6 @@
 # Author scaffold snippets
 
-Use these as a 11ai-style starting point. Adapt route prefixes, imports, and styling to the target.
+Use these as a 11agi-style starting point. Adapt route prefixes, imports, and styling to the target.
 
 ## Types
 

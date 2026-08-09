@@ -1,11 +1,11 @@
 {
-  "name": "11ai-cleanup",
-  "version": "1.37.0",
+  "name": "11agi-cleanup",
+  "version": "0.0.0",
   "description": "Safely find and remove selected abandoned local development resources.",
   "author": {
     "name": "rj11io"
   },
-  "repository": "https://github.com/rj11io/11ai",
+  "repository": "https://github.com/rj11io/11agi",
   "homepage": "https://ai.rj11.io/plugins/cleanup",
   "license": "Apache-2.0",
   "keywords": [
@@ -18,7 +18,7 @@
   ],
   "skills": "./skills/",
   "interface": {
-    "displayName": "11ai Cleanup",
+    "displayName": "11agi Cleanup",
     "shortDescription": "Safely remove abandoned local dev resources.",
     "longDescription": "Safely find and remove selected abandoned local development resources: worktrees, threads, ports, and node_modules folders, always inspecting and confirming before deleting.",
     "developerName": "rj11io",
@@ -29,6 +29,6 @@
       "Developer Tools"
     ],
     "websiteURL": "https://ai.rj11.io/plugins/cleanup",
-    "defaultPrompt": "Use the 11ai-cleanup skills to find and safely remove abandoned local resources."
+    "defaultPrompt": "Use the 11agi-cleanup skills to find and safely remove abandoned local resources."
   }
 }

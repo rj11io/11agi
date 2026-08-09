@@ -8,14 +8,14 @@ const skillsRoot = dirname(skillRoot)
 const canonicalPath = resolve(skillRoot, "references/pricing.json")
 const canonicalResolverPath = resolve(skillRoot, "scripts/pricing-history.mjs")
 const reportCatalogs = [
-  resolve(skillsRoot, "11ai-benchmarks-project/references/pricing.json"),
-  resolve(skillsRoot, "11ai-benchmarks-machine/references/pricing.json"),
-  resolve(skillsRoot, "11ai-benchmarks-single-thread/references/pricing.json"),
+  resolve(skillsRoot, "11agi-benchmarks-project/references/pricing.json"),
+  resolve(skillsRoot, "11agi-benchmarks-machine/references/pricing.json"),
+  resolve(skillsRoot, "11agi-benchmarks-single-thread/references/pricing.json"),
 ]
 const reportResolvers = [
-  resolve(skillsRoot, "11ai-benchmarks-project/scripts/pricing-history.mjs"),
-  resolve(skillsRoot, "11ai-benchmarks-machine/scripts/pricing-history.mjs"),
-  resolve(skillsRoot, "11ai-benchmarks-single-thread/scripts/pricing-history.mjs"),
+  resolve(skillsRoot, "11agi-benchmarks-project/scripts/pricing-history.mjs"),
+  resolve(skillsRoot, "11agi-benchmarks-machine/scripts/pricing-history.mjs"),
+  resolve(skillsRoot, "11agi-benchmarks-single-thread/scripts/pricing-history.mjs"),
 ]
 
 const args = process.argv.slice(2)
@@ -50,7 +50,7 @@ for (const target of reportResolvers) {
 if (divergent.length) {
   console.error("Catalogs are not synchronized:")
   for (const target of divergent) console.error("- " + target)
-  console.error("Run: node 11ai-benchmarks-pricing-update/scripts/sync-pricing-catalog.mjs --write")
+  console.error("Run: node 11agi-benchmarks-pricing-update/scripts/sync-pricing-catalog.mjs --write")
   process.exit(1)
 }
 

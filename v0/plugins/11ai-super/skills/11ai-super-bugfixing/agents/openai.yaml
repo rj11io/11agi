@@ -1,4 +1,4 @@
 interface:
-  display_name: "11ai Super Bugfixing"
+  display_name: "11agi Super Bugfixing"
   short_description: "Continuously find, fix, and verify project bugs"
-  default_prompt: "Use $11ai-super-bugfixing to continuously find and fix reproducible bugs and verify the project until it reaches a high-confidence quality bar."
+  default_prompt: "Use $11agi-super-bugfixing to continuously find and fix reproducible bugs and verify the project until it reaches a high-confidence quality bar."

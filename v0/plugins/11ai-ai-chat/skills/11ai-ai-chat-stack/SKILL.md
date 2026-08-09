@@ -1,5 +1,5 @@
 ---
-name: 11ai-ai-chat-stack
+name: 11agi-ai-chat-stack
 description: "End-to-end recipe for a grounded, tool-using AI chat in a Next.js App Router app — streaming route, tool sets, sessions, auto-titling, and client UI, using the Vercel AI SDK. Use when adding a complete AI chat surface to an app from scratch."
 ---
 
@@ -7,14 +7,14 @@ description: "End-to-end recipe for a grounded, tool-using AI chat in a Next.js 
 
 The complete architecture for a production-feeling AI chat grounded in your own data, built on the Vercel AI SDK (`ai` v6 + `@ai-sdk/react`). Companion skills cover each layer in depth:
 
-- `11ai-ai-chat-github-provider` — free inference provider
-- `11ai-ai-chat-tool-design` — tool sets, mini variant
-- `11ai-ai-chat-client-hooks` — useChat wiring
-- `11ai-ai-chat-autotitle` — session naming
-- `11ai-ai-chat-session-mgmt` — session persistence
-- `11ai-ai-chat-ui-ux` — UI feature set
-- `11ai-ai-chat-multiple-models` — model picker / multi-provider support
-- `11ai-aichat-chatbot-extension` — ship the same assistant as a Slack/messaging-platform bot
+- `11agi-ai-chat-github-provider` — free inference provider
+- `11agi-ai-chat-tool-design` — tool sets, mini variant
+- `11agi-ai-chat-client-hooks` — useChat wiring
+- `11agi-ai-chat-autotitle` — session naming
+- `11agi-ai-chat-session-mgmt` — session persistence
+- `11agi-ai-chat-ui-ux` — UI feature set
+- `11agi-ai-chat-multiple-models` — model picker / multi-provider support
+- `11agi-aichat-chatbot-extension` — ship the same assistant as a Slack/messaging-platform bot
 
 ## Architecture
 
@@ -106,7 +106,7 @@ The load-bearing pieces:
 
 ## 2. Tools
 
-Two sets, identical names and input schemas, different output budgets (full code in `11ai-ai-chat-tool-design`):
+Two sets, identical names and input schemas, different output budgets (full code in `11agi-ai-chat-tool-design`):
 
 - Search/detail pairs per entity type: search returns compact projections **with ids**; detail fetches by id.
 - A zero-arg overview/KPI tool gives the model a cheap orientation call.
@@ -115,13 +115,13 @@ Two sets, identical names and input schemas, different output budgets (full code
 
 ## 3. Title route
 
-One-shot `generateText` with a strict system prompt ("3 to 6 words, no quotes, respond with only the title"), same provider seam, called fire-and-forget from the client on the first message (details in `11ai-ai-chat-autotitle`).
+One-shot `generateText` with a strict system prompt ("3 to 6 words, no quotes, respond with only the title"), same provider seam, called fire-and-forget from the client on the first message (details in `11agi-ai-chat-autotitle`).
 
 ## 4. Sessions
 
-`useChatSessions()` hook exposing `{ sessions, create, rename, togglePin, remove, saveMessages, getSession }` over your persistence of choice — localStorage for zero-backend, or a small REST surface for server persistence. Sessions store `UIMessage[]` verbatim, sort pinned-first then `updatedAt`. Page-level lifecycle: bootstrap most-recent-or-create, delete-falls-back-to-next, switch by loading the full session. (Full patterns in `11ai-ai-chat-session-mgmt`.)
+`useChatSessions()` hook exposing `{ sessions, create, rename, togglePin, remove, saveMessages, getSession }` over your persistence of choice — localStorage for zero-backend, or a small REST surface for server persistence. Sessions store `UIMessage[]` verbatim, sort pinned-first then `updatedAt`. Page-level lifecycle: bootstrap most-recent-or-create, delete-falls-back-to-next, switch by loading the full session. (Full patterns in `11agi-ai-chat-session-mgmt`.)
 
-The bootstrap's create branch is what powers the first-visit experience: with zero sessions, an empty session is auto-created and made active, and because it has no messages the chat area renders the hint-chip empty state (see `11ai-ai-chat-ui-ux`) — the user always lands on the hints, never a blank pane.
+The bootstrap's create branch is what powers the first-visit experience: with zero sessions, an empty session is auto-created and made active, and because it has no messages the chat area renders the hint-chip empty state (see `11agi-ai-chat-ui-ux`) — the user always lands on the hints, never a blank pane.
 
 ## 5. Client page
 
@@ -139,7 +139,7 @@ const { messages, sendMessage, status, error, clearError } = useChat({
 })
 ```
 
-The critical client behaviors (full code in `11ai-ai-chat-client-hooks`):
+The critical client behaviors (full code in `11agi-ai-chat-client-hooks`):
 
 - **Remount on session switch** via `key` — never mutate a live `useChat` instance's history.
 - **Persist on stream completion only**, guarded by a saved-count ref.
@@ -151,7 +151,7 @@ The critical client behaviors (full code in `11ai-ai-chat-client-hooks`):
 
 ## 6. Multiple models (optional)
 
-To let users pick between models/providers (full recipe in `11ai-ai-chat-multiple-models`):
+To let users pick between models/providers (full recipe in `11agi-ai-chat-multiple-models`):
 
 - A shared **model registry** `{ id, model, provider }[]` — used by the route for validation/dispatch and by the client for the picker; first entry is the default.
 - The route builds a `providers` map of per-vendor SDK instances (`createOpenAI`, `createDeepSeek`, `createXai`, ...) — all can share one gateway baseURL — and resolves `modelId` → registry entry → provider → `provider.chat(modelId)`:
@@ -168,11 +168,11 @@ model: providers[modelDef.provider].chat(modelDef.id)
 
 ## 7. Chatbot extension (optional)
 
-The same AI core can be shipped as a Slack (or other platform) bot via the Chat SDK (`chat` + `@chat-adapter/slack` + a state backend) — full recipe in `11ai-aichat-chatbot-extension`. The precondition is structural: keep providers, the model registry, tools, and the system prompt in shared `lib/ai/*` modules with no web/platform imports, so the web chat route and the bot are both thin consumers. The bot replaces the app-managed session store with platform threads + scoped state, replaces the model picker with a `/model` slash command (registry entries gain `label` + `aliases`), and streams via `thread.post(result.fullStream)` instead of `toUIMessageStreamResponse()`.
+The same AI core can be shipped as a Slack (or other platform) bot via the Chat SDK (`chat` + `@chat-adapter/slack` + a state backend) — full recipe in `11agi-aichat-chatbot-extension`. The precondition is structural: keep providers, the model registry, tools, and the system prompt in shared `lib/ai/*` modules with no web/platform imports, so the web chat route and the bot are both thin consumers. The bot replaces the app-managed session store with platform threads + scoped state, replaces the model picker with a `/model` slash command (registry entries gain `label` + `aliases`), and streams via `thread.post(result.fullStream)` instead of `toUIMessageStreamResponse()`.
 
 ## 8. UI shell
 
-Sidebar (sessions: pin/rename/delete via hover kebab, inline rename) + chat column (hint-chip empty state, bubbles, bottom input row), `svh`-based height math with `min-h-0` flex chain, mobile dropdown fallback. (Full checklist in `11ai-ai-chat-ui-ux`.)
+Sidebar (sessions: pin/rename/delete via hover kebab, inline rename) + chat column (hint-chip empty state, bubbles, bottom input row), `svh`-based height math with `min-h-0` flex chain, mobile dropdown fallback. (Full checklist in `11agi-ai-chat-ui-ux`.)
 
 ## Environment
 

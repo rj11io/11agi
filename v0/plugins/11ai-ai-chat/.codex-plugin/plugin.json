@@ -1,11 +1,11 @@
 {
-  "name": "11ai-ai-chat",
-  "version": "1.37.0",
+  "name": "11agi-ai-chat",
+  "version": "0.0.0",
   "description": "Build complete AI chat products, including sessions, tools, providers, models, UI, and platform extensions.",
   "author": {
     "name": "rj11io"
   },
-  "repository": "https://github.com/rj11io/11ai",
+  "repository": "https://github.com/rj11io/11agi",
   "homepage": "https://ai.rj11.io/plugins/ai-chat",
   "license": "Apache-2.0",
   "keywords": [
@@ -19,7 +19,7 @@
   ],
   "skills": "./skills/",
   "interface": {
-    "displayName": "11ai AI Chat",
+    "displayName": "11agi AI Chat",
     "shortDescription": "Build complete AI chat products end to end.",
     "longDescription": "Build complete AI chat products: sessions, tools, providers, models, UI, and messaging-platform extensions, composed from focused skills that each own one part of the chat stack.",
     "developerName": "rj11io",
@@ -30,6 +30,6 @@
       "Developer Tools"
     ],
     "websiteURL": "https://ai.rj11.io/plugins/ai-chat",
-    "defaultPrompt": "Help me build an AI chat product with the 11ai-ai-chat skills."
+    "defaultPrompt": "Help me build an AI chat product with the 11agi-ai-chat skills."
   }
 }

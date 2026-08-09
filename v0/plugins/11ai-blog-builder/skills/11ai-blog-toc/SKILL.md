@@ -1,18 +1,18 @@
 ---
-name: 11ai-blog-toc
+name: 11agi-blog-toc
 description: "Build or retrofit a white-label, responsive, accessible table of contents for Markdown, MDX, CMS, or rich-text blog articles, including deterministic heading IDs, duplicate handling, native hash deep links, sticky desktop and collapsible mobile navigation, scroll-aware active-section highlighting, fixed-header offsets, and tests. Use when adding, recreating, repairing, or auditing an article “On this page” index, scrollspy, heading anchors, or TOC in React, Next.js, or another web project."
 ---
 
-# 11ai Blog TOC
+# 11agi Blog TOC
 
-Implement the table-of-contents contract in [references/implementation.md](references/implementation.md). For a 11ai-style limited Markdown implementation, also use [references/scaffold.md](references/scaffold.md). Read the relevant reference before changing application code.
+Implement the table-of-contents contract in [references/implementation.md](references/implementation.md). For a 11agi-style limited Markdown implementation, also use [references/scaffold.md](references/scaffold.md). Read the relevant reference before changing application code.
 
 ## Workflow
 
 1. Inspect the target's agent instructions, framework version, local framework documentation, article route, content source, Markdown/rich-text renderer, layout, fixed headers, styling conventions, and tests. For version-sensitive frameworks such as Next.js, read the installed version's relevant documentation before coding.
-2. Choose one heading source of truth. Prefer `$11ai-blog-markdown-components` for `react-markdown`/GFM blogs so rendered IDs and TOC metadata share one Markdown AST contract. For a small line-based renderer, centralize heading parsing, label normalization, slugging, duplicate handling, and offsets in shared helpers.
+2. Choose one heading source of truth. Prefer `$11agi-blog-markdown-components` for `react-markdown`/GFM blogs so rendered IDs and TOC metadata share one Markdown AST contract. For a small line-based renderer, centralize heading parsing, label normalization, slugging, duplicate handling, and offsets in shared helpers.
 3. Define the heading contract: included levels, visible-label extraction, duplicate IDs, Unicode policy, skipped levels, and one shared activation/scroll offset.
-4. Use `$11ai-blog-content-format` when authoring/importing content that needs clean body heading levels and predictable TOC labels.
+4. Use `$11agi-blog-content-format` when authoring/importing content that needs clean body heading levels and predictable TOC labels.
 5. Keep content loading and parsing on the server or build path when the host permits it. Pass only serializable heading metadata to the smallest possible client island for browser interaction.
 6. Implement native fragment links, initial hash selection from the current DOM, scroll-aware active state, final-section behavior, an explicit navigation-lock release policy, and cleanup.
 7. Render a labeled sticky desktop index and a native collapsible mobile index that share links and state. Hide the component when no eligible headings exist.
@@ -36,8 +36,8 @@ Implement the table-of-contents contract in [references/implementation.md](refer
 ## Adaptation rules
 
 - Use an existing AST/renderer plugin API before a custom line scanner.
-- If the target uses `react-markdown`, use the Markdown components skill's AST extraction contract. If the target intentionally uses a limited line renderer like 11ai, share the same heading helpers and decide the fence policy explicitly. The 11ai-style extractor ignores headings inside fenced code; if the renderer can receive fenced code, either implement matching fence handling in rendering or reject/document fences as unsupported content.
-- Resolve DOM targets when selecting/updating active headings rather than only once on mount. This matches the latest 11ai implementation and avoids stale/missing targets during hydration, deep-link landing, and layout shifts.
+- If the target uses `react-markdown`, use the Markdown components skill's AST extraction contract. If the target intentionally uses a limited line renderer like 11agi, share the same heading helpers and decide the fence policy explicitly. The 11agi-style extractor ignores headings inside fenced code; if the renderer can receive fenced code, either implement matching fence handling in rendering or reject/document fences as unsupported content.
+- Resolve DOM targets when selecting/updating active headings rather than only once on mount. This matches the latest 11agi implementation and avoids stale/missing targets during hydration, deep-link landing, and layout shifts.
 - For long articles, bound layout work to one calculation per animation frame or use a verified observer design with a bottom sentinel.
 - If there is a fixed or responsive header, prefer a shared CSS custom property readable by both heading styles and client logic.
 - Preserve existing project conventions when they satisfy the contract; do not add a UI library for this component alone.

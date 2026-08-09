@@ -6,7 +6,7 @@ import { getPlugins, getSkillCount } from "@/lib/skills"
 export const metadata: Metadata = {
   title: "Plugins",
   description:
-    "Browse every 11ai plugin: workflow-sized skill collections you install and combine.",
+    "Browse every 11agi plugin: workflow-sized skill collections you install and combine.",
 }
 
 export default function PluginsPage() {

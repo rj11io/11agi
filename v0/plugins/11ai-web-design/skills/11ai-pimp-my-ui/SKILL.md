@@ -1,9 +1,9 @@
 ---
-name: 11ai-pimp-my-ui
+name: 11agi-pimp-my-ui
 description: "Take an application's user-facing content, reach one deliberate style and design decision for it, and execute that design end to end — using the tools already in the codebase first (framework, CSS system, component library, theme tokens, fonts), installing at most one or two small critical packages when something essential is missing. Use when the user asks to style, restyle, polish, or \"pimp\" a UI, make an app or page look designed instead of default, pick a visual direction for existing content, or upgrade a working-but-plain interface — standalone, with no other skill required."
 ---
 
-# 11ai Pimp My UI
+# 11agi Pimp My UI
 
 ## Overview
 

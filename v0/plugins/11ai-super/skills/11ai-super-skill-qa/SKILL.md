@@ -1,9 +1,9 @@
 ---
-name: 11ai-super-skill-qa
+name: 11agi-super-skill-qa
 description: "Continuously audit, repair, and verify AI skill packaging across common harnesses until it reaches a high-confidence compatibility bar. Use when Codex must QA SKILL.md frontmatter and formatting, remove nonportable YAML block scalars, reconcile missing Codex or Claude metadata, test real skill discovery, validate plugin and marketplace manifests, check catalogs and package contents, repair creator templates that reintroduce defects, or add deterministic CI guardrails without changing skill routine content. Stops and reports when the change set becomes unmanageable or troubleshooting outweighs progress."
 ---
 
-# 11ai Super Skill QA
+# 11agi Super Skill QA
 
 ## Mission
 

@@ -1,13 +1,13 @@
 ---
-name: 11ai-xharness-agent-delegation
+name: 11agi-xharness-agent-delegation
 description: "Decide which model gets which task when delegating work across harnesses — routes UI, design, and copywriting to Claude Fable 5 (with Sonnet 5 and Opus 4.8 fallbacks) and everything else to a GPT 5.6 tier (Luna, Terra, or Sol) by scope and impact. Use whenever an agent must choose a model for a delegated task, pick between GPT and Claude for a job, apply the team's model routing policy, or resolve a fallback when the assigned model is unavailable."
 ---
 
-# 11ai Cross-Harness Agent Delegation
+# 11agi Cross-Harness Agent Delegation
 
 ## Overview
 
-This is the routing policy: which model does which kind of work. The sibling skill [11ai-xharness-agent-comms](../11ai-xharness-agent-comms/SKILL.md) covers *how* to call another harness (commands, permissions, output capture); this skill covers *who* to call. Apply this policy first, then make the call with the comms skill — high effort, normal speed by default.
+This is the routing policy: which model does which kind of work. The sibling skill [11agi-xharness-agent-comms](../11agi-xharness-agent-comms/SKILL.md) covers *how* to call another harness (commands, permissions, output capture); this skill covers *who* to call. Apply this policy first, then make the call with the comms skill — high effort, normal speed by default.
 
 ## Routing Table
 

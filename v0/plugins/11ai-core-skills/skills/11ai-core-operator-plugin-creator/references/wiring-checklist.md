@@ -10,18 +10,18 @@ node -p "require('./package.json').version"
 
 ## 1. Claude manifest
 
-`v0/plugins/11ai-operator-TOOL-ID/.claude-plugin/plugin.json`
+`v0/plugins/11agi-operator-TOOL-ID/.claude-plugin/plugin.json`
 
 ```json
 {
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
-  "name": "11ai-operator-TOOL-ID",
+  "name": "11agi-operator-TOOL-ID",
   "version": "MATCHES_PACKAGE_JSON",
   "description": "Modular, safety-first skills for common TOOL operations.",
   "author": {
     "name": "rj11io"
   },
-  "repository": "https://github.com/rj11io/11ai",
+  "repository": "https://github.com/rj11io/11agi",
   "license": "Apache-2.0",
   "keywords": [
     "tool",
@@ -36,32 +36,32 @@ node -p "require('./package.json').version"
 
 ## 2. Codex manifest
 
-`v0/plugins/11ai-operator-TOOL-ID/.codex-plugin/plugin.json`
+`v0/plugins/11agi-operator-TOOL-ID/.codex-plugin/plugin.json`
 
 Same `name`, `version`, and `skills` values, no `$schema`, plus an `interface` block:
 
 ```json
 {
-  "name": "11ai-operator-TOOL-ID",
+  "name": "11agi-operator-TOOL-ID",
   "version": "MATCHES_PACKAGE_JSON",
   "description": "Modular, safety-first skills for common TOOL operations.",
   "author": {
     "name": "rj11io"
   },
-  "repository": "https://github.com/rj11io/11ai",
+  "repository": "https://github.com/rj11io/11agi",
   "license": "Apache-2.0",
   "keywords": [
     "tool"
   ],
   "skills": "./skills/",
   "interface": {
-    "displayName": "11ai Operator TOOL",
+    "displayName": "11agi Operator TOOL",
     "shortDescription": "Run common TOOL tasks safely and clearly.",
     "longDescription": "A modular toolbox for the areas this plugin covers, named one by one.",
     "developerName": "rj11io",
     "category": "Developer Tools",
     "capabilities": [],
-    "defaultPrompt": "Help me use the 11ai-operator-TOOL-ID skills for this TOOL task."
+    "defaultPrompt": "Help me use the 11agi-operator-TOOL-ID skills for this TOOL task."
   }
 }
 ```
@@ -72,14 +72,14 @@ Same `name`, `version`, and `skills` values, no `$schema`, plus an `interface` b
 
 ```json
 {
-  "name": "11ai-operator-TOOL-ID",
-  "source": "./v0/plugins/11ai-operator-TOOL-ID"
+  "name": "11agi-operator-TOOL-ID",
+  "source": "./v0/plugins/11agi-operator-TOOL-ID"
 }
 ```
 
 ## 4. Plugin README
 
-`v0/plugins/11ai-operator-TOOL-ID/README.md` — every skill name must appear somewhere in this file. Use the template in [plugin-blueprint.md](plugin-blueprint.md).
+`v0/plugins/11agi-operator-TOOL-ID/README.md` — every skill name must appear somewhere in this file. Use the template in [plugin-blueprint.md](plugin-blueprint.md).
 
 ## 5. Root README
 
@@ -94,13 +94,13 @@ The repository currently contains 156 skills in 20 plugins.
 A catalog table row, where the count column must equal the number of skill directories:
 
 ```text
-| [TOOL operator](./v0/plugins/11ai-operator-TOOL-ID/README.md) | 10 | Short summary of what the plugin covers |
+| [TOOL operator](./v0/plugins/11agi-operator-TOOL-ID/README.md) | 10 | Short summary of what the plugin covers |
 ```
 
 A layout entry in the indented tree block, with the same count:
 
 ```text
-    11ai-operator-TOOL-ID/     10 TOOL operation skills under skills/
+    11agi-operator-TOOL-ID/     10 TOOL operation skills under skills/
 ```
 
 Keep both lists in the same order the file already uses, and recount rather than guessing when you add a skill to an existing plugin.
@@ -114,7 +114,7 @@ The count includes a conditional `*-native-skills` bridge when first-party Agent
 ```ts
 {
   slug: "operator-TOOL-ID",
-  dir: "11ai-operator-TOOL-ID",
+  dir: "11agi-operator-TOOL-ID",
   title: "TOOL operator",
   tagline:
     "One sentence naming the areas the plugin covers, ending in reference and troubleshooting.",

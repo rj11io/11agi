@@ -1,4 +1,4 @@
-# 11ai blog content format contract
+# 11agi blog content format contract
 
 ## 1. Content model
 
@@ -43,7 +43,7 @@ type Publication = {
 
 ## 2. Markdown body shape
 
-For 11ai-style post pages, the route renders the visual page H1 from `post.title` and strips a leading Markdown H1 from the content before rendering. Therefore content files should use this pattern:
+For 11agi-style post pages, the route renders the visual page H1 from `post.title` and strips a leading Markdown H1 from the content before rendering. Therefore content files should use this pattern:
 
 ```md
 # Exact post title

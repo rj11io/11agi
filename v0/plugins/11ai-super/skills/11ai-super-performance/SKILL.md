@@ -1,9 +1,9 @@
 ---
-name: 11ai-super-performance
+name: 11agi-super-performance
 description: "Audit, profile, fix, and repeatedly optimize software project speed and resource efficiency. Use when Codex needs to investigate a slow application, API, page, query, build, test suite, startup path, or background job; eliminate critical and major performance problems; improve latency, throughput, responsiveness, bundle size, memory, CPU, network, or database efficiency; validate production-like performance; or continue performance work until the project meets a high evidence-based bar. Stops and reports when the change set becomes unmanageable or troubleshooting outweighs progress."
 ---
 
-# 11ai Super Performance
+# 11agi Super Performance
 
 ## Objective
 

@@ -1,4 +1,4 @@
-# 11ai Audit
+# 11agi Audit
 
 Evidence-backed, read-only dependency audits.
 
@@ -6,7 +6,7 @@ Evidence-backed, read-only dependency audits.
 
 | Skill | Use it for |
 | --- | --- |
-| [`11ai-audit-sec-deps-scripts`](./skills/11ai-audit-sec-deps-scripts/SKILL.md) | Auditing declared, locked, installed, and resolvable dependencies; running authoritative package-manager audits; and prioritizing vulnerabilities, malware, and host-computer risks |
+| [`11agi-audit-sec-deps-scripts`](./skills/11agi-audit-sec-deps-scripts/SKILL.md) | Auditing declared, locked, installed, and resolvable dependencies; running authoritative package-manager audits; and prioritizing vulnerabilities, malware, and host-computer risks |
 
 ## Safety model
 
@@ -15,7 +15,7 @@ clean result: it separates installed vulnerabilities from lockfile-only,
 unresolved, and coverage-gap evidence, and reports each kind on its own.
 
 It writes a UTF-8 Markdown report in the project root of its scan boundary,
-named `11ai-audit-sec-deps-scripts-report-YYYYMMDDTHHMMSSZ.md`.
+named `11agi-audit-sec-deps-scripts-report-YYYYMMDDTHHMMSSZ.md`.
 
 Marketplace and plugin configuration auditing moved to the
-[`11ai-plugins-marketplace`](../11ai-plugins-marketplace/README.md) plugin.
+[`11agi-plugins-marketplace`](../11agi-plugins-marketplace/README.md) plugin.

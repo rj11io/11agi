@@ -1,5 +1,5 @@
 ---
-name: 11ai-automation
+name: 11agi-automation
 description: "Build autonomous, scheduled agent automations with the Ledger + Conductor + Routine pattern. Each scheduled run ships ONE MILESTONE — a complete vertical slice with checks, implementation, one evidence-backed review, and a quality gate, all in a single run — against a durable JSON ledger, driven by any headless agent CLI (Claude Code, Codex, Gemini, opencode, Cursor, aider, and others). Use when the user wants a self-running pipeline, a fleet builder, or any cron-driven agent that must keep making real, verifiable progress unattended — resumable, serial, and never corrupting shared state. This is the core method; sibling skills provide a worked example, a SaaS product pipeline, and creators that generate a tailored automation from an interview."
 ---
 
@@ -89,11 +89,11 @@ exists to make one of them impossible:
 2. **Set the depth bar.** Decide what "real" means for this domain before any
    work: what must a stranger be able to *do* with the output? Write those as
    automatable probes. For SaaS products, use the ready-made bar in the
-   **`11ai-saas-fleet-automation`** skill.
+   **`11agi-saas-fleet-automation`** skill.
 3. **Write the conductor** from
    [references/conductor-template.md](references/conductor-template.md), then
    run its built-in lint checklist against your draft. (Or let
-   **`11ai-automation-creator`** interview you and generate all the files.)
+   **`11agi-automation-creator`** interview you and generate all the files.)
 4. **Prove one tick by hand.** Run the trigger prompt interactively. Confirm
    it syncs, ships one milestone, reviews it with evidence, passes the gate,
    persists, stops. Fix the spec until this is boring.
@@ -110,26 +110,26 @@ exists to make one of them impossible:
 
 ## The skills in this plugin
 
-- **`11ai-automation`** (this skill) — the method and its three references.
-- **`11ai-automation-example`** — a complete, filled-in instance (conductor +
+- **`11agi-automation`** (this skill) — the method and its three references.
+- **`11agi-automation-example`** — a complete, filled-in instance (conductor +
   ledger + runner config for a how-to guide library). Read it to see the
   template become concrete; copy it as a starting point.
-- **`11ai-automation-creator`** — interviews the user about any goal, then
+- **`11agi-automation-creator`** — interviews the user about any goal, then
   generates the full automation: conductor, ledger, runner, depth bar.
-- **`11ai-automation-seed`** — adds a human idea to a running automation's
+- **`11agi-automation-seed`** — adds a human idea to a running automation's
   ledger (vetted, deduped, committed safely between ticks) so the agent
   picks it up in a later run. Seeded ideas are scoped before the agent's
   own.
-- **`11ai-saas-fleet-automation`** — the ready-made lifecycle for building a fleet
+- **`11agi-saas-fleet-automation`** — the ready-made lifecycle for building a fleet
   of real SaaS products: milestone planning plus the five-probe depth bar
   that blocks brochure-ware.
-- **`11ai-saas-fleet-automation-creator`** — interviews the user about their SaaS
+- **`11agi-saas-fleet-automation-creator`** — interviews the user about their SaaS
   niche and stack, then generates a product-fleet automation.
-- **`11ai-single-saas-automation`** — one product, production depth: ledger
+- **`11agi-single-saas-automation`** — one product, production depth: ledger
   items are capabilities of a single SaaS, built against a production bar
   (accounts and tenant isolation, test-mode payments, migrations, a growing
   spine e2e).
-- **`11ai-single-saas-automation-creator`** — interviews the user about their
+- **`11agi-single-saas-automation-creator`** — interviews the user about their
   one product, then generates `PRODUCT.md`, the conductor, a pre-seeded
   capability backlog, and the runner.
 

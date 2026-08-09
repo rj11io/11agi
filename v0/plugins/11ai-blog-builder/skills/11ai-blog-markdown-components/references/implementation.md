@@ -1,4 +1,4 @@
-# 11ai Markdown components implementation
+# 11agi Markdown components implementation
 
 ## 1. Dependencies and boundary
 
@@ -15,7 +15,7 @@ Keep the extension boundary small:
 - no raw HTML unless the project has sanitization and a specific need;
 - no half-MDX component language unless the user asks for MDX.
 
-Pair this renderer contract with `$11ai-blog-content-format` so generated/imported Markdown uses the supported syntax and the correct leading-H1/body-heading pattern. Use `$11ai-blog-content-generation` only when the user asks to create new content for the renderer.
+Pair this renderer contract with `$11agi-blog-content-format` so generated/imported Markdown uses the supported syntax and the correct leading-H1/body-heading pattern. Use `$11agi-blog-content-generation` only when the user asks to create new content for the renderer.
 
 ## 2. Shared heading contract
 
@@ -96,7 +96,7 @@ Define explicit renderers/styles for:
 - `a`;
 - `img`.
 
-Use the host's tokens/classes. For 11ai-style Tailwind:
+Use the host's tokens/classes. For 11agi-style Tailwind:
 
 ```txt
 text-foreground

@@ -1,6 +1,6 @@
 # Markdown components scaffold snippets
 
-Use these as a 11ai-style starting point. Adapt imports, route prefixes, classes, and image policy to the target.
+Use these as a 11agi-style starting point. Adapt imports, route prefixes, classes, and image policy to the target.
 
 ## Shared heading helpers
 

@@ -1,5 +1,5 @@
 ---
-name: 11ai-ai-chat-multiple-models
+name: 11agi-ai-chat-multiple-models
 description: "Let users pick between multiple LLMs (across providers) in an AI chat — model registry, per-provider SDK instances over one gateway, per-message modelId routing, model picker UI, and per-session model persistence. Use when adding model selection or multi-provider support to an AI chat."
 ---
 
@@ -33,7 +33,7 @@ export const models: Model[] = [
 - `id` is what travels over the wire and what the gateway expects (`provider/model` form for GitHub Models).
 - Adding/removing a model is a one-line registry change — route and picker pick it up automatically.
 - To disable a model temporarily, comment it out of the registry; nothing else references it directly.
-- If the assistant also ships as a messaging-platform bot (see `11ai-aichat-chatbot-extension`), extend entries with `label` (human display) and `aliases` (hand-typed shorthands like `"gpt4o"`, `"r1"`) so a `/model` command can resolve user input with normalized matching.
+- If the assistant also ships as a messaging-platform bot (see `11agi-aichat-chatbot-extension`), extend entries with `label` (human display) and `aliases` (hand-typed shorthands like `"gpt4o"`, `"r1"`) so a `/model` command can resolve user input with normalized matching.
 
 ## 2. Per-provider SDK instances over one gateway
 
@@ -44,7 +44,7 @@ import { createOpenAI } from "@ai-sdk/openai"
 import { createDeepSeek } from "@ai-sdk/deepseek"
 import { createXai } from "@ai-sdk/xai"
 
-const GATEWAY = "https://models.github.ai/inference"  // see 11ai-ai-chat-github-provider
+const GATEWAY = "https://models.github.ai/inference"  // see 11agi-ai-chat-github-provider
 
 const openai   = createOpenAI({   baseURL: GATEWAY, apiKey: process.env.GITHUB_TOKEN })
 const deepseek = createDeepSeek({ baseURL: GATEWAY, apiKey: process.env.GITHUB_TOKEN })
@@ -130,7 +130,7 @@ Gate submission on a model being selected: `canSubmit = input.trim().length > 0 
 
 ## 6. Persist the model per session
 
-Add `modelId` to the session entity (see `11ai-ai-chat-session-mgmt`) so each conversation remembers its model:
+Add `modelId` to the session entity (see `11agi-ai-chat-session-mgmt`) so each conversation remembers its model:
 
 ```ts
 export interface ChatSession {
@@ -148,7 +148,7 @@ Lifecycle rules:
 
 ## Caveats
 
-- **Tool support varies by model.** If the chat uses tools (see `11ai-ai-chat-tool-design`), verify each registry entry handles tool calls; either keep the registry tools-capable-only or flag entries that aren't.
+- **Tool support varies by model.** If the chat uses tools (see `11agi-ai-chat-tool-design`), verify each registry entry handles tool calls; either keep the registry tools-capable-only or flag entries that aren't.
 - **Reasoning models** (R1-style) stream thinking content and respond slower — make sure the UI only renders text parts, and consider labeling them in the picker.
 - **One env var, many providers** is a gateway property (GitHub Models). With native vendor APIs, each `create*` call gets its own `baseURL`/`apiKey` — the registry/dispatch pattern is unchanged.
 - The per-message `modelId` means the *next* message uses the new model; in-flight streams are unaffected. Pair the picker with a stop button (`useChat`'s `stop`) so users can abort and re-ask on a different model.

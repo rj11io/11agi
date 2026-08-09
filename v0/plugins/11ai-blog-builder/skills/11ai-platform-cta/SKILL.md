@@ -1,9 +1,9 @@
 ---
-name: 11ai-platform-cta
+name: 11agi-platform-cta
 description: "Design and build a white-label marketing page that sells custom website and platform-building services, using an editorial hero, service positioning, deliverables, process, proof, outcomes, FAQ, and repeated conversion CTAs. Use when creating or improving a platform services page, web-development offer page, author/creator platform pitch, agency landing page, or contact-focused service CTA inside a Next.js or React site."
 ---
 
-# 11ai Platform CTA
+# 11agi Platform CTA
 
 Build the service-marketing page described in [references/implementation.md](references/implementation.md). Read it before editing.
 

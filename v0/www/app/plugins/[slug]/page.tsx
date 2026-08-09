@@ -85,7 +85,7 @@ export default async function PluginPage({
       <div className="mb-12 space-y-3">
         <TerminalBlock
           title="any skills-format agent"
-          command={`npx skills add rj11io/11ai ${skills.map((skill) => `--skill ${skill.name}`).join(" ")}`}
+          command={`npx skills add rj11io/11agi ${skills.map((skill) => `--skill ${skill.name}`).join(" ")}`}
         />
         <TerminalBlock title="claude code" command={claudeInstallCommand(plugin.dir)} />
         <TerminalBlock title="codex" command={codexInstallCommand(plugin.dir)} />

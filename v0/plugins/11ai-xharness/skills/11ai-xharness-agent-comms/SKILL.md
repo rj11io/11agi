@@ -1,9 +1,9 @@
 ---
-name: 11ai-xharness-agent-comms
+name: 11agi-xharness-agent-comms
 description: "Call, spawn, or delegate to an AI agent running in a different harness (Claude Code, Codex CLI, Gemini CLI) and collect its output. Use whenever one agent should hand a task to a model it cannot run itself — for example Codex (GPT 5.6) calling Claude Code (Claude Fable 5) for UI work, or Claude Code calling Codex (GPT 5.6 Luna) to generate a title — including cross-model second opinions, fan-out to parallel workers, and multi-turn sessions with another CLI agent."
 ---
 
-# 11ai Cross-Harness Agent Comms
+# 11agi Cross-Harness Agent Comms
 
 ## Overview
 
@@ -16,7 +16,7 @@ Read [references/harnesses.md](references/harnesses.md) for the exact flags, out
 ## Workflow
 
 1. **Write a self-contained brief.** The other agent shares nothing with you: no conversation history, no memory, no open files. Put everything it needs in the prompt — the task, file paths, constraints, and the exact output you want back ("reply with only the title", "write the component to `src/Hero.tsx` and print a summary").
-2. **Pick the harness and model.** Route by the delegation policy in the sibling skill [11ai-xharness-agent-delegation](../11ai-xharness-agent-delegation/SKILL.md) — it maps task type, scope, and impact to a specific model and fallback chain. Without a policy match, choose by strength: e.g. Claude Code (`claude-fable-5`) for UI and long agentic work, Codex (`gpt-5.6`) for an OpenAI-flavored second opinion. Verify the harness is installed (`which claude codex gemini`) before promising anything.
+2. **Pick the harness and model.** Route by the delegation policy in the sibling skill [11agi-xharness-agent-delegation](../11agi-xharness-agent-delegation/SKILL.md) — it maps task type, scope, and impact to a specific model and fallback chain. Without a policy match, choose by strength: e.g. Claude Code (`claude-fable-5`) for UI and long agentic work, Codex (`gpt-5.6`) for an OpenAI-flavored second opinion. Verify the harness is installed (`which claude codex gemini`) before promising anything.
 3. **Set effort and speed.** Default to high effort at normal speed: `--effort high` for Claude Code, `-c model_reasoning_effort="high"` for Codex (see the reference for all levels). Normal speed is just the default processing — neither harness has a separate headless speed dial, so when the user wants faster or cheaper, lower the effort level or pick a smaller model instead.
 4. **Pick the permission level.** Give the child agent the least power the task needs: read-only for analysis and reviews, workspace-write only when it must edit files, never full/skip-permissions unless the user asked for it.
 5. **Run it non-interactively.** Always use the headless mode (`claude -p`, `codex exec`, `gemini -p`). Never launch the interactive UI from inside another agent — it will hang waiting for a human. Set a timeout, and run long jobs in the background.

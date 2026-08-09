@@ -1,5 +1,5 @@
 ---
-name: 11ai-aichat-chatbot-extension
+name: 11agi-aichat-chatbot-extension
 description: "Extend an AI chat into a Slack (or other messaging platform) chatbot using the Chat SDK — webhook route, mention/DM/thread handlers, streaming replies, slash-command model switching, and Redis-backed conversation state. Use when shipping the assistant as a Slack bot or adding a new messaging platform."
 ---
 
@@ -16,7 +16,7 @@ chat                        # Chat SDK core
 ai + @ai-sdk/*              # the same AI SDK core the web chat uses
 ```
 
-Env: `SLACK_BOT_TOKEN`, `SLACK_SIGNING_SECRET`, `REDIS_URL`, plus the model provider key (e.g. `GITHUB_TOKEN` — see `11ai-ai-chat-github-provider`).
+Env: `SLACK_BOT_TOKEN`, `SLACK_SIGNING_SECRET`, `REDIS_URL`, plus the model provider key (e.g. `GITHUB_TOKEN` — see `11agi-ai-chat-github-provider`).
 
 ## Bot definition
 
@@ -106,7 +106,7 @@ try {
 
 ## The AI responder
 
-Platform history is the source of truth — no separate session store needed (contrast with the web chat's `11ai-ai-chat-session-mgmt`); the thread *is* the session:
+Platform history is the source of truth — no separate session store needed (contrast with the web chat's `11agi-ai-chat-session-mgmt`); the thread *is* the session:
 
 ```ts
 const HISTORY_LIMIT = 30
@@ -132,7 +132,7 @@ async function respondWithAi(thread: Thread<BotState>) {
     model,
     system,
     messages: history,
-    tools: assistantTools,                          // same tool set design — see 11ai-ai-chat-tool-design
+    tools: assistantTools,                          // same tool set design — see 11agi-ai-chat-tool-design
     stopWhen: stepCountIs(3),
     onError({ error }) {
       console.error("AI stream failed", error)
@@ -195,7 +195,7 @@ bot.onSlashCommand("/model", async (event) => {
 })
 ```
 
-Because users type model names by hand, the registry needs `label` and `aliases` on top of the web picker's fields (see `11ai-ai-chat-multiple-models`), with normalized matching:
+Because users type model names by hand, the registry needs `label` and `aliases` on top of the web picker's fields (see `11agi-ai-chat-multiple-models`), with normalized matching:
 
 ```ts
 {

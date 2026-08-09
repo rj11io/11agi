@@ -1,4 +1,4 @@
-# 11ai Agent Automation
+# 11agi Agent Automation
 
 A plugin for building **autonomous agents that ship real, verifiable work on
 a schedule** — the Ledger + Conductor + Routine pattern. Eight skills, no
@@ -39,33 +39,33 @@ on a different provider than the worker.
 
 | Skill | Use it when |
 | ----- | ----------- |
-| [**11ai-automation**](skills/11ai-automation/SKILL.md) | You want the method itself: pillars, seven invariants, conductor template + lint checklist, provider-agnostic runner, operations playbook. |
-| [**11ai-automation-example**](skills/11ai-automation-example/SKILL.md) | You want to see the pattern instantiated — a complete conductor + ledger for a how-to guide library — or a starting point to copy. |
-| [**11ai-automation-creator**](skills/11ai-automation-creator/SKILL.md) | You want an automation for a goal of your choice: it interviews you, then generates conductor, ledger, runner, and depth bar. |
-| [**11ai-automation-seed**](skills/11ai-automation-seed/SKILL.md) | You have an idea for a running automation: it vets and dedupes the idea, writes a `seed` entry to the ledger, and the agent scopes it on a later tick — human ideas before its own. |
-| [**11ai-saas-fleet-automation**](skills/11ai-saas-fleet-automation/SKILL.md) | Your work items are SaaS products: the ready-made lifecycle with the five-probe depth bar and the payments boundary. |
-| [**11ai-saas-fleet-automation-creator**](skills/11ai-saas-fleet-automation-creator/SKILL.md) | You want a product-fleet automation for your niche: it interviews you about theme, stack, and caps, then generates everything. |
-| [**11ai-single-saas-automation**](skills/11ai-single-saas-automation/SKILL.md) | You have ONE product to deepen to production grade: ledger items are capabilities, gated by a production bar — accounts and tenant isolation, test-mode payments, migrations, and a growing spine e2e. |
-| [**11ai-single-saas-automation-creator**](skills/11ai-single-saas-automation-creator/SKILL.md) | You want that single-product automation set up for your product: it interviews you, then generates PRODUCT.md, the conductor, a pre-seeded capability backlog, and the runner. |
+| [**11agi-automation**](skills/11agi-automation/SKILL.md) | You want the method itself: pillars, seven invariants, conductor template + lint checklist, provider-agnostic runner, operations playbook. |
+| [**11agi-automation-example**](skills/11agi-automation-example/SKILL.md) | You want to see the pattern instantiated — a complete conductor + ledger for a how-to guide library — or a starting point to copy. |
+| [**11agi-automation-creator**](skills/11agi-automation-creator/SKILL.md) | You want an automation for a goal of your choice: it interviews you, then generates conductor, ledger, runner, and depth bar. |
+| [**11agi-automation-seed**](skills/11agi-automation-seed/SKILL.md) | You have an idea for a running automation: it vets and dedupes the idea, writes a `seed` entry to the ledger, and the agent scopes it on a later tick — human ideas before its own. |
+| [**11agi-saas-fleet-automation**](skills/11agi-saas-fleet-automation/SKILL.md) | Your work items are SaaS products: the ready-made lifecycle with the five-probe depth bar and the payments boundary. |
+| [**11agi-saas-fleet-automation-creator**](skills/11agi-saas-fleet-automation-creator/SKILL.md) | You want a product-fleet automation for your niche: it interviews you about theme, stack, and caps, then generates everything. |
+| [**11agi-single-saas-automation**](skills/11agi-single-saas-automation/SKILL.md) | You have ONE product to deepen to production grade: ledger items are capabilities, gated by a production bar — accounts and tenant isolation, test-mode payments, migrations, and a growing spine e2e. |
+| [**11agi-single-saas-automation-creator**](skills/11agi-single-saas-automation-creator/SKILL.md) | You want that single-product automation set up for your product: it interviews you, then generates PRODUCT.md, the conductor, a pre-seeded capability backlog, and the runner. |
 
 ## Layout
 
 ```
-11ai-agent-automation/            (plugin root)
+11agi-agent-automation/            (plugin root)
   .claude-plugin/plugin.json
   README.md
   skills/
-    11ai-automation/                 # core method
+    11agi-automation/                 # core method
       SKILL.md
       references/                    # conductor-template, runner, operations
       scripts/run-tick.sh            # provider-agnostic runner (AGENT_CMD, flock)
-    11ai-automation-example/         # filled-in instance (+ examples/)
-    11ai-automation-creator/         # interview → generated automation
-    11ai-automation-seed/            # human queues an idea into a ledger
-    11ai-saas-fleet-automation/            # many products: fleet lifecycle + depth bar
-    11ai-saas-fleet-automation-creator/    # interview → generated product fleet
-    11ai-single-saas-automation/           # one product: production-depth lifecycle
-    11ai-single-saas-automation-creator/   # interview → generated single-product automation
+    11agi-automation-example/         # filled-in instance (+ examples/)
+    11agi-automation-creator/         # interview → generated automation
+    11agi-automation-seed/            # human queues an idea into a ledger
+    11agi-saas-fleet-automation/            # many products: fleet lifecycle + depth bar
+    11agi-saas-fleet-automation-creator/    # interview → generated product fleet
+    11agi-single-saas-automation/           # one product: production-depth lifecycle
+    11agi-single-saas-automation-creator/   # interview → generated single-product automation
 ```
 
 ## Getting started
@@ -74,8 +74,8 @@ on a different provider than the worker.
   keeps X going" — and let a creator skill interview you and generate the
   files.
 - **To understand it first:** read
-  [11ai-automation/SKILL.md](skills/11ai-automation/SKILL.md) (5 minutes),
-  then the [worked example](skills/11ai-automation-example/SKILL.md).
+  [11agi-automation/SKILL.md](skills/11agi-automation/SKILL.md) (5 minutes),
+  then the [worked example](skills/11agi-automation-example/SKILL.md).
 - **Either way:** prove one tick by hand before scheduling anything.
 - **Once it's running:** drop ideas in anytime — "add this idea to the
   ledger" — and the agent picks them up before inventing its own.

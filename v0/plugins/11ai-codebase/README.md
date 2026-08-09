@@ -1,4 +1,4 @@
-# 11ai Codebase
+# 11agi Codebase
 
 Four skills for adding test infrastructure, web analytics, and maintaining JavaScript package release workflows.
 
@@ -6,9 +6,9 @@ Four skills for adding test infrastructure, web analytics, and maintaining JavaS
 
 | Skill | Use it for |
 | --- | --- |
-| [`11ai-playwright-setup`](./skills/11ai-playwright-setup/SKILL.md) | Adding or maintaining Playwright unit-style and browser E2E testing, scripts, artifacts, and CI |
-| [`11ai-npm-publishing`](./skills/11ai-npm-publishing/SKILL.md) | Preparing, publishing, automating, or troubleshooting an npm package release |
-| [`11ai-automated-releases`](./skills/11ai-automated-releases/SKILL.md) | Automating changelogs, versions, tags, and GitHub releases without publishing a package |
-| [`11ai-vercel-analytics`](./skills/11ai-vercel-analytics/SKILL.md) | Adding or verifying Vercel Web Analytics in a web application |
+| [`11agi-playwright-setup`](./skills/11agi-playwright-setup/SKILL.md) | Adding or maintaining Playwright unit-style and browser E2E testing, scripts, artifacts, and CI |
+| [`11agi-npm-publishing`](./skills/11agi-npm-publishing/SKILL.md) | Preparing, publishing, automating, or troubleshooting an npm package release |
+| [`11agi-automated-releases`](./skills/11agi-automated-releases/SKILL.md) | Automating changelogs, versions, tags, and GitHub releases without publishing a package |
+| [`11agi-vercel-analytics`](./skills/11agi-vercel-analytics/SKILL.md) | Adding or verifying Vercel Web Analytics in a web application |
 
-Use `11ai-npm-publishing` when a registry is part of the release. Use `11ai-automated-releases` when the release should stop at GitHub.
+Use `11agi-npm-publishing` when a registry is part of the release. Use `11agi-automated-releases` when the release should stop at GitHub.

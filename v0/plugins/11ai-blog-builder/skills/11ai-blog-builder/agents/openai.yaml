@@ -1,4 +1,4 @@
 interface:
-  display_name: "11ai Blog Builder"
+  display_name: "11agi Blog Builder"
   short_description: "Orchestrate complete blog builds"
-  default_prompt: "Use $11ai-blog-builder to recreate a complete file-backed editorial blog."
+  default_prompt: "Use $11agi-blog-builder to recreate a complete file-backed editorial blog."

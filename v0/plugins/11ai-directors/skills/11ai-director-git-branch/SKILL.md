@@ -1,5 +1,5 @@
 ---
-name: 11ai-director-git-branch
+name: 11agi-director-git-branch
 description: "Wrap any repository task in a branch-and-pull-request Git workflow: identify the task, create or reuse a well-named dedicated branch from a clean tree, perform and quality-check the work, open a pull request with full details and screenshots when applicable, run two independent review subagents that critique the PR in review comments, address their feedback, and re-verify. Merges or closes the pull request only when the user explicitly asks. Aborts, reverts session changes, and restores a clean tree if the worktree becomes unmanageable or Git troubleshooting starts to outweigh the task. Use when repository work should land through a branch and reviewed pull request rather than directly on main — pair it with any task skill that does the work itself."
 ---
 

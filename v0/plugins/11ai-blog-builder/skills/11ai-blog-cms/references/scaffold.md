@@ -1,6 +1,6 @@
 # CMS scaffold snippets
 
-Use these as a 11ai-style starting point. Adapt imports, route prefixes, and styling to the target.
+Use these as a 11agi-style starting point. Adapt imports, route prefixes, and styling to the target.
 
 ## Routes
 
@@ -31,7 +31,7 @@ export type Post = {
   created: string;
   updated?: string;
   coverImage?: string;
-  authorIds?: string[]; // required when using 11ai-blog-authors
+  authorIds?: string[]; // required when using 11agi-blog-authors
   isNSFW: boolean;
   isNew: boolean;
   tags: string[];
@@ -62,7 +62,7 @@ export type PostListItem = Post & {
   editorialIndex: number;
 };
 
-// Add `authors: AuthorPreview[]` with 11ai-blog-authors.
+// Add `authors: AuthorPreview[]` with 11agi-blog-authors.
 
 export type PostPreview = Omit<PostListItem, "content" | "authorIds">;
 
@@ -131,7 +131,7 @@ export function stripLeadingH1(markdown: string) {
 }
 ```
 
-When `$11ai-blog-authors` is active, `getPost` should also return resolved author previews, `PostListItem` should include `authors`, and `toPostPreview` should omit raw `authorIds` and `content` from client list payloads.
+When `$11agi-blog-authors` is active, `getPost` should also return resolved author previews, `PostListItem` should include `authors`, and `toPostPreview` should omit raw `authorIds` and `content` from client list payloads.
 
 ## Validation helpers
 
@@ -172,7 +172,7 @@ Validate publication IDs, post IDs, optional post slugs, `created`, optional `up
 ## Library state
 
 ```ts
-type ContentType = "posts" | "publications"; // add "authors" with 11ai-blog-authors
+type ContentType = "posts" | "publications"; // add "authors" with 11agi-blog-authors
 type ViewMode = "list" | "cards";
 type SortOrder = "relevance" | "newest" | "oldest";
 
@@ -275,9 +275,9 @@ export default async function PostPage({ params }: PostPageProps) {
 }
 ```
 
-For the Markdown renderer itself, use `$11ai-blog-markdown-components` rather than a custom line parser when the project needs GFM, fenced code blocks, tables, images, embeds, or TOC-aligned heading IDs.
+For the Markdown renderer itself, use `$11agi-blog-markdown-components` rather than a custom line parser when the project needs GFM, fenced code blocks, tables, images, embeds, or TOC-aligned heading IDs.
 
-For content files, use `$11ai-blog-content-format` to normalize titles, excerpts, dates, author IDs, tags, slugs, and Markdown body shape. Use `$11ai-blog-content-generation` only when the user asks to create new editorial content.
+For content files, use `$11agi-blog-content-format` to normalize titles, excerpts, dates, author IDs, tags, slugs, and Markdown body shape. Use `$11agi-blog-content-generation` only when the user asks to create new editorial content.
 
 ## Tests to copy
 

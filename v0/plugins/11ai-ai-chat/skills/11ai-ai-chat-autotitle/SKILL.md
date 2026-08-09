@@ -1,5 +1,5 @@
 ---
-name: 11ai-ai-chat-autotitle
+name: 11agi-ai-chat-autotitle
 description: "Auto-name a new chat session from the user's first message using a tiny one-shot LLM endpoint, called fire-and-forget from the client. Use when adding session titles to an AI chat."
 ---
 
@@ -9,7 +9,7 @@ New sessions start as "New chat" and get renamed to a 3–6 word title generated
 
 ## The title endpoint
 
-A one-shot `generateText` call. Same provider seam as the chat route (see `11ai-ai-chat-github-provider`), same graceful 503 when unconfigured:
+A one-shot `generateText` call. Same provider seam as the chat route (see `11agi-ai-chat-github-provider`), same graceful 503 when unconfigured:
 
 ```ts
 // app/.../api/chat/title/route.ts
@@ -61,7 +61,7 @@ async function generateChatTitle(message: string): Promise<string | null> {
 
 ## Trigger exactly once, on the first message
 
-In the submit handler, before `sendMessage`, guarded by a ref (full wiring in `11ai-ai-chat-client-hooks`):
+In the submit handler, before `sendMessage`, guarded by a ref (full wiring in `11agi-ai-chat-client-hooks`):
 
 ```tsx
 const titleRequestedRef = useRef(false)

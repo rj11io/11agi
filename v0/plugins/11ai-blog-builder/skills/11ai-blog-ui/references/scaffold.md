@@ -1,6 +1,6 @@
-# 11ai editorial UI scaffold snippets
+# 11agi editorial UI scaffold snippets
 
-Use these class patterns when applying the optional 11ai visual add-on. Do not change data contracts or routes to satisfy these snippets.
+Use these class patterns when applying the optional 11agi visual add-on. Do not change data contracts or routes to satisfy these snippets.
 
 ## Root and theme
 

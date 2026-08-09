@@ -1,6 +1,6 @@
 # Operator plugin blueprint
 
-The shape every `11ai-operator-TOOL-ID` skill follows, and the core and conditional archetypes a plugin is built from. `TOOL-ID` is the normalized technology identifier, including its version suffix when applicable; `TOOL` is its human-readable display name.
+The shape every `11agi-operator-TOOL-ID` skill follows, and the core and conditional archetypes a plugin is built from. `TOOL-ID` is the normalized technology identifier, including its version suffix when applicable; `TOOL` is its human-readable display name.
 
 ## Version and identity contract
 
@@ -22,10 +22,10 @@ Renaming is atomic: update the plugin directory, every skill directory and front
 
 ~~~markdown
 ---
-name: 11ai-operator-TOOL-ID-AREA
+name: 11agi-operator-TOOL-ID-AREA
 description: "One sentence naming the operations this skill covers. One sentence starting 'Use when' that names the triggers."
 ---
-# 11ai TOOL AREA
+# 11agi TOOL AREA
 
 Version baseline: TOOL VERSION (STATUS), verified YYYY-MM-DD; use only commands, APIs, defaults, and runtime requirements supported by this baseline.
 
@@ -56,14 +56,14 @@ What to re-run, and what the final message must state.
 Fixed details, in the order a reader meets them:
 
 - No blank line between the closing `---` and the H1.
-- The H1 carries the `11ai` prefix: `# 11ai Docker containers`, not `# Docker containers`.
+- The H1 carries the `11agi` prefix: `# 11agi Docker containers`, not `# Docker containers`.
 - The framing paragraph is prose, never a bullet list, and almost always says know your target before you act. Examples in the repository: "Resolve the bucket, key or local path, region, profile, and direction of data flow before running a command"; "Establish exactly which MongoDB deployment will receive a command".
 - Three to five H2 sections, ordered read-only, then change, then verify.
 - Fenced code blocks with a language tag. Placeholders are bare uppercase words: `NAME`, `BUCKET`, `PROFILE`, `SERVICE`, `PORT`, `TARGET`.
 - A closing section that tells the model what to report. Use `## Report`, `## Reporting`, `## Verification`, `## Guardrails`, or `## Review traps` and match the archetype.
 - Aim for 40 to 60 lines. Under 30 means the skill is thin; over 80 means material belongs in `references/`.
 
-Two cosmetic points differ across the older plugins: `antdesign`, `aws`, and `jest` leave a blank line after the frontmatter and drop the `11ai` H1 prefix, and `mongodb` plus half of `nodejs-api` use four-space indented code blocks instead of fences. Write new skills to the canon above; do not copy that drift.
+Two cosmetic points differ across the older plugins: `antdesign`, `aws`, and `jest` leave a blank line after the frontmatter and drop the `11agi` H1 prefix, and `mongodb` plus half of `nodejs-api` use four-space indented code blocks instead of fences. Write new skills to the canon above; do not copy that drift.
 
 ## The description field
 
@@ -81,9 +81,9 @@ Avoid a description that only restates the title. `"Manage containers. Use for c
 
 ```yaml
 interface:
-  display_name: "11ai TOOL Area"
+  display_name: "11agi TOOL Area"
   short_description: "Verb phrase, 25 to 64 characters"
-  default_prompt: "Use $11ai-operator-TOOL-ID-AREA to do the thing and verify the result."
+  default_prompt: "Use $11agi-operator-TOOL-ID-AREA to do the thing and verify the result."
 ```
 
 Three keys, two-space indent, every value double-quoted. `short_description` outside 25 to 64 characters fails the validator, and so does a `default_prompt` missing the literal `$` plus the exact skill name.
@@ -125,7 +125,7 @@ Open with the separation of fact from theory and close by handing off to the env
 
 ### Native skills (conditional)
 
-Search first-party product documentation and publisher-owned repositories for Agent Skills on every new or reviewed plugin. Add `11ai-operator-TOOL-ID-native-skills` only when the publisher actually distributes Agent Skills or a documented CLI installer for them. An MCP server, `llms.txt`, copied prompt, IDE rules file, or community repository does not qualify by itself.
+Search first-party product documentation and publisher-owned repositories for Agent Skills on every new or reviewed plugin. Add `11agi-operator-TOOL-ID-native-skills` only when the publisher actually distributes Agent Skills or a documented CLI installer for them. An MCP server, `llms.txt`, copied prompt, IDE rules file, or community repository does not qualify by itself.
 
 The bridge is a common operator skill, not a vendored copy of upstream content. It must:
 
@@ -137,7 +137,7 @@ The bridge is a common operator skill, not a vendored copy of upstream content. 
 6. Install, update, overwrite, or remove native skills only on explicit request. Review `SKILL.md`, scripts, permissions, and source provenance before enabling execution.
 7. Report source, revision or release, selected skills, destination, agent/scope, technology and SDK versions, and the compatibility result.
 
-This is the one permitted kind of external skill reference: it may reference the technology publisher's native skills, but it must never depend on another `11ai-operator-*` plugin. Keep normal sibling handoffs inside the current plugin.
+This is the one permitted kind of external skill reference: it may reference the technology publisher's native skills, but it must never depend on another `11agi-operator-*` plugin. Keep normal sibling handoffs inside the current plugin.
 
 ### Domain skills
 
@@ -155,12 +155,12 @@ Five rules, restated in each skill's own vocabulary rather than pasted. The plug
 
 ## Cross-references
 
-Name sibling skills in the same plugin so a reader can hand off: "If the tool itself is not healthy, hand off to `11ai-operator-TOOL-ID-environment` before diagnosing application behavior." Keep every named reference inside the plugin — a skill must not depend on another plugin being installed. Troubleshooting and environment skills should always do this. Domain skills should do it whenever a task realistically crosses a boundary, such as building an image and then pushing it. Every sibling reference must use the same versioned `TOOL-ID`.
+Name sibling skills in the same plugin so a reader can hand off: "If the tool itself is not healthy, hand off to `11agi-operator-TOOL-ID-environment` before diagnosing application behavior." Keep every named reference inside the plugin — a skill must not depend on another plugin being installed. Troubleshooting and environment skills should always do this. Domain skills should do it whenever a task realistically crosses a boundary, such as building an image and then pushing it. Every sibling reference must use the same versioned `TOOL-ID`.
 
 ## The plugin README
 
 ```markdown
-# 11ai TOOL operator
+# 11agi TOOL operator
 
 N standalone skills for common TOOL work, with safety checks around state-changing and destructive commands.
 
@@ -168,7 +168,7 @@ N standalone skills for common TOOL work, with safety checks around state-changi
 
 | Skill | Use it for |
 | --- | --- |
-| [`11ai-operator-TOOL-ID-cheatsheet`](./skills/11ai-operator-TOOL-ID-cheatsheet/SKILL.md) | Looking up common commands, flags, and safe patterns |
+| [`11agi-operator-TOOL-ID-cheatsheet`](./skills/11agi-operator-TOOL-ID-cheatsheet/SKILL.md) | Looking up common commands, flags, and safe patterns |
 
 One sentence on combining skills when a task crosses boundaries.
 

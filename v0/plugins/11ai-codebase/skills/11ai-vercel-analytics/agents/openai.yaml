@@ -1,4 +1,4 @@
 interface:
-  display_name: "11ai Vercel Analytics"
+  display_name: "11agi Vercel Analytics"
   short_description: "Add and verify Vercel Web Analytics"
-  default_prompt: "Use $11ai-vercel-analytics to add and verify Vercel Web Analytics in this application."
+  default_prompt: "Use $11agi-vercel-analytics to add and verify Vercel Web Analytics in this application."

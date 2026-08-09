@@ -1,11 +1,11 @@
 ---
-name: 11ai-automation-example
-description: "A complete, generic worked example of the 11ai-automation method (Ledger + Conductor + Routine): an autonomous agent that builds and maintains a library of tested how-to guides, one milestone per scheduled run. Contains a fully filled-in CONDUCTOR.md, a real ledger.json mid-flight, and a runner config — every blank in the conductor template made concrete. Use when the user wants to SEE the pattern instantiated before writing their own, wants a starting point to copy and adapt, or asks \"show me an example agent automation\". For a tailored automation, use 11ai-automation-creator."
+name: 11agi-automation-example
+description: "A complete, generic worked example of the 11agi-automation method (Ledger + Conductor + Routine): an autonomous agent that builds and maintains a library of tested how-to guides, one milestone per scheduled run. Contains a fully filled-in CONDUCTOR.md, a real ledger.json mid-flight, and a runner config — every blank in the conductor template made concrete. Use when the user wants to SEE the pattern instantiated before writing their own, wants a starting point to copy and adapt, or asks \"show me an example agent automation\". For a tailored automation, use 11agi-automation-creator."
 ---
 
 # Worked example — the How-To Guide Library
 
-A runnable instance of the **`11ai-automation`** method in a simple domain:
+A runnable instance of the **`11agi-automation`** method in a simple domain:
 an agent that grows a library of how-to guides (each guide teaches one task,
 e.g. "set up a systemd user timer"), where every command in every guide has
 actually been executed before it ships.

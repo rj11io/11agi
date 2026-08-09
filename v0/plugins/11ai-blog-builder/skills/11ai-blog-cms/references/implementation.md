@@ -16,7 +16,7 @@ Build a Git-managed blog in which publications are editorial channels/series and
 - Content: `Posts` (default) or `Publications`.
 - Layout: `List` (default) or `Cards`.
 
-When `$11ai-blog-authors` is also used, extend the same content control to `Posts | Publications | Authors`; do not create a disconnected author browser.
+When `$11agi-blog-authors` is also used, extend the same content control to `Posts | Publications | Authors`; do not create a disconnected author browser.
 
 Routes:
 
@@ -85,7 +85,7 @@ const allPosts = publications.flatMap((publication) =>
 
 Use one root publication registry, one post registry per publication, and one Markdown module per post.
 
-When creating, importing, or rewriting content records, use `$11ai-blog-content-format` to normalize metadata and Markdown bodies. When the user asks for new editorial material, use `$11ai-blog-content-generation` first, then format the generated result before writing files.
+When creating, importing, or rewriting content records, use `$11agi-blog-content-format` to normalize metadata and Markdown bodies. When the user asks for new editorial material, use `$11agi-blog-content-generation` first, then format the generated result before writing files.
 
 ## 3. Combined library
 
@@ -103,7 +103,7 @@ const contentType = getContentTypeFromSearchParams(searchParams);
 const [viewMode, setViewMode] = useState<ViewMode>("list");
 ```
 
-With `$11ai-blog-authors`:
+With `$11agi-blog-authors`:
 
 ```ts
 type ContentType = "posts" | "publications" | "authors";
@@ -128,7 +128,7 @@ AND-match selected tags. For relevance, publications use `relId`; posts use an e
 
 Publication page: breadcrumb, title, state badges, description/date, posts-default tab, optional synopsis/editor-notes tabs, and a post browser with list/cards defaulting to list.
 
-Post reader: exact param validation, breadcrumb back to combined library and publication, publication label, post metadata, title, safe Markdown, and adjacent posts by index. Strip one leading H1 if the route already renders the title. Use `$11ai-blog-markdown-components` for `react-markdown`/GFM rendering, prose component styles, custom embeds, and renderer/TOC heading parity. Use `$11ai-blog-content-format` to ensure content uses the expected leading-H1/body-heading pattern. Generate SEO metadata from post title/excerpt/image and static params from the registry.
+Post reader: exact param validation, breadcrumb back to combined library and publication, publication label, post metadata, title, safe Markdown, and adjacent posts by index. Strip one leading H1 if the route already renders the title. Use `$11agi-blog-markdown-components` for `react-markdown`/GFM rendering, prose component styles, custom embeds, and renderer/TOC heading parity. Use `$11agi-blog-content-format` to ensure content uses the expected leading-H1/body-heading pattern. Generate SEO metadata from post title/excerpt/image and static params from the registry.
 
 Load and render `content` on the server. Omit `content` from client-side list and card preview payloads when it is not needed there.
 

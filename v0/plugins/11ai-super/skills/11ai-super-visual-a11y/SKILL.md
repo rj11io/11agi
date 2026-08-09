@@ -1,9 +1,9 @@
 ---
-name: 11ai-super-visual-a11y
+name: 11agi-super-visual-a11y
 description: "Audit, fix, and continuously improve the measurable visual accessibility of a project's interface in both light and dark themes, using the running product, computed styles, and objective thresholds. Use when Codex must resolve unreadable or low-contrast text, dark mode or light mode legibility problems, washed-out or hard-to-read theme colors, accent colors that disappear against a background, weak or invisible focus indicators, undersized touch targets, content that clips when text is scaled, missing reduced-motion support, or forced-colors failures. Measures every foreground and background pair in both themes, repairs root causes at the design-token layer, keeps the two themes balanced against the same thresholds, and repeats until both meet a high bar. Excludes aesthetic direction and brand redesign, and honors audit-only requests by reporting measured findings without editing."
 ---
 
-# 11ai Super Visual A11y
+# 11agi Super Visual A11y
 
 ## Mission
 

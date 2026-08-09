@@ -1,9 +1,9 @@
 ---
-name: 11ai-super-security
+name: 11agi-super-security
 description: "Audit, remediate, and harden a software project's security through repeated evidence-based review and verification. Use when Codex needs to perform a security audit or secure-code review, fix vulnerabilities, address critical/high/major security findings, harden authentication, authorization, APIs, dependencies, secrets, deployment configuration, or production-facing web controls, and continue improving the project until it meets a high-confidence security bar. Stops and reports when the change set becomes unmanageable or troubleshooting outweighs progress."
 ---
 
-# 11ai Super Security
+# 11agi Super Security
 
 Audit the project as an attacker and a defender, fix every confirmed critical and high-severity issue within scope, verify each remediation, and repeat with fresh review lenses until the exit criteria are met. Do not equate one clean scanner run with a secure project.
 

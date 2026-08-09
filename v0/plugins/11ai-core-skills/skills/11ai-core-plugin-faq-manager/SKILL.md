@@ -1,10 +1,10 @@
 ---
-name: 11ai-core-plugin-faq-manager
-description: "Analyze an existing 11ai plugin and create or update its FAQ skill: a question router that maps user questions about skill behavior, usage, outputs, and troubleshooting to the plugin's own contracts, references, scripts, and tests, plus a comparison table and glossary the siblings do not carry. Use when asked to add a FAQ skill to a plugin, refresh a plugin FAQ after skills changed, or check that a FAQ still covers its plugin."
+name: 11agi-core-plugin-faq-manager
+description: "Analyze an existing 11agi plugin and create or update its FAQ skill: a question router that maps user questions about skill behavior, usage, outputs, and troubleshooting to the plugin's own contracts, references, scripts, and tests, plus a comparison table and glossary the siblings do not carry. Use when asked to add a FAQ skill to a plugin, refresh a plugin FAQ after skills changed, or check that a FAQ still covers its plugin."
 ---
-# 11ai meta plugin FAQ manager
+# 11agi meta plugin FAQ manager
 
-Build or update a `11ai-<plugin-short>-faq` skill inside an existing plugin. The FAQ is a
+Build or update a `11agi-<plugin-short>-faq` skill inside an existing plugin. The FAQ is a
 router, not a copy: it answers questions by reading the plugin's own files and citing them,
 and it owns only the synthesis the siblings do not carry. Read
 [references/faq-blueprint.md](references/faq-blueprint.md) for the exact shape before
@@ -36,7 +36,7 @@ agent can already find headings.
 Lay out the skill per the blueprint:
 
 ```text
-v0/plugins/<plugin>/skills/11ai-<plugin-short>-faq/
+v0/plugins/<plugin>/skills/11agi-<plugin-short>-faq/
   SKILL.md
   agents/openai.yaml
 ```

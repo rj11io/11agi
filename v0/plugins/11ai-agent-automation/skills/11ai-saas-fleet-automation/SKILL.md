@@ -1,11 +1,11 @@
 ---
-name: 11ai-saas-fleet-automation
-description: "Ready-made agent automation for building a fleet of real SaaS products, one milestone per scheduled run, on the 11ai-automation method (Ledger + Conductor + Routine). Includes the SaaS state machine (scoping → building per-milestone → hardening → shipping → done), a five-probe DEPTH BAR that blocks static brochure-ware from ever counting as done (real user input, real persistence round-trip, real interactivity, a live data path, honest copy), anti-theater hardening rules, and the payments boundary (pricing is real, checkout does not exist). Use when the user wants an autonomous, cron-driven agent that researches, builds, and ships MANY SaaS products/POCs/MVPs unattended. To tailor a new fleet to a specific niche via an interview, use 11ai-saas-fleet-automation-creator instead. To pour every tick into ONE product at production depth, use 11ai-single-saas-automation instead."
+name: 11agi-saas-fleet-automation
+description: "Ready-made agent automation for building a fleet of real SaaS products, one milestone per scheduled run, on the 11agi-automation method (Ledger + Conductor + Routine). Includes the SaaS state machine (scoping → building per-milestone → hardening → shipping → done), a five-probe DEPTH BAR that blocks static brochure-ware from ever counting as done (real user input, real persistence round-trip, real interactivity, a live data path, honest copy), anti-theater hardening rules, and the payments boundary (pricing is real, checkout does not exist). Use when the user wants an autonomous, cron-driven agent that researches, builds, and ships MANY SaaS products/POCs/MVPs unattended. To tailor a new fleet to a specific niche via an interview, use 11agi-saas-fleet-automation-creator instead. To pour every tick into ONE product at production depth, use 11agi-single-saas-automation instead."
 ---
 
 # SaaS Fleet Automation — many real products, one milestone per tick
 
-Drop-in lifecycle for the **`11ai-automation`** conductor when the work item
+Drop-in lifecycle for the **`11agi-automation`** conductor when the work item
 is a SaaS product. One item = one product; each scheduled run ships one
 milestone of one product; a product finishes in **6–10 ticks**, and each tick
 adds something a user can actually do.
@@ -70,7 +70,7 @@ One tick produces `products/<id>/docs/spec.md`:
   criteria. Milestone 1 already does the core job on real input.
 - **Data plan** naming the real source for milestone 1 (per probe 4).
 
-Human-seeded ideas (added with **`11ai-automation-seed`**) are scoped before
+Human-seeded ideas (added with **`11agi-automation-seed`**) are scoped before
 the agent researches its own: build the spec from the `seed`, honor its
 constraints, never rewrite it.
 

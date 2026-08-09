@@ -1,5 +1,5 @@
 ---
-name: 11ai-ai-chat-ui-ux
+name: 11agi-ai-chat-ui-ux
 description: "The UX feature set and layout patterns for a polished AI chat surface — hint-chip empty state, message bubbles, thinking indicator, dismissible errors, sessions sidebar with pin/rename/delete, mobile fallback, scroll/focus behavior. Use when building or reviewing an AI chat UI."
 ---
 
@@ -81,7 +81,7 @@ Pulsing avatar + "Thinking..." bubble, shown only while loading **and** before a
 
 - Sticky to the bottom of the chat column (`border-t` + padding), form with text input + icon send button.
 - Disable input *and* send while streaming; also disable send when the input is blank.
-- Refocus the input automatically when streaming ends (rAF after re-enable — see `11ai-ai-chat-client-hooks`).
+- Refocus the input automatically when streaming ends (rAF after re-enable — see `11agi-ai-chat-client-hooks`).
 
 ## Error banner
 
@@ -119,7 +119,7 @@ Below `lg`, the sidebar disappears; a compact toolbar above the chat shows a "Ne
 
 - Auto-scroll to bottom on new visible message or loading change (rAF-wrapped).
 - New chat from anywhere → switches immediately to the fresh, empty session (hint chips show again).
-- First message triggers auto-titling (see `11ai-ai-chat-autotitle`); sidebar title updates in place when it lands.
+- First message triggers auto-titling (see `11agi-ai-chat-autotitle`); sidebar title updates in place when it lands.
 - Deleting the active session falls back to the next session or a fresh one — never an empty dead state.
 - First visit with zero sessions auto-creates an empty session → hint screen shows immediately ("Loading chat..." placeholder only while that resolves).
 - Brand the assistant (avatar, name in the empty state heading and input placeholder) — it reads as a product feature, not a widget.

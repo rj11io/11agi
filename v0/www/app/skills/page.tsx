@@ -6,7 +6,7 @@ import { getPlugins, getSkills } from "@/lib/skills"
 export const metadata: Metadata = {
   title: "Skill catalog",
   description:
-    "Browse every 11ai skill: search by name or purpose and filter by plugin.",
+    "Browse every 11agi skill: search by name or purpose and filter by plugin.",
 }
 
 export default function SkillsPage() {

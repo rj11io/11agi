@@ -1,6 +1,6 @@
-# TOC scaffold from latest 11ai
+# TOC scaffold from latest 11agi
 
-Use these snippets when recreating the current 11ai implementation. Adapt class names and paths to the host.
+Use these snippets when recreating the current 11agi implementation. Adapt class names and paths to the host.
 
 ## Shared AST heading helpers
 
@@ -55,7 +55,7 @@ export function extractMarkdownHeadings(content: string): MarkdownHeading[] {
 }
 ```
 
-For a deliberately line-oriented renderer, use the fence-aware fallback from [implementation.md](implementation.md). For current 11ai-style `react-markdown` blogs, prefer this AST helper so renderer IDs and TOC extraction share Markdown/GFM parsing.
+For a deliberately line-oriented renderer, use the fence-aware fallback from [implementation.md](implementation.md). For current 11agi-style `react-markdown` blogs, prefer this AST helper so renderer IDs and TOC extraction share Markdown/GFM parsing.
 
 ## Client TOC behavior
 

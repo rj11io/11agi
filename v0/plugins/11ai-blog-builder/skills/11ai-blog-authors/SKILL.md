@@ -1,18 +1,18 @@
 ---
-name: 11ai-blog-authors
+name: 11agi-blog-authors
 description: "Add or retrofit white-label blog author features: author metadata and tags, multi-author post attribution, resolved author previews, post-page bylines, clickable author profile/detail pages, author post indexes, library Authors browse tabs, avatar or initials fallbacks, metadata/SEO, validation, and tests. Use when creating, recreating, repairing, or auditing author profiles, contributor pages, author filtering, bylines, author slugs, or many-to-many author/post relationships in a file-backed, CMS-backed, Markdown, MDX, rich-text, React, Next.js, or other web blog."
 ---
 
-# 11ai Blog Authors
+# 11agi Blog Authors
 
-Implement the author system contract in [references/implementation.md](references/implementation.md). For a 11ai-style rebuild, also use [references/scaffold.md](references/scaffold.md). Read the relevant reference before changing application code.
+Implement the author system contract in [references/implementation.md](references/implementation.md). For a 11agi-style rebuild, also use [references/scaffold.md](references/scaffold.md). Read the relevant reference before changing application code.
 
 ## Workflow
 
 1. Inspect the target's agent instructions, framework version, local framework documentation, content source, blog routes, post model, list/card components, existing author images, styling conventions, and tests. For version-sensitive frameworks such as Next.js, read the installed version's relevant documentation before coding.
 2. Identify the canonical post source and add author attribution there. Prefer stable `authorIds` on posts and a separate author registry over duplicating author objects across posts.
 3. Define the author contract: ID/slug policy, name, display name or initials, bio, tags, avatar, links, optional role/location fields, and which fields appear in previews.
-4. When creating or normalizing author profile copy, use `$11ai-blog-content-format`; when generating placeholder or requested author bios, use `$11ai-blog-content-generation` and clearly report placeholders.
+4. When creating or normalizing author profile copy, use `$11agi-blog-content-format`; when generating placeholder or requested author bios, use `$11agi-blog-content-generation` and clearly report placeholders.
 5. Resolve authors centrally in the content registry or data access layer. Blog list cards, post pages, author pages, metadata, and tests should all consume the same resolved author view.
 6. Add validation for author IDs, duplicate author records, missing required fields, malformed links, empty `authorIds`, duplicate post authors, and unknown author references.
 7. Render accessible bylines on post pages. Support one or many authors, link each author to a profile page, and use an avatar with an initials fallback.

@@ -16,7 +16,7 @@ export function SiteFooter() {
       <div className="mx-auto grid w-full max-w-6xl gap-10 px-4 py-12 sm:grid-cols-2 sm:px-6 lg:grid-cols-4">
         <div className="space-y-3 sm:col-span-2">
           <p className="font-mono text-sm font-semibold">
-            <span className="text-muted-foreground">~/</span>11ai
+            <span className="text-muted-foreground">~/</span>11agi
           </p>
           <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
             Reusable skills for AI coding agents. Playbooks your agent reads to

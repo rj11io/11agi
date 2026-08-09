@@ -1,9 +1,9 @@
 ---
-name: 11ai-core-reports-styleguide
+name: 11agi-core-reports-styleguide
 description: "The house styleguide for generated, self-contained HTML reports: canonical design tokens with a dark default and a light toggle, embedded Inter and Geist Mono fonts with cross-platform fallback stacks, collapsed-disclosure section structure, and a table interaction contract covering descending-first sorting, multi-row click highlighting that survives sorting, and column resizing down to zero width, none of it persisting across reloads. Ships copyable tokens.css and fonts.css, a complete working report-template.html, the interaction spec with its known failure modes, and a regression checklist against previous generations. Use when building, styling, restyling, or reviewing a generated HTML or markdown report, or when asked to apply the house report style."
 ---
 
-# 11ai Core Reports Styleguide
+# 11agi Core Reports Styleguide
 
 The canon for every generated report. Reports are immutable artifacts: styled
 once at generation, self-contained forever, identical on every open.

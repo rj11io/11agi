@@ -1,11 +1,11 @@
 ---
-name: 11ai-blog-content-generation
-description: "Generate user-requested editorial blog content in the 11ai blog format: publication ideas, posts, series, author profiles, titles, excerpts, tags, slugs, Markdown bodies, code examples, tables, images/link placeholders, YouTube embeds, and metadata ready for the 11ai file-backed blog content model. Use when asked to draft, create, brainstorm, expand, rewrite, or seed blog content that should fit an 11ai blog."
+name: 11agi-blog-content-generation
+description: "Generate user-requested editorial blog content in the 11agi blog format: publication ideas, posts, series, author profiles, titles, excerpts, tags, slugs, Markdown bodies, code examples, tables, images/link placeholders, YouTube embeds, and metadata ready for the 11agi file-backed blog content model. Use when asked to draft, create, brainstorm, expand, rewrite, or seed blog content that should fit an 11agi blog."
 ---
 
-# 11ai Blog Content Generation
+# 11agi Blog Content Generation
 
-Generate content using [references/generation-contract.md](references/generation-contract.md), then apply `$11ai-blog-content-format` before final delivery or file edits.
+Generate content using [references/generation-contract.md](references/generation-contract.md), then apply `$11agi-blog-content-format` before final delivery or file edits.
 
 ## Workflow
 
@@ -18,8 +18,8 @@ Generate content using [references/generation-contract.md](references/generation
    - author IDs from the existing registry when available;
    - `created` date when requested or clearly needed, plus optional `updated` only for material revisions;
    - normalized tags;
-   - Markdown body in the expected 11ai format.
-4. Use `$11ai-blog-content-format` to normalize the output before writing files or returning content.
+   - Markdown body in the expected 11agi format.
+4. Use `$11agi-blog-content-format` to normalize the output before writing files or returning content.
 5. If facts matter, ask for source material or clearly mark placeholders. Do not fabricate real-world claims, quotes, citations, author biographies, or external links.
 6. If writing files, update registries/imports/tests in the smallest project-consistent way and run relevant checks.
 

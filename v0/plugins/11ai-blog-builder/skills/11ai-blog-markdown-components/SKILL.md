@@ -1,18 +1,18 @@
 ---
-name: 11ai-blog-markdown-components
+name: 11agi-blog-markdown-components
 description: "Build or retrofit a polished blog Markdown renderer using react-markdown, remark-gfm, deterministic heading IDs, TOC-aligned heading extraction, fenced code blocks with language metadata, internal/external link handling, images, tables, task lists, YouTube embeds, a Markdown components demo page, and tests. Use when adding, recreating, repairing, or auditing Markdown/MDX-like blog prose rendering, rich Markdown components, GFM support, custom embeds, or renderer/TOC parity in React, Next.js, or another web blog."
 ---
 
-# 11ai Blog Markdown Components
+# 11agi Blog Markdown Components
 
-Implement the Markdown renderer contract in [references/implementation.md](references/implementation.md). For a 11ai-style rebuild, also use [references/scaffold.md](references/scaffold.md). Read the relevant reference before changing application code.
+Implement the Markdown renderer contract in [references/implementation.md](references/implementation.md). For a 11agi-style rebuild, also use [references/scaffold.md](references/scaffold.md). Read the relevant reference before changing application code.
 
 ## Workflow
 
 1. Inspect the target's agent instructions, framework version, local framework docs, current Markdown/rich-text renderer, TOC extraction, content model, route conventions, image pipeline, styling tokens, and tests.
 2. Replace fragile line parsers with `react-markdown` plus `remark-gfm` for normal Markdown. Add explicit custom extensions only for intentionally supported embed syntax.
 3. Define one heading contract shared by renderer and TOC extraction: levels, visible labels, slug policy, duplicate handling, skipped levels, code-fence behavior, and scroll offset.
-4. Use `$11ai-blog-content-format` to document and enforce the authoring shape expected by the renderer, including leading H1 handling and supported Markdown components.
+4. Use `$11agi-blog-content-format` to document and enforce the authoring shape expected by the renderer, including leading H1 handling and supported Markdown components.
 5. Render polished components for headings, paragraphs, emphasis, inline code, blockquotes, lists, nested lists, horizontal rules, tables, fenced code blocks, links, images, and task lists.
 6. Handle links intentionally: same-site paths use the host router/link component; external HTTP(S) links use normal anchors with `target="_blank"` and `rel="noopener noreferrer"`.
 7. Add a clear YouTube convention. Prefer `@[youtube](VIDEO_ID)` and optionally support standalone YouTube URLs only when the product wants that behavior.

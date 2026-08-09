@@ -1,4 +1,4 @@
-# 11ai design foundations
+# 11agi design foundations
 
 ## Visual character
 

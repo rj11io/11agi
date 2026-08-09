@@ -28,7 +28,7 @@ export default function Page() {
   const plugins = getPlugins()
   const skillCount = getSkillCount()
   const version = getPackageVersion()
-  const exampleSkill = getSkill("11ai-pragmatic")
+  const exampleSkill = getSkill("11agi-pragmatic")
 
   return (
     <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
@@ -119,7 +119,7 @@ export default function Page() {
                   <>
                     Say{" "}
                     <em>
-                      &ldquo;Use 11ai-ai-chat-stack to add a chat surface to
+                      &ldquo;Use 11agi-ai-chat-stack to add a chat surface to
                       this app&rdquo;
                     </em>{" "}
                     — the agent loads the matching playbook.
@@ -158,7 +158,7 @@ export default function Page() {
                   </span>
                 </p>
                 <p className="text-muted-foreground">---</p>
-                <p className="pt-1 font-semibold"># 11ai Pragmatic</p>
+                <p className="pt-1 font-semibold"># 11agi Pragmatic</p>
                 <p className="text-muted-foreground">
                   The short register. Reading speed beats polish…
                 </p>
@@ -184,7 +184,7 @@ export default function Page() {
             Install as plugins in Claude Code or Codex
           </h2>
           <p className="leading-relaxed text-muted-foreground">
-            Add the 11ai marketplace once, then install any plugin from it by
+            Add the 11agi marketplace once, then install any plugin from it by
             name. Every plugin page shows its exact install command.
           </p>
           <div className="space-y-3 text-left">
@@ -194,11 +194,11 @@ export default function Page() {
           <p className="text-sm leading-relaxed text-muted-foreground">
             Then install a plugin, for example{" "}
             <code className="rounded bg-muted px-1.5 py-0.5 font-mono text-xs">
-              claude plugin install 11ai-benchmarks@11ai
+              claude plugin install 11agi-benchmarks@11agi
             </code>{" "}
             or{" "}
             <code className="rounded bg-muted px-1.5 py-0.5 font-mono text-xs">
-              codex plugin add 11ai-benchmarks@11ai
+              codex plugin add 11agi-benchmarks@11agi
             </code>
             .
           </p>

@@ -1,12 +1,12 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
-  "name": "11ai-audit",
-  "version": "1.37.0",
+  "name": "11agi-audit",
+  "version": "0.0.0",
   "description": "Evidence-backed, read-only dependency audits for vulnerabilities, malware, and host-computer risks.",
   "author": {
     "name": "rj11io"
   },
-  "repository": "https://github.com/rj11io/11ai",
+  "repository": "https://github.com/rj11io/11agi",
   "license": "Apache-2.0",
   "skills": "./skills/",
   "keywords": [

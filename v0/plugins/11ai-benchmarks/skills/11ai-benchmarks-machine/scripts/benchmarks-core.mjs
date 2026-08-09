@@ -1,4 +1,4 @@
-// Shared core for the 11ai-benchmarks analyzers. One copy per reporting skill,
+// Shared core for the 11agi-benchmarks analyzers. One copy per reporting skill,
 // kept byte-identical by v0/scripts/check-benchmarks-drift.mjs. Per-run state and
 // the two per-skill functions (baseThread, sourceLabel) are injected via initCore.
 

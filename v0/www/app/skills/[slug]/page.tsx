@@ -93,7 +93,7 @@ export default async function SkillPage({
       </div>
 
       <TerminalBlock
-        command={`npx skills add rj11io/11ai --skill ${skill.name}`}
+        command={`npx skills add rj11io/11agi --skill ${skill.name}`}
         className="mb-12"
       />
 

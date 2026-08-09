@@ -1,9 +1,9 @@
 ---
-name: 11ai-core-www-styleguides
+name: 11agi-core-www-styleguides
 description: "Apply the house web design language to a Next.js application built with shadcn components and Tailwind CSS v4: oklch design tokens in light and dark modes, square corners with hairline borders, a single accent family with a five-step chart ramp, Inter and Geist Mono via next/font variables, next-themes with a system default and a d hotkey, and dual-theme code highlighting. Tokens and fonts are user-parameterized: whatever the user specifies is kept, missing tokens and fonts are generated as balanced equivalents, a single accent expands into a full palette, a one-mode palette derives its counterpart with contrast gates enforced, and the bundled defaults apply when nothing is specified. Use when styling, theming, or restyling a Next.js and shadcn application, generating design tokens from a brand color, or asked to apply the house www style."
 ---
 
-# 11ai Core WWW Styleguides
+# 11agi Core WWW Styleguides
 
 The house design language for web applications, parameterized by whatever the
 user brings. Precedence, always:

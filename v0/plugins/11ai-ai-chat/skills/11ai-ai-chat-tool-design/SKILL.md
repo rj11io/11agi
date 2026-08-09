@@ -1,5 +1,5 @@
 ---
-name: 11ai-ai-chat-tool-design
+name: 11agi-ai-chat-tool-design
 description: "Design AI SDK tool sets that ground a chat assistant in a dataset — search/detail tool pairs, Zod schemas, output projection, and a token-lean \"mini\" tool-set variant. Use when adding or changing tools for an AI chat or agent endpoint."
 ---
 

@@ -1,5 +1,5 @@
 ---
-name: 11ai-ai-chat-client-hooks
+name: 11agi-ai-chat-client-hooks
 description: "Client-side wiring of @ai-sdk/react useChat — transport setup, per-session remounting, restoring history, persisting on stream completion, and the ref guards that prevent duplicate saves/titles/focus bugs. Use when building or debugging the React side of an AI chat."
 ---
 
@@ -57,7 +57,7 @@ useEffect(() => {
 }, [messages, isLoading, onMessagesChange])
 ```
 
-`onMessagesChange` upstream writes the full `UIMessage[]` to whatever persistence layer is in use (see `11ai-ai-chat-session-mgmt`).
+`onMessagesChange` upstream writes the full `UIMessage[]` to whatever persistence layer is in use (see `11agi-ai-chat-session-mgmt`).
 
 ## Fire side effects exactly once — ref guards
 
@@ -72,7 +72,7 @@ function handleSubmit(text: string) {
 
   if (messages.length === 0 && !titleRequestedRef.current) {
     titleRequestedRef.current = true
-    onFirstMessageSent(trimmed)   // fire-and-forget (see 11ai-ai-chat-autotitle)
+    onFirstMessageSent(trimmed)   // fire-and-forget (see 11agi-ai-chat-autotitle)
   }
 
   sendMessage({ text: trimmed })
@@ -80,7 +80,7 @@ function handleSubmit(text: string) {
 }
 ```
 
-To send per-request fields (e.g. the selected model when supporting multiple models — see `11ai-ai-chat-multiple-models`), use `sendMessage`'s options instead of the transport config, so the value is read live at send time:
+To send per-request fields (e.g. the selected model when supporting multiple models — see `11agi-ai-chat-multiple-models`), use `sendMessage`'s options instead of the transport config, so the value is read live at send time:
 
 ```tsx
 sendMessage({ text: trimmed }, { body: { modelId: selectedModelId } })

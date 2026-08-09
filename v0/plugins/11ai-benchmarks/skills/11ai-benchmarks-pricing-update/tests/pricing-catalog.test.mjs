@@ -11,9 +11,9 @@ const skillRoot = dirname(testDir)
 const skillsRoot = dirname(skillRoot)
 const canonicalPath = resolve(skillRoot, "references/pricing.json")
 const targetPaths = [
-  resolve(skillsRoot, "11ai-benchmarks-project/references/pricing.json"),
-  resolve(skillsRoot, "11ai-benchmarks-machine/references/pricing.json"),
-  resolve(skillsRoot, "11ai-benchmarks-single-thread/references/pricing.json"),
+  resolve(skillsRoot, "11agi-benchmarks-project/references/pricing.json"),
+  resolve(skillsRoot, "11agi-benchmarks-machine/references/pricing.json"),
+  resolve(skillsRoot, "11agi-benchmarks-single-thread/references/pricing.json"),
 ]
 
 function catalog(path) {
@@ -75,7 +75,7 @@ test("catalog validator succeeds without rewriting files", () => {
 })
 
 test("catalog validator rejects shadowed patterns and unofficial sources", () => {
-  const fixture = mkdtempSync(join(tmpdir(), "11ai-pricing-validation-"))
+  const fixture = mkdtempSync(join(tmpdir(), "11agi-pricing-validation-"))
   try {
     const seed = join(fixture, "pricing.json")
     writeFileSync(seed, JSON.stringify({

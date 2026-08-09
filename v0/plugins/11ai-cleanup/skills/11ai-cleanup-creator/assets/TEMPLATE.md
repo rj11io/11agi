@@ -1,9 +1,9 @@
 ---
-name: 11ai-cleanup-<TARGET>
+name: 11agi-cleanup-<TARGET>
 description: "Scan for idle, hanging, or abandoned <RESOURCE>, report what's found in a compact table, ask the user which ones to clean up, then remove only what they picked. Use whenever the user wants to clean up <RESOURCE>, asks <TRIGGER PHRASES — include the real-world complaints, e.g. 'disk almost full', 'too many stale X'>, even if they only mention a single item."
 ---
 
-# 11ai Cleanup <Target>
+# 11agi Cleanup <Target>
 
 ## Overview
 
