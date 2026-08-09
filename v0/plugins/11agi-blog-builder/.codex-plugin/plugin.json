@@ -1,6 +1,6 @@
 {
   "name": "11agi-blog-builder",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Build file-backed editorial blogs with composable CMS, author, Markdown, content, navigation, and UI skills.",
   "author": {
     "name": "rj11io"
