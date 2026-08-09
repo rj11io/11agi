@@ -497,6 +497,7 @@ function validateProjectIdentity(plugins, skills) {
     { value: "a" + "i.rj11.io", label: "legacy project domain" },
     { value: "a" + "i\\.rj11\\.io", label: "escaped legacy project domain" },
   ]
+  const generatedContentFiles = new Set(["CHANGELOG.md"])
   const listed = spawnSync(
     "git",
     ["ls-files", "-co", "--exclude-standard", "-z"],
@@ -512,6 +513,7 @@ function validateProjectIdentity(plugins, skills) {
     for (const { value, label } of forbidden) {
       if (relative.includes(value)) fail(file, `path contains ${label}`)
     }
+    if (generatedContentFiles.has(relative)) continue
     const raw = fs.readFileSync(file)
     if (raw.includes(0)) continue
     const text = raw.toString("utf8")
