@@ -2,7 +2,7 @@
   "name": "@rj11io/11agi",
   "version": "0.0.1",
   "private": false,
-  "description": "Open source AGI skills, plugins, and workflows",
+  "description": "Open source general AI skills, plugins, and workflows",
   "main": "v0/index.js",
   "files": [
     "v0/index.js",
