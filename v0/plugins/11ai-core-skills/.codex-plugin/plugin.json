@@ -1,0 +1,37 @@
+{
+  "name": "11ai-core-skills",
+  "version": "1.37.0",
+  "description": "Skills for building, auditing, and maintaining other skills and the plugins that package them, plus general-purpose utilities: guidance compression, repository reverse-engineering, a pragmatic communication register, and a blunt read-only critique.",
+  "author": {
+    "name": "rj11io"
+  },
+  "repository": "https://github.com/rj11io/11ai",
+  "homepage": "https://ai.rj11.io/plugins/core-skills",
+  "license": "Apache-2.0",
+  "skills": "./skills/",
+  "keywords": [
+    "core",
+    "skill-authoring",
+    "packaging",
+    "validation",
+    "tooling",
+    "compression",
+    "reverse-engineering",
+    "communication",
+    "critique"
+  ],
+  "interface": {
+    "displayName": "11ai Core Skills",
+    "shortDescription": "Build, audit, and maintain other skills.",
+    "longDescription": "Skills whose subject is skills: authoring a new one, auditing frontmatter and packaging across harnesses, wiring a plugin into the marketplace and catalogs, and keeping counts, manifests, and cross-skill copies in sync as the collection grows. Also includes general-purpose utilities: compressing guidance text, reverse engineering an existing repository, a pragmatic short-answer communication register, and a blunt read-only critique of any work product.",
+    "developerName": "rj11io",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read",
+      "Write",
+      "Developer Tools"
+    ],
+    "websiteURL": "https://ai.rj11.io/plugins/core-skills",
+    "defaultPrompt": "Help me use the 11ai-core-skills skills to author or audit a skill in this collection."
+  }
+}

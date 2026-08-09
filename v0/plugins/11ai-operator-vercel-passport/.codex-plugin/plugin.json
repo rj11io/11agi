@@ -1,0 +1,33 @@
+{
+  "name": "11ai-operator-vercel-passport",
+  "version": "1.37.0",
+  "description": "Modular, safety-first skills for common Vercel Passport operations.",
+  "author": {
+    "name": "rj11io"
+  },
+  "repository": "https://github.com/rj11io/11ai",
+  "homepage": "https://ai.rj11.io/plugins/operator-vercel-passport",
+  "license": "Apache-2.0",
+  "keywords": [
+    "vercel",
+    "passport",
+    "oidc",
+    "deployment-protection",
+    "enterprise"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "11ai Operator Vercel Passport",
+    "shortDescription": "Protect Vercel deployments with enterprise identity.",
+    "longDescription": "A standalone toolbox for Vercel Passport provider applications, project and team protection, visitor identity, sessions, audits, integrations, and troubleshooting.",
+    "developerName": "rj11io",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read",
+      "Write",
+      "Troubleshoot"
+    ],
+    "websiteURL": "https://ai.rj11.io/plugins/operator-vercel-passport",
+    "defaultPrompt": "Help me use the 11ai-operator-vercel-passport skills for this Vercel Passport task."
+  }
+}

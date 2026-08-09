@@ -1,0 +1,37 @@
+{
+  "name": "11ai-blog-builder",
+  "version": "1.37.0",
+  "description": "Build file-backed editorial blogs with composable CMS, author, Markdown, content, navigation, and UI skills.",
+  "author": {
+    "name": "rj11io"
+  },
+  "repository": "https://github.com/rj11io/11ai",
+  "homepage": "https://ai.rj11.io/plugins/blog-builder",
+  "license": "Apache-2.0",
+  "keywords": [
+    "blog",
+    "cms",
+    "markdown",
+    "editorial",
+    "content",
+    "navigation",
+    "ui",
+    "marketing-page",
+    "publications"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "11ai Blog Builder",
+    "shortDescription": "Build file-backed editorial blogs from skills.",
+    "longDescription": "Build file-backed editorial blogs with composable CMS, author, Markdown, content, navigation, and UI skills, keeping every post and setting in reviewable files.",
+    "developerName": "rj11io",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read",
+      "Write",
+      "Developer Tools"
+    ],
+    "websiteURL": "https://ai.rj11.io/plugins/blog-builder",
+    "defaultPrompt": "Help me build an editorial blog with the 11ai-blog-builder skills."
+  }
+}

@@ -1,0 +1,79 @@
+---
+name: 11ai-npm-publishing
+description: "Prepare, publish, and automate releases for npm packages, especially scoped packages that need package.json fixes, publish scripts, npm dry-run checks, `.env`-managed `NPM_TOKEN` handling, npm org token setup, GitHub Actions secrets, semantic-release workflows, npmjs.org publishing, GitHub Packages publishing, GitHub Releases, or release troubleshooting. Use when Codex needs to make a repo publish-ready, verify what npm will ship, configure automated publishing, or diagnose failures involving package contents, registry auth, 2FA, tokens, tags, changelogs, GitHub Actions, or semantic-release."
+---
+
+# Npm Publishing
+
+## Overview
+
+Use this skill to make a repo publish-ready and to publish it safely with a short, repeatable workflow.
+
+Prefer the smallest set of changes that gets the package publishable. Keep package contents explicit, verify the tarball before publish, and treat auth and org permissions as separate from package configuration.
+
+## Workflow
+
+1. Inspect the package root.
+   Read `package.json`, check the intended entry point, and inspect the folders that should ship.
+   If `semantic-release` is configured, check for a dedicated release config file such as `.releaserc.js` and treat that as the source of truth over older inline config examples.
+
+2. Align package metadata with the intended publish target.
+   Ensure the scoped package name is correct.
+   Set `"private": false` when the package must publish.
+   Add `"publishConfig": { "access": "public" }` for public scoped packages.
+   Set `main` or `exports` to a real entry file.
+   Add a `files` array when the package should publish only selected paths.
+
+3. Protect secrets and local publish config.
+   Ignore `.env` files in `.gitignore`.
+   Prefer reading `NPM_TOKEN` from a local `.env` file instead of hardcoding credentials in `package.json`.
+
+4. Add or update repo-local publish commands.
+   If the repo needs a reusable publish flow, add a small Node script rather than a long inline one-liner in `package.json`.
+   Keep the script at a stable path such as `./scripts/publish-public-w-local-token.cjs`.
+   Prefer a temporary npm config file over passing the token on the command line.
+   Use the helper at [scripts/publish-with-local-token.cjs](./scripts/publish-with-local-token.cjs) as the starting point when the repo does not already have its own version.
+
+5. Verify publish contents before release.
+   Run `npm pack --dry-run` or the repo's equivalent script.
+   Confirm the tarball includes the intended files and excludes local secrets or unrelated workspace files.
+
+6. Choose the publish mode.
+   For one-off local publishing, use a repo-local helper that reads `NPM_TOKEN` from `.env`.
+   For automated publishing from GitHub, prefer `semantic-release` on pushes to `main`.
+   Do not configure npm caching in `actions/setup-node` for the release workflow.
+   When the repo already uses `semantic-release`, preserve the existing config shape, plugin order, and workflow naming unless the user explicitly wants a migration.
+
+7. Publish.
+   For scoped public packages, use `npm publish --access public`.
+   If the repo uses a local token helper, ensure `.env` contains `NPM_TOKEN=...` first.
+   If the repo uses `semantic-release`, ensure the workflow has `GITHUB_TOKEN` and an `NPM_TOKEN` secret available.
+   In GitHub Actions, prefer setting both `NPM_TOKEN` and `NODE_AUTH_TOKEN` to the same npm secret for npm auth checks and release steps, since npm CLI auth in CI often resolves through `NODE_AUTH_TOKEN` while `@semantic-release/npm` expects `NPM_TOKEN`.
+
+8. Troubleshoot failures by category.
+   For package-content issues, revisit `main`, `exports`, and `files`.
+   For 403 errors, separate "wrong credentials" from "org requires 2FA or bypass-enabled token."
+   For npm `E401 Unauthorized` during `npm whoami` or `@semantic-release/npm` verify, confirm the workflow environment secret name matches the job `environment`, confirm the secret contains the raw token only, and confirm the workflow exposes the token in the variable name the active tool actually reads.
+   For local permission or shell issues, inspect the execution environment before changing npm config.
+   For automated releases that do not trigger, inspect branch filters, workflow permissions, and commit message format.
+   For GitHub Actions output-dependent steps, avoid inline shell strings that embed JavaScript template literals with backticks. Prefer shell-safe `echo >> "$GITHUB_OUTPUT"` or heredoc patterns so downstream `if:` checks receive the expected outputs.
+   If `@semantic-release/github` throws a secondary failure while reporting an npm auth error, make `repositoryUrl` explicit and consider disabling fail comments so the real npm problem remains visible.
+   For `semantic-release` trying to publish `1.0.0` for an already-published package, bootstrap the repo with the existing published version tag before rerunning release automation.
+
+## Quick Checks
+
+- Entry file exists at the path named by `main` or `exports`
+- `files` includes the paths that should ship
+- `publishConfig.access` is `"public"` for public scoped packages
+- `.env` is ignored by git
+- `npm pack --dry-run` output looks correct
+- Active npm account or token has permission to publish under the target scope
+
+## References
+
+Read [references/publish-checklist.md](./references/publish-checklist.md) for a concise pre-publish checklist and common failure modes.
+Read [references/semantic-release.md](./references/semantic-release.md) when the repo should publish automatically from GitHub Actions.
+
+## Scripts
+
+Use [scripts/publish-with-local-token.cjs](./scripts/publish-with-local-token.cjs) as a reusable template when a repo needs to publish with `NPM_TOKEN` stored in a root `.env` on Windows, macOS, or Linux.

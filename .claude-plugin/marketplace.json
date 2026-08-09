@@ -1,0 +1,202 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "11ai",
+  "owner": {
+    "name": "rj11io"
+  },
+  "description": "AI-agent skills packaged as plugins by workflow.",
+  "plugins": [
+    {
+      "name": "11ai-agent-automation",
+      "source": "./v0/plugins/11ai-agent-automation"
+    },
+    {
+      "name": "11ai-ai-chat",
+      "source": "./v0/plugins/11ai-ai-chat"
+    },
+    {
+      "name": "11ai-operator-antdesign-v6",
+      "source": "./v0/plugins/11ai-operator-antdesign-v6"
+    },
+    {
+      "name": "11ai-operator-aws-cli-v2",
+      "source": "./v0/plugins/11ai-operator-aws-cli-v2"
+    },
+    {
+      "name": "11ai-benchmarks",
+      "source": "./v0/plugins/11ai-benchmarks"
+    },
+    {
+      "name": "11ai-blog-builder",
+      "source": "./v0/plugins/11ai-blog-builder"
+    },
+    {
+      "name": "11ai-cleanup",
+      "source": "./v0/plugins/11ai-cleanup"
+    },
+    {
+      "name": "11ai-codebase",
+      "source": "./v0/plugins/11ai-codebase"
+    },
+    {
+      "name": "11ai-directors",
+      "source": "./v0/plugins/11ai-directors"
+    },
+    {
+      "name": "11ai-core-skills",
+      "source": "./v0/plugins/11ai-core-skills"
+    },
+    {
+      "name": "11ai-operator-docker",
+      "source": "./v0/plugins/11ai-operator-docker"
+    },
+    {
+      "name": "11ai-operator-git",
+      "source": "./v0/plugins/11ai-operator-git"
+    },
+    {
+      "name": "11ai-operator-nodejs-api-v24",
+      "source": "./v0/plugins/11ai-operator-nodejs-api-v24"
+    },
+    {
+      "name": "11ai-super",
+      "source": "./v0/plugins/11ai-super"
+    },
+    {
+      "name": "11ai-audit",
+      "source": "./v0/plugins/11ai-audit"
+    },
+    {
+      "name": "11ai-web-design",
+      "source": "./v0/plugins/11ai-web-design"
+    },
+    {
+      "name": "11ai-xharness",
+      "source": "./v0/plugins/11ai-xharness"
+    },
+    {
+      "name": "11ai-operator-jest-v30",
+      "source": "./v0/plugins/11ai-operator-jest-v30"
+    },
+    {
+      "name": "11ai-operator-mongodb-v8",
+      "source": "./v0/plugins/11ai-operator-mongodb-v8"
+    },
+    {
+      "name": "11ai-operator-ssh",
+      "source": "./v0/plugins/11ai-operator-ssh"
+    },
+    {
+      "name": "11ai-operator-bash",
+      "source": "./v0/plugins/11ai-operator-bash"
+    },
+    {
+      "name": "11ai-operator-supabase",
+      "source": "./v0/plugins/11ai-operator-supabase"
+    },
+    {
+      "name": "11ai-operator-workos",
+      "source": "./v0/plugins/11ai-operator-workos"
+    },
+    {
+      "name": "11ai-operator-convex",
+      "source": "./v0/plugins/11ai-operator-convex"
+    },
+    {
+      "name": "11ai-operator-clerk-core-3",
+      "source": "./v0/plugins/11ai-operator-clerk-core-3"
+    },
+    {
+      "name": "11ai-operator-stripe",
+      "source": "./v0/plugins/11ai-operator-stripe"
+    },
+    {
+      "name": "11ai-operator-pokeapi-v2",
+      "source": "./v0/plugins/11ai-operator-pokeapi-v2"
+    },
+    {
+      "name": "11ai-operator-html-5",
+      "source": "./v0/plugins/11ai-operator-html-5"
+    },
+    {
+      "name": "11ai-operator-css-3",
+      "source": "./v0/plugins/11ai-operator-css-3"
+    },
+    {
+      "name": "11ai-operator-javascript-es2026",
+      "source": "./v0/plugins/11ai-operator-javascript-es2026"
+    },
+    {
+      "name": "11ai-operator-typescript-v7",
+      "source": "./v0/plugins/11ai-operator-typescript-v7"
+    },
+    {
+      "name": "11ai-operator-reactjs-v19",
+      "source": "./v0/plugins/11ai-operator-reactjs-v19"
+    },
+    {
+      "name": "11ai-operator-nextjs-v16",
+      "source": "./v0/plugins/11ai-operator-nextjs-v16"
+    },
+    {
+      "name": "11ai-operator-vercel-ai-sdk-v7",
+      "source": "./v0/plugins/11ai-operator-vercel-ai-sdk-v7"
+    },
+    {
+      "name": "11ai-operator-vercel-chat-sdk-v4",
+      "source": "./v0/plugins/11ai-operator-vercel-chat-sdk-v4"
+    },
+    {
+      "name": "11ai-operator-vercel-eve-v0",
+      "source": "./v0/plugins/11ai-operator-vercel-eve-v0"
+    },
+    {
+      "name": "11ai-operator-vercel-ai-gateway",
+      "source": "./v0/plugins/11ai-operator-vercel-ai-gateway"
+    },
+    {
+      "name": "11ai-operator-vercel-sandbox-v2",
+      "source": "./v0/plugins/11ai-operator-vercel-sandbox-v2"
+    },
+    {
+      "name": "11ai-operator-vercel-workflows-v4",
+      "source": "./v0/plugins/11ai-operator-vercel-workflows-v4"
+    },
+    {
+      "name": "11ai-operator-vercel-passport",
+      "source": "./v0/plugins/11ai-operator-vercel-passport"
+    },
+    {
+      "name": "11ai-operator-vercel-core",
+      "source": "./v0/plugins/11ai-operator-vercel-core"
+    },
+    {
+      "name": "11ai-operator-tailwind-v3",
+      "source": "./v0/plugins/11ai-operator-tailwind-v3"
+    },
+    {
+      "name": "11ai-operator-tailwind-v4",
+      "source": "./v0/plugins/11ai-operator-tailwind-v4"
+    },
+    {
+      "name": "11ai-operator-mui-v9",
+      "source": "./v0/plugins/11ai-operator-mui-v9"
+    },
+    {
+      "name": "11ai-operator-shadcn-v4",
+      "source": "./v0/plugins/11ai-operator-shadcn-v4"
+    },
+    {
+      "name": "11ai-security",
+      "source": "./v0/plugins/11ai-security"
+    },
+    {
+      "name": "11ai-plugins-marketplace",
+      "source": "./v0/plugins/11ai-plugins-marketplace"
+    }
+  ],
+  "renames": {
+    "11ai-llm-costs": "11ai-benchmarks",
+    "11ai-meta-skills": "11ai-core-skills"
+  }
+}

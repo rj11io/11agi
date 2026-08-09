@@ -1,0 +1,33 @@
+{
+  "name": "11ai-operator-stripe",
+  "version": "1.37.0",
+  "description": "Modular, safety-first skills for common Stripe billing and payment operations.",
+  "author": {
+    "name": "rj11io"
+  },
+  "repository": "https://github.com/rj11io/11ai",
+  "homepage": "https://ai.rj11.io/plugins/operator-stripe",
+  "license": "Apache-2.0",
+  "keywords": [
+    "stripe",
+    "payments",
+    "billing",
+    "subscriptions",
+    "webhooks"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "11ai Operator Stripe",
+    "shortDescription": "Run common Stripe tasks safely and clearly.",
+    "longDescription": "A modular toolbox for setting up Stripe keys and the CLI, modelling products and prices, building Checkout, managing subscriptions and payments, verifying webhooks, and diagnosing billing failures.",
+    "developerName": "rj11io",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read",
+      "Write",
+      "Troubleshoot"
+    ],
+    "websiteURL": "https://ai.rj11.io/plugins/operator-stripe",
+    "defaultPrompt": "Help me use the 11ai-operator-stripe skills for this Stripe task."
+  }
+}

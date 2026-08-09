@@ -1,0 +1,77 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    environment: release
+    permissions:
+      contents: write
+      issues: write
+      packages: write
+      pull-requests: write
+      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Validate skills and harness metadata
+        run: npm run validate-skills
+
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm run semantic-release
+
+      - name: Derive package scope
+        id: package_scope
+        shell: bash
+        run: |
+          PACKAGE_NAME="$(node -p "require('./package.json').name")"
+          if [[ "$PACKAGE_NAME" == @*/* ]]; then
+            PACKAGE_SCOPE="${PACKAGE_NAME%%/*}"
+            echo "scope=$PACKAGE_SCOPE" >> "$GITHUB_OUTPUT"
+          else
+            echo "Package is not scoped; skipping GitHub Packages scope setup."
+            echo "scope=" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Setup Node.js For GitHub Packages
+        if: steps.package_scope.outputs.scope != ''
+        uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+          registry-url: "https://npm.pkg.github.com"
+          scope: ${{ steps.package_scope.outputs.scope }}
+
+      - name: Publish package to GitHub Packages
+        if: steps.package_scope.outputs.scope != ''
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if ! ls dist/*.tgz >/dev/null 2>&1; then
+            echo "No release tarball found; skipping GitHub Packages publish."
+            exit 0
+          fi
+
+          TARBALL="$(find dist -maxdepth 1 -name '*.tgz' | head -n 1)"
+          npm publish "./${TARBALL}" --registry=https://npm.pkg.github.com

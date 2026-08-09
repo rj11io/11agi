@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "www-dev",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "v0/www", "run", "dev", "--", "--port", "3300"],
+      "port": 3300,
+      "autoPort": true
+    }
+  ]
+}

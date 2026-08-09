@@ -1,0 +1,608 @@
+#!/usr/bin/env node
+
+import { spawnSync } from "node:child_process"
+import fs from "node:fs"
+import path from "node:path"
+
+const root = process.cwd()
+const versionRoot = path.join(root, "v0")
+const pluginsRoot = path.join(versionRoot, "plugins")
+const errors = []
+
+function fail(file, message) {
+  errors.push(`${path.relative(root, file)}: ${message}`)
+}
+
+function walk(dir, predicate, results = []) {
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const entryPath = path.join(dir, entry.name)
+    if (entry.isDirectory()) walk(entryPath, predicate, results)
+    else if (predicate(entryPath)) results.push(entryPath)
+  }
+  return results
+}
+
+function readJson(file) {
+  try {
+    return JSON.parse(fs.readFileSync(file, "utf8"))
+  } catch (error) {
+    fail(file, `invalid JSON (${error.message})`)
+    return null
+  }
+}
+
+function parseSkill(file) {
+  const raw = fs.readFileSync(file, "utf8")
+  const match = raw.match(
+    /^---\nname: ([a-z0-9]+(?:-[a-z0-9]+)*)\ndescription: ("(?:\\.|[^"\\])*")\n---\n([\s\S]*)$/,
+  )
+  if (!match) {
+    fail(
+      file,
+      "frontmatter must contain only a plain name and one JSON-quoted description line (block scalars such as >- are not allowed)",
+    )
+    return null
+  }
+
+  let description
+  try {
+    description = JSON.parse(match[2])
+  } catch (error) {
+    fail(file, `description is not a valid JSON-compatible YAML string (${error.message})`)
+    return null
+  }
+
+  const name = match[1]
+  if (name.length > 64) fail(file, "name exceeds 64 characters")
+  if (path.basename(path.dirname(file)) !== name) {
+    fail(file, `name '${name}' does not match its containing directory`)
+  }
+  if (!description.trim()) fail(file, "description is empty")
+  if (description.length > 1024) fail(file, "description exceeds 1024 characters")
+  if (/[<>]/.test(description)) fail(file, "description contains angle brackets")
+  if (!match[3].trim()) fail(file, "skill body is empty")
+
+  return { file, dir: path.dirname(file), name, description, raw }
+}
+
+function parseOpenAiConfig(skill) {
+  const file = path.join(skill.dir, "agents", "openai.yaml")
+  if (!fs.existsSync(file)) {
+    fail(file, "missing Codex skill metadata")
+    return
+  }
+
+  const lines = fs.readFileSync(file, "utf8").trimEnd().split("\n")
+  if (lines[0] !== "interface:") {
+    fail(file, "must start with an interface mapping")
+    return
+  }
+
+  const allowed = new Set([
+    "display_name",
+    "short_description",
+    "default_prompt",
+    "icon_small",
+    "icon_large",
+    "brand_color",
+  ])
+  const values = new Map()
+  let section = "interface"
+  let implicitInvocation
+  for (const line of lines.slice(1)) {
+    if (line === "") continue
+    if (line === "policy:") {
+      section = "policy"
+      continue
+    }
+    if (section === "policy") {
+      const policyMatch = line.match(/^  allow_implicit_invocation: (true|false)$/)
+      if (!policyMatch) {
+        fail(file, `non-canonical policy line: ${line}`)
+        continue
+      }
+      if (implicitInvocation !== undefined) fail(file, "duplicate policy.allow_implicit_invocation")
+      implicitInvocation = policyMatch[1] === "true"
+      continue
+    }
+    const match = line.match(/^  ([a-z_]+): ("(?:\\.|[^"\\])*")$/)
+    if (!match) {
+      fail(file, `non-canonical or unquoted interface line: ${line}`)
+      continue
+    }
+    const [, key, encoded] = match
+    if (!allowed.has(key)) fail(file, `unsupported interface field '${key}'`)
+    if (values.has(key)) fail(file, `duplicate interface field '${key}'`)
+    try {
+      values.set(key, JSON.parse(encoded))
+    } catch (error) {
+      fail(file, `invalid quoted value for '${key}' (${error.message})`)
+    }
+  }
+
+  for (const key of ["display_name", "short_description", "default_prompt"]) {
+    if (typeof values.get(key) !== "string" || !values.get(key).trim()) {
+      fail(file, `missing non-empty interface.${key}`)
+    }
+  }
+  const short = values.get("short_description") || ""
+  if (short.length < 25 || short.length > 64) {
+    fail(file, `short_description must be 25-64 characters (got ${short.length})`)
+  }
+  const prompt = values.get("default_prompt") || ""
+  if (!prompt.includes(`$${skill.name}`)) {
+    fail(file, `default_prompt must mention the exact $${skill.name} skill name`)
+  }
+  for (const key of ["icon_small", "icon_large"]) {
+    const value = values.get(key)
+    if (value && !fs.existsSync(path.resolve(skill.dir, value))) {
+      fail(file, `${key} points to missing asset '${value}'`)
+    }
+  }
+}
+
+function validateLinks(skill) {
+  const linkPattern = /!?\[[^\]]*\]\(([^)]+)\)/g
+  for (const match of skill.raw.matchAll(linkPattern)) {
+    let target = match[1].trim().replace(/^<|>$/g, "")
+    if (
+      !target ||
+      target.startsWith("#") ||
+      /^[a-z][a-z0-9+.-]*:/i.test(target) ||
+      target === "VIDEO_ID" ||
+      /[<>]/.test(target)
+    ) {
+      continue
+    }
+    target = target.split("#", 1)[0].split("?", 1)[0]
+    try {
+      target = decodeURIComponent(target)
+    } catch {
+      fail(skill.file, `link has invalid URL encoding: '${target}'`)
+      continue
+    }
+    const resolved = path.resolve(skill.dir, target)
+    if (!fs.existsSync(resolved)) fail(skill.file, `broken relative link '${target}'`)
+  }
+}
+
+function validateScripts() {
+  const scripts = walk(pluginsRoot, (file) => file.includes(`${path.sep}scripts${path.sep}`))
+  for (const file of scripts) {
+    const extension = path.extname(file)
+    let result = null
+    if (extension === ".sh") {
+      if ((fs.statSync(file).mode & 0o111) === 0) fail(file, "shell script is not executable")
+      result = spawnSync("bash", ["-n", file], { encoding: "utf8" })
+    } else if ([".js", ".cjs", ".mjs"].includes(extension)) {
+      result = spawnSync(process.execPath, ["--check", file], { encoding: "utf8" })
+    } else if (extension === ".py") {
+      result = spawnSync(
+        "python3",
+        ["-c", "import ast, pathlib, sys; ast.parse(pathlib.Path(sys.argv[1]).read_text())", file],
+        { encoding: "utf8" },
+      )
+    }
+    if (result && result.status !== 0) {
+      fail(file, `script syntax check failed (${(result.stderr || result.stdout).trim()})`)
+    }
+  }
+}
+
+function validateClaude(plugins, pluginSkills) {
+  const packageVersion = readJson(path.join(root, "package.json"))?.version
+  const marketplaceFile = path.join(root, ".claude-plugin", "marketplace.json")
+  const marketplace = readJson(marketplaceFile)
+  const entries = new Map()
+  for (const entry of marketplace?.plugins || []) {
+    if (!entry || typeof entry.name !== "string") {
+      fail(marketplaceFile, "every marketplace plugin must have a name")
+      continue
+    }
+    if (entries.has(entry.name)) fail(marketplaceFile, `duplicate plugin '${entry.name}'`)
+    entries.set(entry.name, entry)
+  }
+
+  for (const plugin of plugins) {
+    const manifestFile = path.join(pluginsRoot, plugin, ".claude-plugin", "plugin.json")
+    const manifest = readJson(manifestFile)
+    if (!manifest) continue
+    if (manifest.name !== plugin) fail(manifestFile, `name must be '${plugin}'`)
+    if (!/^\d+\.\d+\.\d+$/.test(manifest.version || "")) {
+      fail(manifestFile, "version must use strict semver")
+    } else if (manifest.version !== packageVersion) {
+      fail(manifestFile, `version must match package.json (${packageVersion})`)
+    }
+    if (manifest.skills !== "./skills/") {
+      fail(manifestFile, "skills must point to the canonical './skills/' directory")
+    } else {
+      const base = path.resolve(path.dirname(manifestFile), "..", manifest.skills)
+      for (const skill of pluginSkills.get(plugin)) {
+        const relative = path.relative(base, skill.dir)
+        if (relative.startsWith("..") || path.isAbsolute(relative)) {
+          fail(manifestFile, `skills paths do not cover '${skill.name}'`)
+        }
+      }
+    }
+    if (!Array.isArray(manifest.keywords) || manifest.keywords.length === 0) {
+      fail(manifestFile, "missing non-empty keywords")
+    }
+
+    const entry = entries.get(plugin)
+    const expectedSource = `./v0/plugins/${plugin}`
+    if (!entry) fail(marketplaceFile, `missing marketplace entry for '${plugin}'`)
+    else if (entry.source !== expectedSource) {
+      fail(marketplaceFile, `'${plugin}' source must be '${expectedSource}'`)
+    }
+  }
+  for (const name of entries.keys()) {
+    if (!plugins.includes(name)) fail(marketplaceFile, `unknown plugin entry '${name}'`)
+  }
+}
+
+function validateCodexPlugins(plugins, pluginSkills) {
+  const packageVersion = readJson(path.join(root, "package.json"))?.version
+
+  const codexMarketplaceFile = path.join(root, ".agents", "plugins", "marketplace.json")
+  const codexMarketplace = readJson(codexMarketplaceFile)
+  const codexEntries = new Map()
+  if (!codexMarketplace) {
+    fail(codexMarketplaceFile, "missing Codex marketplace file")
+  } else {
+    for (const entry of codexMarketplace.plugins || []) {
+      if (!entry || typeof entry.name !== "string") {
+        fail(codexMarketplaceFile, "every Codex marketplace plugin must have a name")
+        continue
+      }
+      if (codexEntries.has(entry.name)) fail(codexMarketplaceFile, `duplicate plugin '${entry.name}'`)
+      codexEntries.set(entry.name, entry)
+      if (!plugins.includes(entry.name)) fail(codexMarketplaceFile, `unknown plugin entry '${entry.name}'`)
+    }
+    for (const plugin of plugins) {
+      const entry = codexEntries.get(plugin)
+      const expectedPath = `./v0/plugins/${plugin}`
+      if (!entry) fail(codexMarketplaceFile, `missing Codex marketplace entry for '${plugin}'`)
+      else if (entry.source?.source !== "local" || entry.source?.path !== expectedPath) {
+        fail(codexMarketplaceFile, `'${plugin}' source must be local '${expectedPath}'`)
+      }
+    }
+  }
+  for (const plugin of plugins) {
+    const manifestFile = path.join(pluginsRoot, plugin, ".codex-plugin", "plugin.json")
+    if (!fs.existsSync(manifestFile)) {
+      fail(manifestFile, "missing Codex plugin manifest")
+      continue
+    }
+
+    const manifest = readJson(manifestFile)
+    if (!manifest) continue
+    if (manifest.name !== plugin) fail(manifestFile, `name must be '${plugin}'`)
+    if (!/^\d+\.\d+\.\d+$/.test(manifest.version || "")) {
+      fail(manifestFile, "version must use strict semver")
+    } else if (manifest.version !== packageVersion) {
+      fail(manifestFile, `version must match package.json (${packageVersion})`)
+    }
+    if (manifest.skills !== "./skills/") {
+      fail(manifestFile, "skills must point to the canonical './skills/' directory")
+    } else {
+      const base = path.resolve(path.dirname(manifestFile), "..", manifest.skills)
+      for (const skill of pluginSkills.get(plugin) || []) {
+        const relative = path.relative(base, skill.dir)
+        if (relative.startsWith("..") || path.isAbsolute(relative)) {
+          fail(manifestFile, `skills paths do not cover '${skill.name}'`)
+        }
+      }
+    }
+    if (!Array.isArray(manifest.keywords) || manifest.keywords.length === 0) {
+      fail(manifestFile, "missing non-empty keywords")
+    }
+    const claudeManifest = readJson(path.join(pluginsRoot, plugin, ".claude-plugin", "plugin.json"))
+    if (claudeManifest && manifest.description !== claudeManifest.description) {
+      fail(manifestFile, "description must match the Claude plugin manifest")
+    }
+    if (typeof manifest.homepage !== "string" || !manifest.homepage.startsWith("https://")) {
+      fail(manifestFile, "missing https homepage")
+    }
+    const ui = manifest.interface
+    if (!ui || typeof ui !== "object") {
+      fail(manifestFile, "missing interface block")
+    } else {
+      for (const key of ["displayName", "shortDescription", "longDescription", "developerName", "category"]) {
+        if (typeof ui[key] !== "string" || !ui[key].trim()) {
+          fail(manifestFile, `missing non-empty interface.${key}`)
+        }
+      }
+      if (typeof ui.websiteURL !== "string" || !ui.websiteURL.startsWith("https://")) {
+        fail(manifestFile, "missing https interface.websiteURL")
+      }
+      // Codex's plugin manifest schema requires capabilities with at least one item.
+      if (
+        !Array.isArray(ui.capabilities) ||
+        ui.capabilities.length === 0 ||
+        ui.capabilities.some((c) => typeof c !== "string" || !c.trim())
+      ) {
+        fail(manifestFile, "interface.capabilities must be a non-empty array of non-empty strings")
+      }
+      const prompt = ui.defaultPrompt
+      const promptOk =
+        (typeof prompt === "string" && prompt.trim()) ||
+        (Array.isArray(prompt) && prompt.length > 0 && prompt.every((p) => typeof p === "string" && p.trim()))
+      if (!promptOk) fail(manifestFile, "missing non-empty interface.defaultPrompt")
+      const entry = codexEntries.get(plugin)
+      if (entry && typeof ui.category === "string" && entry.category !== ui.category) {
+        fail(codexMarketplaceFile, `'${plugin}' category must match the manifest's interface.category '${ui.category}'`)
+      }
+    }
+  }
+}
+
+function validateCatalog(plugins, pluginSkills, skills) {
+  const rootReadme = fs.readFileSync(path.join(root, "README.md"), "utf8")
+  const countPattern = new RegExp(`${skills.length} skills in ${plugins.length} plugins`)
+  if (!countPattern.test(rootReadme)) {
+    fail(path.join(root, "README.md"), `catalog must state ${skills.length} skills in ${plugins.length} plugins`)
+  }
+  for (const plugin of plugins) {
+    const readme = path.join(pluginsRoot, plugin, "README.md")
+    if (!fs.existsSync(readme)) {
+      fail(readme, "missing plugin README")
+      continue
+    }
+    const contents = fs.readFileSync(readme, "utf8")
+    for (const skill of pluginSkills.get(plugin)) {
+      if (!contents.includes(skill.name)) fail(readme, `does not list '${skill.name}'`)
+    }
+
+    const count = pluginSkills.get(plugin).length
+    const rootCatalogRow = new RegExp(
+      `\\| \\[[^\\]]+\\]\\(\\.\\/v0\\/plugins\\/${plugin}\\/README\\.md\\) \\| ${count} \\|`,
+    )
+    if (!rootCatalogRow.test(rootReadme)) {
+      fail(path.join(root, "README.md"), `catalog row for '${plugin}' must state ${count} skills`)
+    }
+
+    const rootLayoutEntry = new RegExp(`^\\s+${plugin}\\/\\s+${count} `, "m")
+    if (!rootLayoutEntry.test(rootReadme)) {
+      fail(path.join(root, "README.md"), `layout entry for '${plugin}' must state ${count} skills`)
+    }
+  }
+}
+
+function validatePluginStructure() {
+  const entries = fs.readdirSync(pluginsRoot, { withFileTypes: true })
+  const ignoreCheck = spawnSync(
+    "git",
+    ["check-ignore", "-z", "--", ...entries.map((entry) => path.join("v0", "plugins", entry.name))],
+    { encoding: "utf8", cwd: root },
+  )
+  const ignored = new Set(
+    (ignoreCheck.stdout || "").split("\0").filter(Boolean).map((file) => path.basename(file)),
+  )
+
+  for (const entry of entries) {
+    if (ignored.has(entry.name)) continue
+    const entryPath = path.join(pluginsRoot, entry.name)
+    if (!entry.isDirectory()) {
+      fail(entryPath, "unexpected file in the plugins root")
+      continue
+    }
+    const skillsDir = path.join(entryPath, "skills")
+    if (!fs.existsSync(skillsDir)) {
+      fail(entryPath, "plugin has no skills directory")
+      continue
+    }
+    const skillEntries = fs.readdirSync(skillsDir, { withFileTypes: true })
+    if (!skillEntries.some((skillEntry) => skillEntry.isDirectory())) {
+      fail(skillsDir, "plugin has no skill directories")
+    }
+    for (const skillEntry of skillEntries) {
+      const skillPath = path.join(skillsDir, skillEntry.name)
+      if (!skillEntry.isDirectory()) {
+        fail(skillPath, "unexpected file in the skills directory")
+        continue
+      }
+      if (!fs.existsSync(path.join(skillPath, "SKILL.md"))) {
+        fail(skillPath, "skill directory has no SKILL.md")
+      }
+    }
+  }
+}
+
+function validateFaqSkills(plugins, pluginSkills) {
+  for (const plugin of plugins) {
+    const skills = pluginSkills.get(plugin)
+    for (const faq of skills.filter((skill) => skill.name.endsWith("-faq"))) {
+      const raw = fs.readFileSync(faq.file, "utf8")
+      const siblings = skills.filter((skill) => skill.name !== faq.name).map((skill) => skill.name)
+
+      const coverage = raw.match(/^## Covered skills\n([\s\S]*?)(?=^## |$(?![\s\S]))/m)
+      if (!coverage) {
+        fail(faq.file, "FAQ must contain a '## Covered skills' section")
+        continue
+      }
+      const covered = [...coverage[1].matchAll(/`([a-z0-9-]+)`/g)].map((match) => match[1])
+      for (const name of siblings) {
+        if (!covered.includes(name)) fail(faq.file, `covered skills must list sibling '${name}'`)
+      }
+      for (const name of covered) {
+        if (!siblings.includes(name)) fail(faq.file, `covered skills lists unknown skill '${name}'`)
+      }
+
+      const rows = [
+        ...raw.matchAll(
+          /^\| [^|`]+ \| `([^`]+)` \| ("(?:\\.|[^"\\])*"|-) \| (contract|reference|behavior) \|$/gm,
+        ),
+      ]
+      if (rows.length === 0) {
+        fail(faq.file, 'FAQ must contain routing rows shaped | question | `source` | "anchor" | tier |')
+        continue
+      }
+      const sourcedSkills = new Set()
+      for (const [, source, anchor] of rows) {
+        const resolved = path.resolve(faq.dir, source)
+        if (!fs.existsSync(resolved)) {
+          fail(faq.file, `routing source '${source}' does not exist`)
+          continue
+        }
+        for (const name of siblings) {
+          if (source.includes(`/${name}/`)) sourcedSkills.add(name)
+        }
+        if (anchor !== "-") {
+          const text = JSON.parse(anchor)
+          if (!fs.readFileSync(resolved, "utf8").includes(text)) {
+            fail(faq.file, `routing anchor ${anchor} not found in '${source}'`)
+          }
+        }
+      }
+      for (const name of siblings) {
+        if (!sourcedSkills.has(name)) fail(faq.file, `no routing row reads from sibling '${name}'`)
+      }
+    }
+  }
+}
+
+function validateBenchmarksDrift() {
+  const script = path.join(root, "v0", "scripts", "check-benchmarks-drift.mjs")
+  const result = spawnSync(process.execPath, [script], { cwd: root, encoding: "utf8" })
+  if (result.status !== 0) {
+    for (const line of (result.stderr || result.stdout).trim().split("\n").filter(Boolean)) {
+      fail(script, line)
+    }
+  }
+}
+
+function validatePackageConfiguration() {
+  const packageFile = path.join(root, "package.json")
+  const packageJson = readJson(packageFile)
+  if (!packageJson) return
+  for (const included of ["v0/plugins", ".claude-plugin", ".agents"]) {
+    if (!packageJson.files?.includes(included)) {
+      fail(packageFile, `npm files must include '${included}'`)
+    }
+  }
+  if (
+    packageJson.scripts?.["validate-skills"] !==
+    "node ./v0/scripts/validate-skills.mjs"
+  ) {
+    fail(packageFile, "scripts.validate-skills must run the repository validator")
+  }
+  if (
+    packageJson.scripts?.postversion !==
+    "node ./v0/scripts/sync-claude-plugin-versions.mjs && npm run validate-skills"
+  ) {
+    fail(packageFile, "scripts.postversion must synchronize plugin versions")
+  }
+  if (
+    packageJson.scripts?.["publish-public-local"] !==
+    "node ./v0/scripts/publish-public-w-local-token.cjs"
+  ) {
+    fail(packageFile, "scripts.publish-public-local must use the versioned publishing helper")
+  }
+
+  const installCommand = "npx skills add rj11io/11ai --full-depth"
+  const readme = fs.readFileSync(path.join(root, "README.md"), "utf8")
+  if (!readme.includes(installCommand)) {
+    fail(path.join(root, "README.md"), `install command must be '${installCommand}'`)
+  }
+  const siteCatalogPath = path.join(versionRoot, "www", "lib", "skills.ts")
+  const siteCatalog = fs.readFileSync(siteCatalogPath, "utf8")
+  if (!siteCatalog.includes(`INSTALL_COMMAND = "${installCommand}"`)) {
+    fail(siteCatalogPath, "site install command must use --full-depth")
+  }
+  if (!siteCatalog.includes("must use canonical skill frontmatter")) {
+    fail(siteCatalogPath, "site skill parser must reject non-canonical frontmatter")
+  }
+
+  const releaseWorkflow = path.join(root, ".github", "workflows", "release.yml")
+  if (!fs.existsSync(releaseWorkflow)) {
+    fail(releaseWorkflow, "missing release workflow")
+  } else if (
+    !/^\s*- name: Validate skills and harness metadata\s*\n\s*run: npm run validate-skills\s*$/m.test(
+      fs.readFileSync(releaseWorkflow, "utf8"),
+    )
+  ) {
+    fail(releaseWorkflow, "release workflow must run npm run validate-skills before releasing")
+  }
+}
+
+if (!fs.existsSync(pluginsRoot)) {
+  console.error(`Missing plugins root: ${pluginsRoot}`)
+  process.exit(1)
+}
+
+const skillFiles = walk(pluginsRoot, (file) => path.basename(file) === "SKILL.md").sort()
+const inventorySkills = skillFiles.map((file) => ({
+  file,
+  dir: path.dirname(file),
+  name: path.basename(path.dirname(file)),
+}))
+for (const skill of inventorySkills) {
+  const relative = path.relative(versionRoot, skill.file).split(path.sep)
+  if (
+    relative.length !== 5 ||
+    relative[0] !== "plugins" ||
+    relative[2] !== "skills" ||
+    relative[4] !== "SKILL.md"
+  ) {
+    fail(skill.file, "must live at v0/plugins/{plugin-name}/skills/{skill-name}/SKILL.md")
+  }
+}
+const names = new Map()
+for (const inventorySkill of inventorySkills) {
+  const skill = parseSkill(inventorySkill.file)
+  if (!skill) {
+    parseOpenAiConfig(inventorySkill)
+    validateLinks({
+      ...inventorySkill,
+      raw: fs.readFileSync(inventorySkill.file, "utf8"),
+    })
+    continue
+  }
+  if (names.has(skill.name)) fail(skill.file, `duplicate name also used by ${names.get(skill.name)}`)
+  else names.set(skill.name, path.relative(root, skill.file))
+  parseOpenAiConfig(skill)
+  validateLinks(skill)
+}
+
+const plugins = fs
+  .readdirSync(pluginsRoot, { withFileTypes: true })
+  .filter((entry) => entry.isDirectory())
+  .map((entry) => entry.name)
+  .filter((plugin) =>
+    inventorySkills.some((skill) =>
+      skill.dir.startsWith(path.join(pluginsRoot, plugin, "skills") + path.sep),
+    ),
+  )
+  .sort()
+const pluginSkills = new Map(
+  plugins.map((plugin) => [
+    plugin,
+    inventorySkills.filter((skill) =>
+      skill.dir.startsWith(path.join(pluginsRoot, plugin, "skills") + path.sep),
+    ),
+  ]),
+)
+
+validatePluginStructure()
+validateScripts()
+validateClaude(plugins, pluginSkills)
+validateCodexPlugins(plugins, pluginSkills)
+validateCatalog(plugins, pluginSkills, inventorySkills)
+validateFaqSkills(plugins, pluginSkills)
+validatePackageConfiguration()
+validateBenchmarksDrift()
+
+const trackedArtifacts = spawnSync("git", ["ls-files", "-z"], { encoding: "utf8" })
+  .stdout.split("\0")
+  .filter((file) => file.endsWith(".DS_Store"))
+for (const file of trackedArtifacts) fail(path.join(root, file), "tracked operating-system artifact")
+
+if (errors.length > 0) {
+  console.error(`Skill validation failed with ${errors.length} error(s):`)
+  for (const error of errors) console.error(`- ${error}`)
+  process.exit(1)
+}
+
+console.log(
+  `Validated ${inventorySkills.length} skills across ${plugins.length} plugins: structure, canonical frontmatter, Codex metadata, Claude packaging, links, scripts, catalogs, and FAQ coverage.`,
+)

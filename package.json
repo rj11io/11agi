@@ -1,0 +1,48 @@
+{
+  "name": "@rj11io/11ai",
+  "version": "1.37.0",
+  "private": false,
+  "description": "AI skills and workflows",
+  "main": "v0/index.js",
+  "files": [
+    "v0/index.js",
+    "v0/plugins",
+    ".claude-plugin",
+    ".agents",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "pack-dry": "npm pack --dry-run",
+    "validate-skills": "node ./v0/scripts/validate-skills.mjs",
+    "postversion": "node ./v0/scripts/sync-claude-plugin-versions.mjs && npm run validate-skills",
+    "publish-public-local": "node ./v0/scripts/publish-public-w-local-token.cjs",
+    "semantic-release": "semantic-release"
+  },
+  "keywords": [
+    "ai",
+    "skills",
+    "workflows"
+  ],
+  "author": "@rj11io",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rj11io/11ai.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@semantic-release/changelog": "6.0.3",
+    "@semantic-release/commit-analyzer": "13.0.1",
+    "@semantic-release/git": "10.0.1",
+    "@semantic-release/github": "11.0.6",
+    "@semantic-release/npm": "12.0.2",
+    "@semantic-release/release-notes-generator": "14.1.0",
+    "semantic-release": "24.2.7"
+  },
+  "overrides": {
+    "lodash-es": "4.17.21"
+  },
+  "license": "Apache-2.0"
+}

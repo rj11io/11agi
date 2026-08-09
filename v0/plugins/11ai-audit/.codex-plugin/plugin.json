@@ -1,0 +1,33 @@
+{
+  "name": "11ai-audit",
+  "version": "1.37.0",
+  "description": "Evidence-backed, read-only dependency audits for vulnerabilities, malware, and host-computer risks.",
+  "author": {
+    "name": "rj11io"
+  },
+  "repository": "https://github.com/rj11io/11ai",
+  "homepage": "https://ai.rj11.io/plugins/audit",
+  "license": "Apache-2.0",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "11ai Audit",
+    "shortDescription": "Read-only, evidence-backed security audits",
+    "longDescription": "Audit declared, locked, installed, and resolvable dependencies for vulnerabilities, malware, and host-computer risks without installing or executing package code.",
+    "developerName": "rj11io",
+    "category": "Security",
+    "capabilities": [
+      "Analyze",
+      "Read",
+      "Security"
+    ],
+    "websiteURL": "https://ai.rj11.io/plugins/audit",
+    "defaultPrompt": "Audit this project's dependencies for vulnerabilities, malware, and critical host-computer risks."
+  },
+  "keywords": [
+    "audit",
+    "security",
+    "dependencies",
+    "vulnerabilities",
+    "supply-chain"
+  ]
+}
