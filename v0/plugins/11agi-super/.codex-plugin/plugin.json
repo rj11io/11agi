@@ -1,0 +1,33 @@
+{
+  "name": "11agi-super",
+  "version": "0.0.1",
+  "description": "Run long-lived general and specialist routines to a high evidence-based quality bar.",
+  "author": {
+    "name": "rj11io"
+  },
+  "repository": "https://github.com/rj11io/11agi",
+  "homepage": "https://agi.rj11.io/plugins/super",
+  "license": "Apache-2.0",
+  "keywords": [
+    "routines",
+    "quality",
+    "evidence",
+    "specialist",
+    "general-tasks"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "11agi Super",
+    "shortDescription": "Long-lived routines to an evidence-based bar.",
+    "longDescription": "Run long-lived general and specialist routines that repeatedly complete project tasks to a high evidence-based quality bar, with explicit review gates and proof of work.",
+    "developerName": "rj11io",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read",
+      "Write",
+      "Developer Tools"
+    ],
+    "websiteURL": "https://agi.rj11.io/plugins/super",
+    "defaultPrompt": "Run my task with the 11agi-super skills and hold it to their evidence-based quality bar."
+  }
+}

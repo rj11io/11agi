@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "11agi-codebase",
+  "version": "0.0.1",
+  "description": "Set up Playwright, npm publishing, and automated releases for repositories.",
+  "author": {
+    "name": "rj11io"
+  },
+  "repository": "https://github.com/rj11io/11agi",
+  "license": "Apache-2.0",
+  "skills": "./skills/",
+  "keywords": [
+    "playwright",
+    "npm-publishing",
+    "semantic-release",
+    "ci",
+    "web-analytics"
+  ]
+}

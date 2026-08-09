@@ -1,0 +1,37 @@
+{
+  "name": "11agi-blog-builder",
+  "version": "0.0.1",
+  "description": "Build file-backed editorial blogs with composable CMS, author, Markdown, content, navigation, and UI skills.",
+  "author": {
+    "name": "rj11io"
+  },
+  "repository": "https://github.com/rj11io/11agi",
+  "homepage": "https://agi.rj11.io/plugins/blog-builder",
+  "license": "Apache-2.0",
+  "keywords": [
+    "blog",
+    "cms",
+    "markdown",
+    "editorial",
+    "content",
+    "navigation",
+    "ui",
+    "marketing-page",
+    "publications"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "11agi Blog Builder",
+    "shortDescription": "Build file-backed editorial blogs from skills.",
+    "longDescription": "Build file-backed editorial blogs with composable CMS, author, Markdown, content, navigation, and UI skills, keeping every post and setting in reviewable files.",
+    "developerName": "rj11io",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read",
+      "Write",
+      "Developer Tools"
+    ],
+    "websiteURL": "https://agi.rj11.io/plugins/blog-builder",
+    "defaultPrompt": "Help me build an editorial blog with the 11agi-blog-builder skills."
+  }
+}

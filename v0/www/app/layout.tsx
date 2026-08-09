@@ -16,13 +16,13 @@ const fontMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ai.rj11.io"),
+  metadataBase: new URL("https://agi.rj11.io"),
   title: {
-    default: "11agi · Open source AI agent skills and plugins",
+    default: "11agi · General AI agent skills and plugins",
     template: "%s · 11agi",
   },
   description:
-    "Playbooks, routines, automations, and long running tasks for building software and more.",
+    "Open source general-purpose skills for AI agents, packaged into focused plugins.",
   icons: {
     icon: [
       {
@@ -53,24 +53,24 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "11agi · Open source AI agent skills and plugins",
+    title: "11agi · General AI agent skills and plugins",
     description:
-      "Playbooks, routines, automations, and long running tasks for building software and more.",
-    url: "https://ai.rj11.io",
+      "Open source general-purpose skills for AI agents, packaged into focused plugins.",
+    url: "https://agi.rj11.io",
     siteName: "11agi",
     type: "website",
     images: [
       {
-        url: "/static/ai-rj11io-web-og.png",
-        width: 1200,
-        height: 630,
-        alt: "11agi · Open source AI agent skills and plugins",
+        url: "/static/agi-rj11io-web-og.png",
+        width: 1730,
+        height: 909,
+        alt: "11agi · General AI agent skills and plugins",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/static/ai-rj11io-web-og.png"],
+    images: ["/static/agi-rj11io-web-og.png"],
   },
 }
 

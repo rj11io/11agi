@@ -40,10 +40,11 @@ export default function Page() {
           {skillCount} skills · Apache-2.0
         </Badge>
         <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-balance sm:text-6xl">
-          Open source AI agent skills and plugins
+          Open source general AI agent skills and plugins
         </h1>
         <p className="max-w-xl text-lg leading-relaxed text-balance text-muted-foreground">
-          Playbooks, routines, automations, and long running tasks for building software and more.
+          General-purpose playbooks, routines, automations, and long-running
+          tasks for building software and more.
         </p>
         <TerminalBlock command={INSTALL_COMMAND} className="w-full max-w-xl text-left" />
         <div className="flex flex-wrap items-center justify-center gap-3">
@@ -216,8 +217,8 @@ export default function Page() {
               {skillCount} skills, {plugins.length} plugins
             </h2>
             <p className="max-w-xl leading-relaxed text-muted-foreground">
-              Every skill belongs to a plugin. Start with the plugin that
-              matches your job, then drill into the skill you need.
+              Each skill is designed for direct use. Plugins group related
+              skills into focused, standalone installation units.
             </p>
           </div>
           <Link

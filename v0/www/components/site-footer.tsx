@@ -19,9 +19,8 @@ export function SiteFooter() {
             <span className="text-muted-foreground">~/</span>11agi
           </p>
           <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
-            Reusable skills for AI coding agents. Playbooks your agent reads to
-            build chat products, run benchmarks, automate scheduled work, and
-            keep codebases clean.
+            Open source general-purpose skills for AI agents, packaged into
+            focused plugins for convenient installation.
           </p>
           <p className="font-mono text-xs text-muted-foreground">
             {INSTALL_COMMAND}
@@ -68,16 +67,6 @@ export function SiteFooter() {
                 className="hover:text-foreground"
               >
                 npm package
-              </a>
-            </li>
-            <li>
-              <a
-                href={`${GITHUB_REPO_URL}/blob/main/CHANGELOG.md`}
-                target="_blank"
-                rel="noreferrer"
-                className="hover:text-foreground"
-              >
-                Changelog
               </a>
             </li>
             <li>

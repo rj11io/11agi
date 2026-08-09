@@ -29,6 +29,10 @@
     "type": "git",
     "url": "git+https://github.com/rj11io/11agi.git"
   },
+  "homepage": "https://agi.rj11.io",
+  "bugs": {
+    "url": "https://github.com/rj11io/11agi/issues"
+  },
   "publishConfig": {
     "access": "public"
   },

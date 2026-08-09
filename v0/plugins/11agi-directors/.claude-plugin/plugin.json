@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "11agi-directors",
+  "version": "0.0.1",
+  "description": "Director skills that wrap a task in a full workflow: setup, execution, quality checks, and reporting.",
+  "author": {
+    "name": "rj11io"
+  },
+  "repository": "https://github.com/rj11io/11agi",
+  "license": "Apache-2.0",
+  "skills": "./skills/",
+  "keywords": [
+    "director",
+    "workflow",
+    "orchestration",
+    "process",
+    "reporting"
+  ]
+}

@@ -4,7 +4,7 @@
   "owner": {
     "name": "rj11io"
   },
-  "description": "AI-agent skills packaged as plugins by workflow.",
+  "description": "Open source general AI-agent skills packaged by workflow.",
   "plugins": [
     {
       "name": "11agi-agent-automation",
@@ -15,12 +15,8 @@
       "source": "./v0/plugins/11agi-ai-chat"
     },
     {
-      "name": "11agi-operator-antdesign-v6",
-      "source": "./v0/plugins/11agi-operator-antdesign-v6"
-    },
-    {
-      "name": "11agi-operator-aws-cli-v2",
-      "source": "./v0/plugins/11agi-operator-aws-cli-v2"
+      "name": "11agi-audit",
+      "source": "./v0/plugins/11agi-audit"
     },
     {
       "name": "11agi-benchmarks",
@@ -39,32 +35,24 @@
       "source": "./v0/plugins/11agi-codebase"
     },
     {
-      "name": "11agi-directors",
-      "source": "./v0/plugins/11agi-directors"
-    },
-    {
       "name": "11agi-core-skills",
       "source": "./v0/plugins/11agi-core-skills"
     },
     {
-      "name": "11agi-operator-docker",
-      "source": "./v0/plugins/11agi-operator-docker"
+      "name": "11agi-directors",
+      "source": "./v0/plugins/11agi-directors"
     },
     {
-      "name": "11agi-operator-git",
-      "source": "./v0/plugins/11agi-operator-git"
+      "name": "11agi-plugins-marketplace",
+      "source": "./v0/plugins/11agi-plugins-marketplace"
     },
     {
-      "name": "11agi-operator-nodejs-api-v24",
-      "source": "./v0/plugins/11agi-operator-nodejs-api-v24"
+      "name": "11agi-security",
+      "source": "./v0/plugins/11agi-security"
     },
     {
       "name": "11agi-super",
       "source": "./v0/plugins/11agi-super"
-    },
-    {
-      "name": "11agi-audit",
-      "source": "./v0/plugins/11agi-audit"
     },
     {
       "name": "11agi-web-design",
@@ -73,130 +61,6 @@
     {
       "name": "11agi-xharness",
       "source": "./v0/plugins/11agi-xharness"
-    },
-    {
-      "name": "11agi-operator-jest-v30",
-      "source": "./v0/plugins/11agi-operator-jest-v30"
-    },
-    {
-      "name": "11agi-operator-mongodb-v8",
-      "source": "./v0/plugins/11agi-operator-mongodb-v8"
-    },
-    {
-      "name": "11agi-operator-ssh",
-      "source": "./v0/plugins/11agi-operator-ssh"
-    },
-    {
-      "name": "11agi-operator-bash",
-      "source": "./v0/plugins/11agi-operator-bash"
-    },
-    {
-      "name": "11agi-operator-supabase",
-      "source": "./v0/plugins/11agi-operator-supabase"
-    },
-    {
-      "name": "11agi-operator-workos",
-      "source": "./v0/plugins/11agi-operator-workos"
-    },
-    {
-      "name": "11agi-operator-convex",
-      "source": "./v0/plugins/11agi-operator-convex"
-    },
-    {
-      "name": "11agi-operator-clerk-core-3",
-      "source": "./v0/plugins/11agi-operator-clerk-core-3"
-    },
-    {
-      "name": "11agi-operator-stripe",
-      "source": "./v0/plugins/11agi-operator-stripe"
-    },
-    {
-      "name": "11agi-operator-pokeapi-v2",
-      "source": "./v0/plugins/11agi-operator-pokeapi-v2"
-    },
-    {
-      "name": "11agi-operator-html-5",
-      "source": "./v0/plugins/11agi-operator-html-5"
-    },
-    {
-      "name": "11agi-operator-css-3",
-      "source": "./v0/plugins/11agi-operator-css-3"
-    },
-    {
-      "name": "11agi-operator-javascript-es2026",
-      "source": "./v0/plugins/11agi-operator-javascript-es2026"
-    },
-    {
-      "name": "11agi-operator-typescript-v7",
-      "source": "./v0/plugins/11agi-operator-typescript-v7"
-    },
-    {
-      "name": "11agi-operator-reactjs-v19",
-      "source": "./v0/plugins/11agi-operator-reactjs-v19"
-    },
-    {
-      "name": "11agi-operator-nextjs-v16",
-      "source": "./v0/plugins/11agi-operator-nextjs-v16"
-    },
-    {
-      "name": "11agi-operator-vercel-ai-sdk-v7",
-      "source": "./v0/plugins/11agi-operator-vercel-ai-sdk-v7"
-    },
-    {
-      "name": "11agi-operator-vercel-chat-sdk-v4",
-      "source": "./v0/plugins/11agi-operator-vercel-chat-sdk-v4"
-    },
-    {
-      "name": "11agi-operator-vercel-eve-v0",
-      "source": "./v0/plugins/11agi-operator-vercel-eve-v0"
-    },
-    {
-      "name": "11agi-operator-vercel-ai-gateway",
-      "source": "./v0/plugins/11agi-operator-vercel-ai-gateway"
-    },
-    {
-      "name": "11agi-operator-vercel-sandbox-v2",
-      "source": "./v0/plugins/11agi-operator-vercel-sandbox-v2"
-    },
-    {
-      "name": "11agi-operator-vercel-workflows-v4",
-      "source": "./v0/plugins/11agi-operator-vercel-workflows-v4"
-    },
-    {
-      "name": "11agi-operator-vercel-passport",
-      "source": "./v0/plugins/11agi-operator-vercel-passport"
-    },
-    {
-      "name": "11agi-operator-vercel-core",
-      "source": "./v0/plugins/11agi-operator-vercel-core"
-    },
-    {
-      "name": "11agi-operator-tailwind-v3",
-      "source": "./v0/plugins/11agi-operator-tailwind-v3"
-    },
-    {
-      "name": "11agi-operator-tailwind-v4",
-      "source": "./v0/plugins/11agi-operator-tailwind-v4"
-    },
-    {
-      "name": "11agi-operator-mui-v9",
-      "source": "./v0/plugins/11agi-operator-mui-v9"
-    },
-    {
-      "name": "11agi-operator-shadcn-v4",
-      "source": "./v0/plugins/11agi-operator-shadcn-v4"
-    },
-    {
-      "name": "11agi-security",
-      "source": "./v0/plugins/11agi-security"
-    },
-    {
-      "name": "11agi-plugins-marketplace",
-      "source": "./v0/plugins/11agi-plugins-marketplace"
     }
-  ],
-  "renames": {
-    "11agi-llm-costs": "11agi-benchmarks",
-    "11agi-meta-skills": "11agi-core-skills"
-  }
+  ]
 }

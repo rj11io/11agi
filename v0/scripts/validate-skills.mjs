@@ -461,6 +461,66 @@ function validateFaqSkills(plugins, pluginSkills) {
   }
 }
 
+function validateProjectIdentity(plugins, skills) {
+  for (const plugin of plugins) {
+    if (!plugin.startsWith("11agi-")) {
+      fail(path.join(pluginsRoot, plugin), "plugin directory must use the 11agi namespace")
+    }
+    const slug = plugin.replace(/^11agi-/, "")
+    const repository = "https://github.com/rj11io/11agi"
+    const homepage = `https://agi.rj11.io/plugins/${slug}`
+    const claudeFile = path.join(pluginsRoot, plugin, ".claude-plugin", "plugin.json")
+    const claude = readJson(claudeFile)
+    if (claude?.repository !== repository) {
+      fail(claudeFile, `repository must be '${repository}'`)
+    }
+    const codexFile = path.join(pluginsRoot, plugin, ".codex-plugin", "plugin.json")
+    const codex = readJson(codexFile)
+    if (codex?.repository !== repository) {
+      fail(codexFile, `repository must be '${repository}'`)
+    }
+    if (codex?.homepage !== homepage) {
+      fail(codexFile, `homepage must be '${homepage}'`)
+    }
+    if (codex?.interface?.websiteURL !== homepage) {
+      fail(codexFile, `interface.websiteURL must be '${homepage}'`)
+    }
+  }
+  for (const skill of skills) {
+    if (!skill.name.startsWith("11agi-")) {
+      fail(skill.file, "skill name and directory must use the 11agi namespace")
+    }
+  }
+
+  const forbidden = [
+    { value: "11" + "ai", label: "legacy project namespace" },
+    { value: "a" + "i.rj11.io", label: "legacy project domain" },
+    { value: "a" + "i\\.rj11\\.io", label: "escaped legacy project domain" },
+  ]
+  const listed = spawnSync(
+    "git",
+    ["ls-files", "-co", "--exclude-standard", "-z"],
+    { cwd: root, encoding: "utf8" },
+  )
+  if (listed.status !== 0) {
+    fail(root, "could not enumerate repository files for identity validation")
+    return
+  }
+  for (const relative of listed.stdout.split("\0").filter(Boolean)) {
+    const file = path.join(root, relative)
+    if (!fs.existsSync(file) || !fs.statSync(file).isFile()) continue
+    for (const { value, label } of forbidden) {
+      if (relative.includes(value)) fail(file, `path contains ${label}`)
+    }
+    const raw = fs.readFileSync(file)
+    if (raw.includes(0)) continue
+    const text = raw.toString("utf8")
+    for (const { value, label } of forbidden) {
+      if (text.includes(value)) fail(file, `content contains ${label}`)
+    }
+  }
+}
+
 function validateBenchmarksDrift() {
   const script = path.join(root, "v0", "scripts", "check-benchmarks-drift.mjs")
   const result = spawnSync(process.execPath, [script], { cwd: root, encoding: "utf8" })
@@ -475,6 +535,15 @@ function validatePackageConfiguration() {
   const packageFile = path.join(root, "package.json")
   const packageJson = readJson(packageFile)
   if (!packageJson) return
+  if (packageJson.repository?.url !== "git+https://github.com/rj11io/11agi.git") {
+    fail(packageFile, "repository must point to rj11io/11agi")
+  }
+  if (packageJson.homepage !== "https://agi.rj11.io") {
+    fail(packageFile, "homepage must be https://agi.rj11.io")
+  }
+  if (packageJson.bugs?.url !== "https://github.com/rj11io/11agi/issues") {
+    fail(packageFile, "bugs.url must point to the rj11io/11agi issue tracker")
+  }
   for (const included of ["v0/plugins", ".claude-plugin", ".agents"]) {
     if (!packageJson.files?.includes(included)) {
       fail(packageFile, `npm files must include '${included}'`)
@@ -589,6 +658,7 @@ validateClaude(plugins, pluginSkills)
 validateCodexPlugins(plugins, pluginSkills)
 validateCatalog(plugins, pluginSkills, inventorySkills)
 validateFaqSkills(plugins, pluginSkills)
+validateProjectIdentity(plugins, inventorySkills)
 validatePackageConfiguration()
 validateBenchmarksDrift()
 

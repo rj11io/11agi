@@ -1,0 +1,33 @@
+{
+  "name": "11agi-xharness",
+  "version": "0.0.1",
+  "description": "Delegate and coordinate work across agents running in different CLI harnesses.",
+  "author": {
+    "name": "rj11io"
+  },
+  "repository": "https://github.com/rj11io/11agi",
+  "homepage": "https://agi.rj11.io/plugins/xharness",
+  "license": "Apache-2.0",
+  "keywords": [
+    "cross-harness",
+    "delegation",
+    "codex",
+    "claude-code",
+    "gemini-cli"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "11agi Cross-Harness",
+    "shortDescription": "Delegate work to agents in other CLI harnesses.",
+    "longDescription": "Delegate and coordinate work across agents running in different CLI harnesses, handing tasks to the right agent and collecting verified results.",
+    "developerName": "rj11io",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read",
+      "Write",
+      "Developer Tools"
+    ],
+    "websiteURL": "https://agi.rj11.io/plugins/xharness",
+    "defaultPrompt": "Use the 11agi-xharness skills to delegate this work to an agent in another harness."
+  }
+}
