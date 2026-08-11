@@ -17,6 +17,8 @@ Select checks in proportion to the report's risk, complexity, and reuse.
 - Confirm the title, objective, audience, scope, and reporting period agree.
 - Confirm headings, tables, labels, units, citations, and recommendations match
   the underlying evidence.
+- Confirm unfamiliar acronyms are expanded, glossary definitions match actual
+  usage, and terminology stays consistent across the report.
 - Confirm summaries do not overstate detailed findings.
 - Confirm limitations remain visible and specific.
 - Check that every requested artifact exists and opens successfully.
@@ -24,8 +26,8 @@ Select checks in proportion to the report's risk, complexity, and reuse.
 
 ## Cross-format and rerendering
 
-- Compare facts, section order, table values, limitations, and provenance across
-  formats.
+- Compare facts, section order, table values, terminology, limitations, and
+  provenance across formats.
 - Rerender saved data without rescanning when the workflow promises it.
 - Confirm rerendering preserves scope, sources, scan limitations, and the data's
   original analytical meaning.

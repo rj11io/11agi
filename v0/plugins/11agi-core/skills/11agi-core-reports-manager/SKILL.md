@@ -78,6 +78,9 @@ report's evidence, audience, domain, or user requirements justify it.
 - Lead with the result that changes the reader's next action.
 - Follow with evidence, comparisons, uncertainty, and limitations.
 - Choose sections for the report rather than copying a universal sequence.
+- Define unfamiliar terms and acronyms on first use. Add a report-specific
+  glossary when terminology is specialized, ambiguous, extensive, or varies
+  across the intended audience; omit it when inline definitions are sufficient.
 - Include methodology sufficient to reproduce material calculations.
 - Include recommendations only when requested or clearly part of the report's
   purpose.
@@ -90,8 +93,8 @@ report's evidence, audience, domain, or user requirements justify it.
   navigation or interaction, and structured data for recomputation or
   rerendering.
 - Render multiple presentation formats from one evidence model when practical.
-- Keep facts, values, ordering, limitations, and provenance aligned across
-  formats. Let HTML add interaction, not exclusive information.
+- Keep facts, values, ordering, terminology, limitations, and provenance aligned
+  across formats. Let HTML add interaction, not exclusive information.
 - Prefer timestamped, immutable packages for recurring or auditable reports.
 - Do not silently overwrite an existing report. Require an explicit output or
   replacement request.
@@ -101,6 +104,9 @@ report's evidence, audience, domain, or user requirements justify it.
 - Trace material claims to evidence and independently recompute derived values.
 - Check units, denominators, periods, timezone boundaries, rounding, nulls,
   totals, coverage, citations, and privacy.
+- Confirm unfamiliar acronyms are expanded, glossary definitions match actual
+  usage, and terminology is consistent across narrative, tables, charts,
+  diagrams, and machine-readable data.
 - Confirm every requested artifact exists, opens, and agrees with its siblings.
 - Rerender saved data when promised and confirm scope, provenance, limitations,
   and analytical meaning survive.

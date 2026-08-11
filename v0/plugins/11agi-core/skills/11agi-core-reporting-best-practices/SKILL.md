@@ -1,6 +1,6 @@
 ---
 name: 11agi-core-reporting-best-practices
-description: "Reference general best practices for evidence-backed reporting, including data collection, coverage, provenance, flexible schemas, structure, metrics, uncertainty, privacy, artifact strategy, and verification. Use when Codex needs advisory guidance, tradeoff analysis, or a read-only review of how a report should be designed. This skill is advisory and does not create, edit, render, manage, or enforce report artifacts."
+description: "Reference general best practices for evidence-backed reporting, including data collection, coverage, provenance, flexible schemas, structure, terminology and glossaries, metrics, uncertainty, privacy, artifact strategy, and verification. Use when Codex needs advisory guidance, tradeoff analysis, or a read-only review of how a report should be designed. This skill is advisory and does not create, edit, render, manage, or enforce report artifacts."
 ---
 
 # 11agi Core Reporting Best Practices
@@ -31,8 +31,8 @@ Read each relevant reference completely before advising:
   maximal relevant collection, provenance, coverage, privacy, and evidence
   states.
 - [references/structure-and-metrics.md](references/structure-and-metrics.md):
-  flexible schemas, report structure, metrics, uncertainty, formats, and
-  cross-format parity.
+  flexible schemas, report structure, terminology, glossaries, metrics,
+  uncertainty, formats, and cross-format parity.
 - [references/verification-practices.md](references/verification-practices.md):
   factual, numerical, structural, privacy, artifact, and regression checks.
 
@@ -44,6 +44,9 @@ Read each relevant reference completely before advising:
   are not a reason to discard collected dimensions.
 - Expand schemas and report structures around each report's subject, evidence,
   audience, and analytical needs.
+- Define unfamiliar terms and acronyms for the intended audience. Prefer inline
+  definitions unless a report-specific glossary materially improves lookup or
+  consistency.
 - Distinguish observed, source-reported, calculated, estimated, inferred, and
   unavailable information.
 - Keep claims traceable to sources and disclose assumptions, exclusions,

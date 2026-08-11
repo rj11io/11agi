@@ -57,6 +57,20 @@ A common starting sequence is:
 
 Adapt or replace this sequence for the report at hand.
 
+## Explain terminology for the audience
+
+- Prefer defining unfamiliar domain terms and acronyms on first use.
+- Consider a report-specific glossary when terminology is specialized,
+  ambiguous, extensive, or likely to vary across the intended audience.
+- Prefer one canonical term for each concept. Include useful aliases or legacy
+  terms when readers may encounter them in the evidence.
+- Keep definitions consistent across narrative, tables, charts, diagrams, and
+  machine-readable data.
+- Prefer authoritative definitions when the report depends on a formal domain
+  standard, policy, methodology, or source vocabulary.
+- Omit a glossary when ordinary inline definitions are sufficient. Omit empty
+  glossary sections.
+
 ## Define metrics precisely
 
 - Define the population, numerator, denominator, unit, period, timezone, and
