@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
-  "name": "11agi-core-skills",
+  "name": "11agi-core",
   "version": "0.0.1",
   "description": "Skills for building, auditing, and maintaining other skills and the plugins that package them, plus general-purpose utilities: guidance compression, repository reverse-engineering, a pragmatic communication register, and a blunt read-only critique.",
   "author": {

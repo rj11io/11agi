@@ -22,7 +22,7 @@ The three reporting skills always use their synchronized bundled pricing catalog
 
 ## Reporting principles
 
-Show as many datapoints as possible. Table width is never a reason to drop a column: when a metric is available per row, it belongs in the table, and unavailable values render as `n/a` rather than being omitted. A harness is the combination of surface, runtime, store, and billing mode, and the by-harness tables break those out as separate columns together with usage source and confidence. HTML reports follow the `11agi-core-reports-styleguide` skill in the `11agi-core-skills` plugin: dark by default with a light toggle, canonical tokens and embedded fonts, highlightable rows, and resizable columns, none of it persisting across reloads.
+Show as many datapoints as possible. Table width is never a reason to drop a column: when a metric is available per row, it belongs in the table, and unavailable values render as `n/a` rather than being omitted. A harness is the combination of surface, runtime, store, and billing mode, and the by-harness tables break those out as separate columns together with usage source and confidence. HTML reports follow the `11agi-core-reports-styleguide` skill in the `11agi-core` plugin: dark by default with a light toggle, canonical tokens and embedded fonts, highlightable rows, and resizable columns, none of it persisting across reloads.
 
 ## Cross-skill maintenance
 

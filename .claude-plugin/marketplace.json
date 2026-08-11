@@ -35,8 +35,8 @@
       "source": "./v0/plugins/11agi-codebase"
     },
     {
-      "name": "11agi-core-skills",
-      "source": "./v0/plugins/11agi-core-skills"
+      "name": "11agi-core",
+      "source": "./v0/plugins/11agi-core"
     },
     {
       "name": "11agi-directors",

@@ -1,5 +1,5 @@
 {
-  "name": "11agi-core-skills",
+  "name": "11agi-core",
   "version": "0.0.1",
   "description": "Skills for building, auditing, and maintaining other skills and the plugins that package them, plus general-purpose utilities: guidance compression, repository reverse-engineering, a pragmatic communication register, and a blunt read-only critique.",
   "author": {
@@ -32,6 +32,6 @@
       "Developer Tools"
     ],
     "websiteURL": "https://agi.rj11.io/plugins/core-skills",
-    "defaultPrompt": "Help me use the 11agi-core-skills skills to author or audit a skill in this collection."
+    "defaultPrompt": "Help me use the 11agi-core skills to author or audit a skill in this collection."
   }
 }

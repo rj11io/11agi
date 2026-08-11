@@ -21,6 +21,6 @@ question; start with the audit when you already know which repository to check.
 
 ## Related
 
-[`11agi-core-skills`](../11agi-core-skills/README.md) scaffolds a brand-new
+[`11agi-core`](../11agi-core/README.md) scaffolds a brand-new
 plugin end to end. Read it before writing a new skill here, so plugin
 creation and plugin auditing don't drift apart.

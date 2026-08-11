@@ -82,10 +82,10 @@
       "category": "Developer Tools"
     },
     {
-      "name": "11agi-core-skills",
+      "name": "11agi-core",
       "source": {
         "source": "local",
-        "path": "./v0/plugins/11agi-core-skills"
+        "path": "./v0/plugins/11agi-core"
       },
       "policy": {
         "installation": "AVAILABLE"

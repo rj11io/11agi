@@ -49,7 +49,7 @@ export type Skill = {
   description: string
   pluginSlug: string
   pluginTitle: string
-  /** Path from the repo root, e.g. "v0/plugins/11agi-core-skills/skills/11agi-roast". */
+  /** Path from the repo root, e.g. "v0/plugins/11agi-core/skills/11agi-roast". */
   repoPath: string
   githubUrl: string
 }
