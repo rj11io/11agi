@@ -1,0 +1,4 @@
+interface:
+  display_name: "11agi Core Reports Manager"
+  short_description: "Create and maintain evidence-backed reports"
+  default_prompt: "Use $11agi-core-reports-manager to create or update this report using the reporting, datavis, and house-style guidance."

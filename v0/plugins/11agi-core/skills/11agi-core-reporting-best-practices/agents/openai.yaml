@@ -1,0 +1,4 @@
+interface:
+  display_name: "11agi Core Reporting Best Practices"
+  short_description: "Consult evidence-backed reporting practices"
+  default_prompt: "Use $11agi-core-reporting-best-practices to advise on the evidence, structure, metrics, uncertainty, and verification approach for this report."

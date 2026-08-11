@@ -1,0 +1,4 @@
+interface:
+  display_name: "11agi Core Datavis Best Practices"
+  short_description: "Consult clear and accurate datavis practices"
+  default_prompt: "Use $11agi-core-datavis-best-practices to advise on clear, accurate, accessible tables and data presentation for this report."

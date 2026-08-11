@@ -1,12 +1,29 @@
 ---
 name: 11agi-core-reports-styleguide
-description: "The house styleguide for generated, self-contained HTML reports: canonical design tokens with a dark default and a light toggle, embedded Inter and Geist Mono fonts with cross-platform fallback stacks, collapsed-disclosure section structure, and a table interaction contract covering descending-first sorting, multi-row click highlighting that survives sorting, and column resizing down to zero width, none of it persisting across reloads. Ships copyable tokens.css and fonts.css, a complete working report-template.html, the interaction spec with its known failure modes, and a regression checklist against previous generations. Use when building, styling, restyling, or reviewing a generated HTML or markdown report, or when asked to apply the house report style."
+description: "Apply the house presentation contract for generated, self-contained HTML reports: canonical design tokens, embedded fonts, dark default with a light toggle, collapsed disclosures, and deterministic table interactions that reset on reload. Ships copyable CSS, a working HTML template, an interaction contract, and a regression checklist. Use when building, styling, restyling, or reviewing house Markdown and HTML reports. Owns presentation mechanics, not report semantics, data collection, schema design, or visualization choice."
 ---
 
 # 11agi Core Reports Styleguide
 
-The canon for every generated report. Reports are immutable artifacts: styled
-once at generation, self-contained forever, identical on every open.
+The house presentation contract for generated reports. Reports are immutable
+artifacts: styled once at generation, self-contained forever, identical on
+every open.
+
+## Ownership boundary
+
+- Own report tokens, typography, layout, disclosures, table presentation
+  mechanics, interaction behavior, and presentation verification.
+- Do not decide which evidence, metrics, fields, totals, or visual encodings a
+  report should contain.
+- Consult
+  [`11agi-core-datavis-best-practices`](../11agi-core-datavis-best-practices/SKILL.md)
+  for table semantics and other data-presentation choices.
+- Consult
+  [`11agi-core-reporting-best-practices`](../11agi-core-reporting-best-practices/SKILL.md)
+  for report evidence, structure, metrics, uncertainty, and artifact strategy.
+- Let
+  [`11agi-core-reports-manager`](../11agi-core-reports-manager/SKILL.md)
+  compose those concerns when creating or updating report artifacts.
 
 Copy from the bundled references instead of reimplementing:
 
@@ -52,11 +69,10 @@ Structure:
 - Tables live inside a `.table-wrap` that scrolls horizontally; the page body
   never scrolls sideways.
 
-Tables and data display:
+Table presentation and interaction:
 
-- Show as many datapoints as possible; table width is never a reason to drop
-  a column.
-- Missing data renders `n/a`, never `0`. USD uses four decimals.
+- Apply the selected table schema and semantic formatting without removing
+  fields for layout convenience.
 - Sorting, row highlighting, and column resizing follow
   [references/interaction-contract.md](references/interaction-contract.md)
   exactly, including the node-identity rule for sorting and the two fixed

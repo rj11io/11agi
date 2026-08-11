@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "11agi-core-skills",
   "version": "1.0.0",
-  "description": "Skills for building, auditing, and maintaining other skills and the plugins that package them, plus general-purpose utilities: guidance compression, repository reverse-engineering, a pragmatic communication register, and a blunt read-only critique.",
+  "description": "Skills for building, auditing, and maintaining skills and plugins, plus evidence-backed reporting, datavis guidance, report presentation, compression, reverse-engineering, communication, and critique utilities.",
   "author": {
     "name": "rj11io"
   },
@@ -17,6 +17,8 @@
     "tooling",
     "compression",
     "reverse-engineering",
+    "reporting",
+    "data-visualization",
     "communication",
     "critique"
   ]

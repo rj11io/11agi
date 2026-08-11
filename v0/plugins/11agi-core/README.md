@@ -1,9 +1,8 @@
 # 11agi Core Skills
 
 Skills for building, auditing, and packaging other skills and plugins, plus
-general-purpose utilities that don't fit anywhere else yet: compressing
-guidance text, reverse engineering an existing repo, setting how an agent
-communicates, and critiquing any work product.
+general-purpose reporting, compression, reverse-engineering, communication,
+and critique utilities.
 
 ## Choose a skill
 
@@ -15,6 +14,9 @@ communicates, and critiquing any work product.
 | [`11agi-core-reverse-engineering`](./skills/11agi-core-reverse-engineering/SKILL.md) | Reverse engineering a locally cloned repository into a sanitized markdown blueprint for rebuilding it with modern tools |
 | [`11agi-pragmatic`](./skills/11agi-pragmatic/SKILL.md) | Answering in a terse, evidence-preserving register: short lines, an example per claim, a fix beside every problem, and a copyable conventional commit message after repo work |
 | [`11agi-core-www-styleguides`](./skills/11agi-core-www-styleguides/SKILL.md) | Theming a Next.js and shadcn application with the house web design language: user tokens and fonts kept, missing pieces derived as balanced equivalents with contrast gates, bundled defaults otherwise |
+| [`11agi-core-reports-manager`](./skills/11agi-core-reports-manager/SKILL.md) | Creating, updating, extending, rerendering, and verifying topic-specific reports while consulting the reporting, datavis, and house-style skills |
+| [`11agi-core-reporting-best-practices`](./skills/11agi-core-reporting-best-practices/SKILL.md) | Consulting advisory practices for evidence, broad datapoint collection, provenance, flexible report schemas, metrics, uncertainty, privacy, artifacts, and verification |
+| [`11agi-core-datavis-best-practices`](./skills/11agi-core-datavis-best-practices/SKILL.md) | Consulting advisory data-visualization practices, currently centered on complete, accurate, accessible tables |
 | [`11agi-core-reports-styleguide`](./skills/11agi-core-reports-styleguide/SKILL.md) | Styling, restyling, or reviewing generated HTML reports: canonical tokens, embedded fonts, dark default, and the table interaction contract with its verification checklist |
 | [`11agi-roast`](./skills/11agi-roast/SKILL.md) | Giving a blunt, prioritized, read-only critique of code, documents, designs, or any other work product |
 
@@ -46,6 +48,8 @@ Candidates for this plugin:
 - Keep counts, manifests, and duplicated helper scripts in sync.
 - Retire a skill or plugin cleanly.
 - Add a communication register or a one-off critique deliverable.
+- Consult general reporting or datavis practices without creating artifacts.
+- Create, update, rerender, or verify an evidence-backed report package.
 
 ## The authority
 
