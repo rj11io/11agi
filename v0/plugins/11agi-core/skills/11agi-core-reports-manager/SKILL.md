@@ -24,6 +24,10 @@ Before creating, updating, or rerendering a report:
    presentation, read
    [`11agi-core-reports-styleguide`](../11agi-core-reports-styleguide/SKILL.md)
    and the references it routes for the requested output.
+4. Do not consult or apply optional report-format skills unless the user
+   explicitly selects that format. When the user explicitly requests collapsed,
+   collapsible, disclosure, or accordion report sections, read
+   [`11agi-core-reports-collapsed-format`](../11agi-core-reports-collapsed-format/SKILL.md).
 
 Apply this precedence:
 
@@ -120,5 +124,7 @@ report's evidence, audience, domain, or user requirements justify it.
   this skill; keep them with the report generator or domain skill that owns
   them.
 - Do not duplicate styleguide CSS, fonts, templates, or interaction code.
+- Do not infer an optional format from report length, density, section count,
+  HTML output, or an available format skill.
 - Do not execute recommendations or mutate external systems unless the user
   separately requests and authorizes that work.

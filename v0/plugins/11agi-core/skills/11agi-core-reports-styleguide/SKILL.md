@@ -1,6 +1,6 @@
 ---
 name: 11agi-core-reports-styleguide
-description: "Apply the house presentation contract for generated, self-contained HTML reports: canonical design tokens, embedded fonts, dark default with a light toggle, collapsed disclosures, and deterministic table interactions that reset on reload. Ships copyable CSS, a working HTML template, an interaction contract, and a regression checklist. Use when building, styling, restyling, or reviewing house Markdown and HTML reports. Owns presentation mechanics, not report semantics, data collection, schema design, or visualization choice."
+description: "Apply the house presentation contract for generated, self-contained HTML reports: canonical design tokens, embedded fonts, dark default with a light toggle, visible document flow, and deterministic table interactions that reset on reload. Ships copyable CSS, a working HTML template, an interaction contract, and a regression checklist. Use when building, styling, restyling, or reviewing house Markdown and HTML reports. Owns presentation mechanics, not report semantics, data collection, schema design, optional formats, or visualization choice."
 ---
 
 # 11agi Core Reports Styleguide
@@ -11,7 +11,7 @@ every open.
 
 ## Ownership boundary
 
-- Own report tokens, typography, layout, disclosures, table presentation
+- Own report tokens, typography, base layout, table presentation
   mechanics, interaction behavior, and presentation verification.
 - Do not decide which evidence, metrics, fields, totals, or visual encodings a
   report should contain.
@@ -64,8 +64,9 @@ Typography:
 
 Structure:
 
-- Every report section is a native `<details>` disclosure, collapsed by
-  default; the title, generation message, and signature stay outside.
+- Use visible document flow by default: headings followed by their content.
+  Optional format skills may replace section markup only when explicitly
+  selected by the user.
 - Tables live inside a `.table-wrap` that scrolls horizontally; the page body
   never scrolls sideways.
 

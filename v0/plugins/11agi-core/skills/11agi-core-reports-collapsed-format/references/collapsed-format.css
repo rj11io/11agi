@@ -1,0 +1,11 @@
+/* Optional collapsed report format. Layer after the core report styleguide. */
+.report-section { margin: .55rem 0; overflow: hidden; border: 1px solid var(--border); background: var(--card); }
+.report-section.level-2 { margin-top: .8rem; }
+.report-section.level-3 { margin: .45rem 0; }
+.report-section > summary { display: flex; align-items: center; gap: .5rem; padding: .62rem .78rem; cursor: pointer; color: var(--foreground); font-weight: 750; list-style: none; user-select: none; }
+.report-section > summary::-webkit-details-marker { display: none; }
+.report-section > summary::before { content: "▸"; flex: 0 0 auto; color: var(--primary); transition: transform .15s ease; }
+.report-section[open] > summary::before { transform: rotate(90deg); }
+.report-section.level-2 > summary { font-size: 1.12rem; }
+.report-section.level-3 > summary { font-size: .98rem; }
+.report-section > .section-body { padding: 0 .78rem .72rem; border-top: 1px solid var(--border); }

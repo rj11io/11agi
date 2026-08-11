@@ -15,8 +15,7 @@
   fields as possible before designing the view.
 - Do not drop a useful field only because the table becomes wide.
 - Separate collection completeness from display priority. Put secondary fields
-  later, in a detail table, or behind progressive disclosure instead of losing
-  them.
+  later, in a detail table, or in a separate detail view instead of losing them.
 - Include source, method, confidence, coverage, or status columns when those
   qualifiers differ by row.
 

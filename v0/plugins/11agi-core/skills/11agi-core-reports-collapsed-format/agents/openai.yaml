@@ -1,0 +1,7 @@
+interface:
+  display_name: "11agi Core Reports Collapsed Format"
+  short_description: "Apply opt-in collapsed report sections"
+  default_prompt: "Use $11agi-core-reports-collapsed-format to render this report with collapsed disclosure sections."
+
+policy:
+  allow_implicit_invocation: false

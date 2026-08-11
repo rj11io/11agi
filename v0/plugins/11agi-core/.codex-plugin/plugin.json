@@ -1,7 +1,7 @@
 {
   "name": "11agi-core-skills",
   "version": "1.0.0",
-  "description": "Skills for building, auditing, and maintaining skills and plugins, plus evidence-backed reporting, datavis guidance, report presentation, compression, reverse-engineering, communication, and critique utilities.",
+  "description": "Skills for building, auditing, and maintaining skills and plugins, plus evidence-backed reporting, datavis guidance, report presentation with an optional collapsed format, compression, reverse-engineering, communication, and critique utilities.",
   "author": {
     "name": "rj11io"
   },
@@ -25,7 +25,7 @@
   "interface": {
     "displayName": "11agi Core Skills",
     "shortDescription": "Build skills and evidence-backed reports.",
-    "longDescription": "Build, audit, and package skills and plugins; consult reporting and datavis best practices; create, update, and verify evidence-backed reports; apply the house report presentation; and use general-purpose compression, reverse-engineering, communication, and critique utilities.",
+    "longDescription": "Build, audit, and package skills and plugins; consult reporting and datavis best practices; create, update, and verify evidence-backed reports; apply the house report presentation or an explicitly selected collapsed format; and use general-purpose compression, reverse-engineering, communication, and critique utilities.",
     "developerName": "rj11io",
     "category": "Developer Tools",
     "capabilities": [

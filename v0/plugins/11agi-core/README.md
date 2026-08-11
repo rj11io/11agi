@@ -18,6 +18,7 @@ and critique utilities.
 | [`11agi-core-reporting-best-practices`](./skills/11agi-core-reporting-best-practices/SKILL.md) | Consulting advisory practices for evidence, broad datapoint collection, provenance, flexible report schemas, metrics, uncertainty, privacy, artifacts, and verification |
 | [`11agi-core-datavis-best-practices`](./skills/11agi-core-datavis-best-practices/SKILL.md) | Consulting advisory data-visualization practices, currently centered on complete, accurate, accessible tables |
 | [`11agi-core-reports-styleguide`](./skills/11agi-core-reports-styleguide/SKILL.md) | Styling, restyling, or reviewing generated HTML reports: canonical tokens, embedded fonts, dark default, and the table interaction contract with its verification checklist |
+| [`11agi-core-reports-collapsed-format`](./skills/11agi-core-reports-collapsed-format/SKILL.md) | Applying native collapsed disclosure sections only when explicitly invoked or requested by the user |
 | [`11agi-roast`](./skills/11agi-roast/SKILL.md) | Giving a blunt, prioritized, read-only critique of code, documents, designs, or any other work product |
 
 Marketplace and plugin configuration research moved to the

@@ -62,7 +62,7 @@ The files are installed at `node_modules/@rj11io/11agi/v0/plugins/`. You can als
 
 ## Skill catalog
 
-The repository currently contains 73 skills in 14 plugins.
+The repository currently contains 74 skills in 14 plugins.
 
 | Plugin | Skills | Use them for |
 | --- | ---: | --- |
@@ -74,7 +74,7 @@ The repository currently contains 73 skills in 14 plugins.
 | [Cleanup](./v0/plugins/11agi-cleanup/README.md) | 5 | Safely finding and removing abandoned local resources |
 | [Codebase](./v0/plugins/11agi-codebase/README.md) | 4 | Playwright setup, npm publishing, automated releases, and web analytics |
 | [Directors](./v0/plugins/11agi-directors/README.md) | 2 | Wrapping a repository task in a disciplined Git workflow, on main or through a reviewed pull request |
-| [Core skills](./v0/plugins/11agi-core/README.md) | 11 | Building and auditing skills, consulting reporting and datavis practices, creating and styling reports, plus compression, reverse engineering, communication, and critique utilities |
+| [Core skills](./v0/plugins/11agi-core/README.md) | 12 | Building and auditing skills, consulting reporting and datavis practices, creating and styling reports with an optional collapsed format, plus compression, reverse engineering, communication, and critique utilities |
 | [Plugins marketplace](./v0/plugins/11agi-plugins-marketplace/README.md) | 2 | Auditing and researching marketplace, plugin, and skill configuration files across the Claude Code, Claude Cowork, OpenAI Codex, ChatGPT, and Agent Skills ecosystems |
 | [Security](./v0/plugins/11agi-security/README.md) | 1 | A reserved plugin for future security skills beyond dependency scanning: threat modeling, secure-coding review, and secrets handling |
 | [Super](./v0/plugins/11agi-super/README.md) | 9 | Repeatedly completing general or specialist project tasks to a high evidence-based bar |
@@ -98,7 +98,7 @@ v0/
     11agi-cleanup/              5 cleanup skills under skills/
     11agi-codebase/             4 codebase skills under skills/
     11agi-directors/            2 Git task-director skills under skills/
-    11agi-core/                 11 skill-authoring, packaging, reporting, datavis, styleguide, compression, reverse-engineering, and communication skills under skills/
+    11agi-core/                 12 skill-authoring, packaging, reporting, datavis, styleguide, optional report-format, compression, reverse-engineering, and communication skills under skills/
     11agi-plugins-marketplace/  2 marketplace-config audit and research skills under skills/
     11agi-security/             1 reserved security skill under skills/
     11agi-super/                9 iterative task and improvement skills under skills/
