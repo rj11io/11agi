@@ -8,9 +8,26 @@ const root = process.cwd()
 const versionRoot = path.join(root, "v0")
 const pluginsRoot = path.join(versionRoot, "plugins")
 const errors = []
+const alphabeticalCollator = new Intl.Collator("en", {
+  numeric: true,
+  sensitivity: "base",
+})
 
 function fail(file, message) {
   errors.push(`${path.relative(root, file)}: ${message}`)
+}
+
+function compareAlphabetically(left, right) {
+  const compared = alphabeticalCollator.compare(left, right)
+  if (compared) return compared
+  return left < right ? -1 : left > right ? 1 : 0
+}
+
+function validateAlphabeticalOrder(file, label, values) {
+  const expected = [...values].sort(compareAlphabetically)
+  if (values.some((value, index) => value !== expected[index])) {
+    fail(file, `${label} must be alphabetical; expected: ${expected.join(", ")}`)
+  }
 }
 
 function walk(dir, predicate, results = []) {
@@ -189,6 +206,28 @@ function validateScripts() {
   }
 }
 
+function validateScriptCatalog() {
+  const scriptsDir = path.join(versionRoot, "scripts")
+  const readme = path.join(scriptsDir, "README.md")
+  const documented = [...fs.readFileSync(readme, "utf8").matchAll(/^\| `([^`]+)` \|/gm)].map(
+    (match) => match[1],
+  )
+  const extensions = new Set([".cjs", ".js", ".mjs", ".py", ".sh"])
+  const actual = fs
+    .readdirSync(scriptsDir, { withFileTypes: true })
+    .filter((entry) => entry.isFile() && extensions.has(path.extname(entry.name)))
+    .map((entry) => entry.name)
+    .sort(compareAlphabetically)
+
+  for (const script of actual) {
+    if (!documented.includes(script)) fail(readme, `script catalog must list '${script}'`)
+  }
+  for (const script of documented) {
+    if (!actual.includes(script)) fail(readme, `script catalog lists missing script '${script}'`)
+  }
+  validateAlphabeticalOrder(readme, "script catalog rows", documented)
+}
+
 function validateClaude(plugins, pluginSkills) {
   const packageVersion = readJson(path.join(root, "package.json"))?.version
   const marketplaceFile = path.join(root, ".claude-plugin", "marketplace.json")
@@ -337,11 +376,25 @@ function validateCodexPlugins(plugins, pluginSkills) {
 }
 
 function validateCatalog(plugins, pluginSkills, skills) {
-  const rootReadme = fs.readFileSync(path.join(root, "README.md"), "utf8")
+  const rootReadmeFile = path.join(root, "README.md")
+  const rootReadme = fs.readFileSync(rootReadmeFile, "utf8")
   const countPattern = new RegExp(`${skills.length} skills in ${plugins.length} plugins`)
   if (!countPattern.test(rootReadme)) {
-    fail(path.join(root, "README.md"), `catalog must state ${skills.length} skills in ${plugins.length} plugins`)
+    fail(rootReadmeFile, `catalog must state ${skills.length} skills in ${plugins.length} plugins`)
   }
+
+  const catalogLabels = [
+    ...rootReadme.matchAll(
+      /^\| \[([^\]]+)\]\(\.\/v0\/plugins\/11agi-[a-z0-9-]+\/README\.md\) \| \d+ \|/gm,
+    ),
+  ].map((match) => match[1])
+  validateAlphabeticalOrder(rootReadmeFile, "plugin catalog rows", catalogLabels)
+
+  const layoutEntries = [...rootReadme.matchAll(/^[ \t]+(11agi-[a-z0-9-]+)\/[ \t]+\d+ /gm)].map(
+    (match) => match[1],
+  )
+  validateAlphabeticalOrder(rootReadmeFile, "plugin layout entries", layoutEntries)
+
   for (const plugin of plugins) {
     const readme = path.join(pluginsRoot, plugin, "README.md")
     if (!fs.existsSync(readme)) {
@@ -358,12 +411,12 @@ function validateCatalog(plugins, pluginSkills, skills) {
       `\\| \\[[^\\]]+\\]\\(\\.\\/v0\\/plugins\\/${plugin}\\/README\\.md\\) \\| ${count} \\|`,
     )
     if (!rootCatalogRow.test(rootReadme)) {
-      fail(path.join(root, "README.md"), `catalog row for '${plugin}' must state ${count} skills`)
+      fail(rootReadmeFile, `catalog row for '${plugin}' must state ${count} skills`)
     }
 
     const rootLayoutEntry = new RegExp(`^\\s+${plugin}\\/\\s+${count} `, "m")
     if (!rootLayoutEntry.test(rootReadme)) {
-      fail(path.join(root, "README.md"), `layout entry for '${plugin}' must state ${count} skills`)
+      fail(rootReadmeFile, `layout entry for '${plugin}' must state ${count} skills`)
     }
   }
 }
@@ -656,6 +709,7 @@ const pluginSkills = new Map(
 
 validatePluginStructure()
 validateScripts()
+validateScriptCatalog()
 validateClaude(plugins, pluginSkills)
 validateCodexPlugins(plugins, pluginSkills)
 validateCatalog(plugins, pluginSkills, inventorySkills)

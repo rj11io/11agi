@@ -103,13 +103,13 @@ A layout entry in the indented tree block, with the same count:
     11agi-operator-TOOL-ID/     10 TOOL operation skills under skills/
 ```
 
-Keep both lists in the same order the file already uses, and recount rather than guessing when you add a skill to an existing plugin.
+Insert the catalog row alphabetically by its display label and the layout entry alphabetically by plugin directory. Recount rather than guessing when you add a skill to an existing plugin.
 
 The count includes a conditional `*-native-skills` bridge when first-party Agent Skills exist. Before counting it, verify that its upstream source is publisher-owned and that the bridge checks compatibility against the same requested/latest technology version encoded by the plugin identity and skill baselines.
 
 ## 6. Site catalog
 
-`v0/www/lib/skills.ts` — add an entry to `PLUGIN_CONFIG`. Skill names, counts, and descriptions are read from the skill files at build time; only the slug, directory, title, and tagline live here.
+`v0/www/lib/skills.ts` discovers the plugin automatically. Add an optional entry to `PLUGIN_CONFIG` only when the plugin README does not provide the intended title or tagline. Skill names, counts, and descriptions are read from the skill files at build time. The array order does not control rendered order.
 
 ```ts
 {

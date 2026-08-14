@@ -6,8 +6,10 @@ import matter from "gray-matter"
 export const GITHUB_REPO_URL = "https://github.com/rj11io/11agi"
 export const NPM_URL = "https://www.npmjs.com/package/@rj11io/11agi"
 export const INSTALL_COMMAND = "npx skills add rj11io/11agi --full-depth"
-export const CLAUDE_MARKETPLACE_COMMAND = "claude plugin marketplace add rj11io/11agi"
-export const CODEX_MARKETPLACE_COMMAND = "codex plugin marketplace add rj11io/11agi"
+export const CLAUDE_MARKETPLACE_COMMAND =
+  "claude plugin marketplace add rj11io/11agi"
+export const CODEX_MARKETPLACE_COMMAND =
+  "codex plugin marketplace add rj11io/11agi"
 
 /** Per-plugin install command for Claude Code, once the marketplace is added. */
 export function claudeInstallCommand(pluginDir: string) {
@@ -20,9 +22,8 @@ export function codexInstallCommand(pluginDir: string) {
 }
 
 /**
- * Curated per-plugin presentation data. Skills, counts, and descriptions all
- * come from the skill files themselves; only the short taglines and display
- * order live here.
+ * Optional per-plugin presentation overrides. Skills, counts, descriptions,
+ * and rendered order come from repository content and catalog sorting.
  */
 type PluginConfig = {
   slug: string
@@ -32,6 +33,17 @@ type PluginConfig = {
 }
 
 const PLUGIN_CONFIG: readonly PluginConfig[] = []
+const catalogCollator = new Intl.Collator("en", {
+  numeric: true,
+  sensitivity: "base",
+})
+
+function compareCatalogText(left: string, right: string) {
+  return (
+    catalogCollator.compare(left, right) ||
+    (left < right ? -1 : left > right ? 1 : 0)
+  )
+}
 
 export type Plugin = {
   slug: string
@@ -193,7 +205,9 @@ function loaded() {
 }
 
 export function getPlugins(): Plugin[] {
-  return [...loaded().plugins].sort((a, b) => a.title.localeCompare(b.title))
+  return [...loaded().plugins].sort((a, b) =>
+    compareCatalogText(a.title, b.title)
+  )
 }
 
 export function getPlugin(slug: string): Plugin | undefined {
@@ -201,11 +215,13 @@ export function getPlugin(slug: string): Plugin | undefined {
 }
 
 export function getSkills(): Skill[] {
-  return loaded().skills
+  return [...loaded().skills].sort((a, b) => compareCatalogText(a.name, b.name))
 }
 
 export function getSkillsByPlugin(pluginSlug: string): Skill[] {
-  return loaded().skills.filter((s) => s.pluginSlug === pluginSlug)
+  return loaded()
+    .skills.filter((s) => s.pluginSlug === pluginSlug)
+    .sort((a, b) => compareCatalogText(a.name, b.name))
 }
 
 export function getSkill(slug: string): Skill | undefined {

@@ -67,19 +67,19 @@ The repository currently contains 74 skills in 14 plugins.
 | Plugin | Skills | Use them for |
 | --- | ---: | --- |
 | [Agent automation](./v0/plugins/11agi-agent-automation/README.md) | 8 | Scheduled autonomous work using the Ledger + Conductor + Routine pattern |
+| [AI analytics](./v0/plugins/11agi-ai-analytics/README.md) | 5 | Single-thread, project-scoped, and machine-wide LLM cost, effort, and timing reports, provider-verified pricing maintenance, and a FAQ over all of them |
 | [AI chat](./v0/plugins/11agi-ai-chat/README.md) | 9 | End-to-end chat, sessions, tools, models, providers, UI, and messaging-platform extensions |
 | [Audit](./v0/plugins/11agi-audit/README.md) | 1 | Read-only dependency vulnerability, malware, supply-chain, and host-computer risk auditing |
-| [AI analytics](./v0/plugins/11agi-ai-analytics/README.md) | 5 | Single-thread, project-scoped, and machine-wide LLM cost, effort, and timing reports, provider-verified pricing maintenance, and a FAQ over all of them |
 | [Blog builder](./v0/plugins/11agi-blog-builder/README.md) | 10 | Building file-backed editorial blogs with composable CMS, author, Markdown, content, navigation, and UI skills, plus a standalone platform-services page and a publications-and-chapters CMS |
 | [Cleanup](./v0/plugins/11agi-cleanup/README.md) | 5 | Safely finding and removing abandoned local resources |
 | [Codebase](./v0/plugins/11agi-codebase/README.md) | 4 | Playwright setup, npm publishing, automated releases, and web analytics |
-| [Directors](./v0/plugins/11agi-directors/README.md) | 2 | Wrapping a repository task in a disciplined Git workflow, on main or through a reviewed pull request |
 | [Core skills](./v0/plugins/11agi-core/README.md) | 12 | Building and auditing skills, consulting reporting and datavis practices, creating and styling reports with an optional collapsed format, plus compression, reverse engineering, communication, and critique utilities |
+| [Cross-harness](./v0/plugins/11agi-xharness/README.md) | 2 | Delegating work to agents running in other CLI harnesses |
+| [Directors](./v0/plugins/11agi-directors/README.md) | 2 | Wrapping a repository task in a disciplined Git workflow, on main or through a reviewed pull request |
 | [Plugins marketplace](./v0/plugins/11agi-plugins-marketplace/README.md) | 2 | Auditing and researching marketplace, plugin, and skill configuration files across the Claude Code, Claude Cowork, OpenAI Codex, ChatGPT, and Agent Skills ecosystems |
 | [Security](./v0/plugins/11agi-security/README.md) | 1 | A reserved plugin for future security skills beyond dependency scanning: threat modeling, secure-coding review, and secrets handling |
 | [Super](./v0/plugins/11agi-super/README.md) | 9 | Repeatedly completing general or specialist project tasks to a high evidence-based bar |
 | [Web design](./v0/plugins/11agi-web-design/README.md) | 4 | The 11agi visual language, deliberate content-led styling, and repository-driven project sites for accessible web interfaces |
-| [Cross-harness](./v0/plugins/11agi-xharness/README.md) | 2 | Delegating work to agents running in other CLI harnesses |
 
 Start with a plugin's README to choose a skill, then name that skill in your request. Skills provide instructions and examples; they do not install the application dependencies used in those examples by themselves.
 
@@ -92,14 +92,14 @@ v0/
   index.js                    CommonJS package entry point
   plugins/
     11agi-agent-automation/     8 automation skills under skills/
+    11agi-ai-analytics/         5 LLM cost, effort, timing, and FAQ skills under skills/
     11agi-ai-chat/              9 AI chat skills under skills/
     11agi-audit/                1 evidence-backed dependency-audit skill under skills/
-    11agi-ai-analytics/           5 LLM cost, effort, timing, and FAQ skills under skills/
     11agi-blog-builder/         10 editorial blog, platform-CTA, and publications-CMS skills under skills/
     11agi-cleanup/              5 cleanup skills under skills/
     11agi-codebase/             4 codebase skills under skills/
-    11agi-directors/            2 Git task-director skills under skills/
     11agi-core/                 12 skill-authoring, packaging, reporting, datavis, styleguide, optional report-format, compression, reverse-engineering, and communication skills under skills/
+    11agi-directors/            2 Git task-director skills under skills/
     11agi-plugins-marketplace/  2 marketplace-config audit and research skills under skills/
     11agi-security/             1 reserved security skill under skills/
     11agi-super/                9 iterative task and improvement skills under skills/

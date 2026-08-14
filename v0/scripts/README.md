@@ -8,9 +8,9 @@ synchronization, and manual publishing helpers.
 | File | How it is used |
 | --- | --- |
 | `check-benchmarks-drift.mjs` | Run directly, and automatically through `validate-skills.mjs`, to verify that shared `11agi-ai-analytics` files and analyzer functions remain synchronized. Pass `--write` to copy the canonical project helper files to the machine and single-thread skills. |
-| `validate-skills.mjs` | Run through `npm run validate-skills` to check skill frontmatter, Codex metadata, plugin packaging, links, scripts, and catalogs. |
-| `sync-claude-plugin-versions.mjs` | Run automatically by the root package's `postversion` hook to copy the package version into Claude and Codex plugin manifests. |
 | `publish-public-w-local-token.cjs` | Run through `npm run publish-public-local` for a real public npm publish using `NPM_TOKEN` from `.env`. |
+| `sync-claude-plugin-versions.mjs` | Run automatically by the root package's `postversion` hook to copy the package version into Claude and Codex plugin manifests. |
+| `validate-skills.mjs` | Run through `npm run validate-skills` to check skill frontmatter, Codex metadata, plugin packaging, links, scripts, and catalogs. |
 
 ## Publish with a local token
 

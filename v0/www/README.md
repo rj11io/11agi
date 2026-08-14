@@ -37,7 +37,7 @@ No environment variables are currently required. The app reads skill content fro
 
 ## Content source
 
-`lib/skills.ts` discovers plugins under `../plugins`, reads each plugin's `skills/` directory and skill frontmatter, and exposes the catalog data used by the routes. The current plugins have curated display order and taglines; an unconfigured plugin can also be discovered from its directory and README. `lib/markdown.ts` renders each `SKILL.md` body for its detail page.
+`lib/skills.ts` discovers plugins under `../plugins`, reads each plugin's `skills/` directory and skill frontmatter, and exposes the catalog data used by the routes. It derives plugin titles and taglines from each plugin README unless an optional `PLUGIN_CONFIG` entry overrides them. Plugin lists sort by title, and skill catalogs sort by skill name. `lib/markdown.ts` renders each `SKILL.md` body for its detail page.
 
 Skill and plugin routes are generated from repository content. Update the source `SKILL.md` and plugin README files instead of copying catalog data into page components.
 
