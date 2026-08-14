@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/rj11io/11agi/compare/v1.1.0...v1.1.1) (2026-08-14)
+
+
+### Bug Fixes
+
+* **catalog:** enforce alphabetical documentation and website ordering ([0cae353](https://github.com/rj11io/11agi/commit/0cae3536eb0871d103d9492b14fba378942f9265))
+
 # [1.1.0](https://github.com/rj11io/11agi/compare/v1.0.0...v1.1.0) (2026-08-14)
 
 

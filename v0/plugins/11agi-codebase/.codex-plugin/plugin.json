@@ -1,6 +1,6 @@
 {
   "name": "11agi-codebase",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Set up Playwright, npm publishing, and automated releases for repositories.",
   "author": {
     "name": "rj11io"

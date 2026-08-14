@@ -1,6 +1,6 @@
 {
   "name": "11agi-directors",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Director skills that wrap a task in a full workflow: setup, execution, quality checks, and reporting.",
   "author": {
     "name": "rj11io"
