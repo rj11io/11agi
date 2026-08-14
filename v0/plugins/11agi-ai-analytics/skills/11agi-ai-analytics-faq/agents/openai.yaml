@@ -1,0 +1,4 @@
+interface:
+  display_name: "11agi Benchmarks FAQ"
+  short_description: "Answer questions about the benchmarks skills"
+  default_prompt: "Use $11agi-ai-analytics-faq to answer my question about the benchmark skills: route it to the owning contract, reference, script, or test, read that source, and answer with a citation."

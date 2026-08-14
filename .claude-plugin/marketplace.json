@@ -19,8 +19,8 @@
       "source": "./v0/plugins/11agi-audit"
     },
     {
-      "name": "11agi-benchmarks",
-      "source": "./v0/plugins/11agi-benchmarks"
+      "name": "11agi-ai-analytics",
+      "source": "./v0/plugins/11agi-ai-analytics"
     },
     {
       "name": "11agi-blog-builder",

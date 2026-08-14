@@ -38,10 +38,10 @@
       "category": "Security"
     },
     {
-      "name": "11agi-benchmarks",
+      "name": "11agi-ai-analytics",
       "source": {
         "source": "local",
-        "path": "./v0/plugins/11agi-benchmarks"
+        "path": "./v0/plugins/11agi-ai-analytics"
       },
       "policy": {
         "installation": "AVAILABLE"

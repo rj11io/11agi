@@ -7,7 +7,7 @@ file as its human-readable companion. Where the two disagree, the validator wins
 ## Identity
 
 - Directory and frontmatter name: `11agi-<plugin-short>-faq`, where `<plugin-short>` is the
-  plugin name without the `11agi-` prefix (plugin `11agi-benchmarks` → skill `11agi-benchmarks-faq`).
+  plugin name without the `11agi-` prefix (plugin `11agi-ai-analytics` → skill `11agi-ai-analytics-faq`).
 - The skill lives inside the plugin it documents, next to its siblings.
 - Create an FAQ only when explicitly asked. Never mass-generate FAQs across plugins: the
   pattern earns trust one reviewed instance at a time.

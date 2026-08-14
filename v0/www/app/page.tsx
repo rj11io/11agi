@@ -195,11 +195,11 @@ export default function Page() {
           <p className="text-sm leading-relaxed text-muted-foreground">
             Then install a plugin, for example{" "}
             <code className="rounded bg-muted px-1.5 py-0.5 font-mono text-xs">
-              claude plugin install 11agi-benchmarks@11agi
+              claude plugin install 11agi-ai-analytics@11agi
             </code>{" "}
             or{" "}
             <code className="rounded bg-muted px-1.5 py-0.5 font-mono text-xs">
-              codex plugin add 11agi-benchmarks@11agi
+              codex plugin add 11agi-ai-analytics@11agi
             </code>
             .
           </p>

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Guards the 11agi-benchmarks plugin against copy drift. The three analyzer skills
+// Guards the 11agi-ai-analytics plugin against copy drift. The three analyzer skills
 // carry deliberate per-skill copies of shared code; this check fails when a copy
 // that must stay identical diverges, so a fix applied to one copy cannot silently
 // miss the others. Intentionally divergent functions are allowlisted below.
@@ -8,7 +8,7 @@ import { readFileSync, writeFileSync } from "node:fs"
 import { join, resolve } from "node:path"
 
 const root = resolve(process.cwd())
-const benchmarks = join(root, "v0", "plugins", "11agi-benchmarks", "skills")
+const benchmarks = join(root, "v0", "plugins", "11agi-ai-analytics", "skills")
 const write = process.argv.includes("--write")
 const failures = []
 
@@ -19,36 +19,36 @@ const IDENTICAL_FILE_GROUPS = [
     label: "benchmarks-core.mjs",
     syncable: true,
     files: [
-      "11agi-benchmarks-project/scripts/benchmarks-core.mjs",
-      "11agi-benchmarks-single-thread/scripts/benchmarks-core.mjs",
-      "11agi-benchmarks-machine/scripts/benchmarks-core.mjs",
+      "11agi-ai-analytics-project/scripts/benchmarks-core.mjs",
+      "11agi-ai-analytics-single-thread/scripts/benchmarks-core.mjs",
+      "11agi-ai-analytics-machine/scripts/benchmarks-core.mjs",
     ],
   },
   {
     label: "harness-support.mjs",
     syncable: true,
     files: [
-      "11agi-benchmarks-project/scripts/harness-support.mjs",
-      "11agi-benchmarks-single-thread/scripts/harness-support.mjs",
-      "11agi-benchmarks-machine/scripts/harness-support.mjs",
+      "11agi-ai-analytics-project/scripts/harness-support.mjs",
+      "11agi-ai-analytics-single-thread/scripts/harness-support.mjs",
+      "11agi-ai-analytics-machine/scripts/harness-support.mjs",
     ],
   },
   {
     label: "pricing-history.mjs",
     files: [
-      "11agi-benchmarks-pricing-update/scripts/pricing-history.mjs",
-      "11agi-benchmarks-single-thread/scripts/pricing-history.mjs",
-      "11agi-benchmarks-project/scripts/pricing-history.mjs",
-      "11agi-benchmarks-machine/scripts/pricing-history.mjs",
+      "11agi-ai-analytics-pricing-update/scripts/pricing-history.mjs",
+      "11agi-ai-analytics-single-thread/scripts/pricing-history.mjs",
+      "11agi-ai-analytics-project/scripts/pricing-history.mjs",
+      "11agi-ai-analytics-machine/scripts/pricing-history.mjs",
     ],
   },
   {
     label: "pricing.json",
     files: [
-      "11agi-benchmarks-pricing-update/references/pricing.json",
-      "11agi-benchmarks-single-thread/references/pricing.json",
-      "11agi-benchmarks-project/references/pricing.json",
-      "11agi-benchmarks-machine/references/pricing.json",
+      "11agi-ai-analytics-pricing-update/references/pricing.json",
+      "11agi-ai-analytics-single-thread/references/pricing.json",
+      "11agi-ai-analytics-project/references/pricing.json",
+      "11agi-ai-analytics-machine/references/pricing.json",
     ],
   },
 ]
@@ -79,9 +79,9 @@ for (const group of IDENTICAL_FILE_GROUPS) {
 // scope legitimately differs between the single-thread, project, and machine
 // analyzers (selection, sub-agent lineage, multi-home accounts, report shape).
 const ANALYZERS = {
-  "single-thread": "11agi-benchmarks-single-thread/scripts/analyze-llm-cost-single-thread.mjs",
-  "project": "11agi-benchmarks-project/scripts/analyze-llm-cost-project.mjs",
-  "machine": "11agi-benchmarks-machine/scripts/analyze-llm-cost-global.mjs",
+  "single-thread": "11agi-ai-analytics-single-thread/scripts/analyze-llm-cost-single-thread.mjs",
+  "project": "11agi-ai-analytics-project/scripts/analyze-llm-cost-project.mjs",
+  "machine": "11agi-ai-analytics-machine/scripts/analyze-llm-cost-global.mjs",
 }
 const INTENTIONALLY_DIVERGENT = new Set([
   "baseThread",

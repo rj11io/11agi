@@ -32,7 +32,7 @@ or from your shell:
 claude plugin marketplace add rj11io/11agi
 ```
 
-Then install the plugin you need from the marketplace UI or with `/plugin install <plugin>@11agi`, for example `/plugin install 11agi-benchmarks@11agi`.
+Then install the plugin you need from the marketplace UI or with `/plugin install <plugin>@11agi`, for example `/plugin install 11agi-ai-analytics@11agi`.
 
 ### Codex marketplace
 
@@ -42,7 +42,7 @@ Add the marketplace once:
 codex plugin marketplace add rj11io/11agi
 ```
 
-Then install the plugin you need with `codex plugin add <plugin>@11agi`, for example `codex plugin add 11agi-benchmarks@11agi`, or pick it from the plugins UI.
+Then install the plugin you need with `codex plugin add <plugin>@11agi`, for example `codex plugin add 11agi-ai-analytics@11agi`, or pick it from the plugins UI.
 
 After installation, ask your agent to use a skill by name. For example:
 
@@ -69,7 +69,7 @@ The repository currently contains 74 skills in 14 plugins.
 | [Agent automation](./v0/plugins/11agi-agent-automation/README.md) | 8 | Scheduled autonomous work using the Ledger + Conductor + Routine pattern |
 | [AI chat](./v0/plugins/11agi-ai-chat/README.md) | 9 | End-to-end chat, sessions, tools, models, providers, UI, and messaging-platform extensions |
 | [Audit](./v0/plugins/11agi-audit/README.md) | 1 | Read-only dependency vulnerability, malware, supply-chain, and host-computer risk auditing |
-| [Benchmarks](./v0/plugins/11agi-benchmarks/README.md) | 5 | Single-thread, project-scoped, and machine-wide LLM cost, effort, and timing reports, provider-verified pricing maintenance, and a FAQ over all of them |
+| [Benchmarks](./v0/plugins/11agi-ai-analytics/README.md) | 5 | Single-thread, project-scoped, and machine-wide LLM cost, effort, and timing reports, provider-verified pricing maintenance, and a FAQ over all of them |
 | [Blog builder](./v0/plugins/11agi-blog-builder/README.md) | 10 | Building file-backed editorial blogs with composable CMS, author, Markdown, content, navigation, and UI skills, plus a standalone platform-services page and a publications-and-chapters CMS |
 | [Cleanup](./v0/plugins/11agi-cleanup/README.md) | 5 | Safely finding and removing abandoned local resources |
 | [Codebase](./v0/plugins/11agi-codebase/README.md) | 4 | Playwright setup, npm publishing, automated releases, and web analytics |
@@ -93,7 +93,7 @@ v0/
     11agi-agent-automation/     8 automation skills under skills/
     11agi-ai-chat/              9 AI chat skills under skills/
     11agi-audit/                1 evidence-backed dependency-audit skill under skills/
-    11agi-benchmarks/           5 LLM cost, effort, timing, and FAQ skills under skills/
+    11agi-ai-analytics/           5 LLM cost, effort, timing, and FAQ skills under skills/
     11agi-blog-builder/         10 editorial blog, platform-CTA, and publications-CMS skills under skills/
     11agi-cleanup/              5 cleanup skills under skills/
     11agi-codebase/             4 codebase skills under skills/
