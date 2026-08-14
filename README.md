@@ -86,6 +86,7 @@ Start with a plugin's README to choose a skill, then name that skill in your req
 ## Repository layout
 
 ```text
+.agents/plugins/marketplace.json  Codex marketplace discovery entry point
 .claude-plugin/               Claude marketplace discovery entry point
 v0/
   index.js                    CommonJS package entry point

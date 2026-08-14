@@ -14,5 +14,6 @@ modeling, secure-coding review, and secrets handling.
 This plugin has one skill, and it is a placeholder. No scan, check, or report
 runs from here yet. For security work that runs today, use the
 [`11agi-audit`](../11agi-audit/README.md) plugin: it audits dependencies for
-vulnerabilities and malware, and audits this repository's own marketplace and
-plugin configuration files.
+vulnerabilities and malware. For marketplace and plugin configuration checks,
+use the [`11agi-plugins-marketplace`](../11agi-plugins-marketplace/README.md)
+plugin.
