@@ -1,6 +1,6 @@
 {
   "name": "11agi-core",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Skills for building, auditing, and maintaining skills and plugins, plus evidence-backed reporting, datavis guidance, report presentation with an optional collapsed format, compression, reverse-engineering, communication, and critique utilities.",
   "author": {
     "name": "rj11io"
