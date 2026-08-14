@@ -69,7 +69,7 @@ The repository currently contains 74 skills in 14 plugins.
 | [Agent automation](./v0/plugins/11agi-agent-automation/README.md) | 8 | Scheduled autonomous work using the Ledger + Conductor + Routine pattern |
 | [AI chat](./v0/plugins/11agi-ai-chat/README.md) | 9 | End-to-end chat, sessions, tools, models, providers, UI, and messaging-platform extensions |
 | [Audit](./v0/plugins/11agi-audit/README.md) | 1 | Read-only dependency vulnerability, malware, supply-chain, and host-computer risk auditing |
-| [Benchmarks](./v0/plugins/11agi-ai-analytics/README.md) | 5 | Single-thread, project-scoped, and machine-wide LLM cost, effort, and timing reports, provider-verified pricing maintenance, and a FAQ over all of them |
+| [AI analytics](./v0/plugins/11agi-ai-analytics/README.md) | 5 | Single-thread, project-scoped, and machine-wide LLM cost, effort, and timing reports, provider-verified pricing maintenance, and a FAQ over all of them |
 | [Blog builder](./v0/plugins/11agi-blog-builder/README.md) | 10 | Building file-backed editorial blogs with composable CMS, author, Markdown, content, navigation, and UI skills, plus a standalone platform-services page and a publications-and-chapters CMS |
 | [Cleanup](./v0/plugins/11agi-cleanup/README.md) | 5 | Safely finding and removing abandoned local resources |
 | [Codebase](./v0/plugins/11agi-codebase/README.md) | 4 | Playwright setup, npm publishing, automated releases, and web analytics |

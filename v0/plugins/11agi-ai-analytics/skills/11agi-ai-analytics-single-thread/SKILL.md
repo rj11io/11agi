@@ -3,7 +3,7 @@ name: 11agi-ai-analytics-single-thread
 description: "Inspect one project-attributed Codex, Claude Code, Claude Cowork, Gemini CLI, Cline, Roo Code, OpenCode, or exported usage thread plus recursively spawned Codex sub-agent threads; detect unavailable remote Cowork sessions; classify its surface and billing mode; normalize token counters; calculate attributable USD cost; measure wall and estimated active time; and write matching timestamped reports. Use for the cost, tokens, effort, timing, provenance, or harness coverage of one exact thread tree."
 ---
 
-# 11agi Benchmarks Single Thread
+# 11agi AI Analytics Single Thread
 
 Analyze one exactly selected logical LLM root thread plus every recursively linked Codex sub-agent descendant using the bundled analyzer, pricing catalog, and harness reference. Keep source transcripts and input files read-only.
 

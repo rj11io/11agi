@@ -1,4 +1,4 @@
-# 11agi Benchmarks
+# 11agi AI Analytics
 
 Five skills: single-thread, project-scoped, and machine-wide LLM usage reporting, provider-verified pricing maintenance, and a FAQ that answers questions about all of them — across local coding harnesses.
 

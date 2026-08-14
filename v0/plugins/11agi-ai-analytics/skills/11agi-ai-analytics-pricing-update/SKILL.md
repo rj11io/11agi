@@ -3,7 +3,7 @@ name: 11agi-ai-analytics-pricing-update
 description: "Refresh and preserve the time-versioned token-pricing history used by the 11agi LLM cost reports from official AI-lab sources, synchronize the project, global, and single-thread copies, and validate their schemas, rate periods, resolver, and equality. Use when model prices, discounts, effective dates, aliases, providers, or pricing caveats have changed, when historical-rate backfill is requested, or when adding pricing support for another AI lab."
 ---
 
-# 11agi Benchmarks Pricing Update
+# 11agi AI Analytics Pricing Update
 
 Maintain one provider-verified catalog and keep every 11agi cost-report skill on the same rates.
 

@@ -1,8 +1,8 @@
 ---
 name: 11agi-ai-analytics-faq
-description: "Answer questions about the 11agi-ai-analytics plugin: which reporting skill fits a job, how the analyzers discover and classify harness usage, how pricing, timing, and cost states are derived, what each report section and warning means, and how the skills are maintained. Routes every question to the plugin's own contracts, references, scripts, and tests and answers with a citation. Use when a user asks how the benchmark skills behave, why a report shows a value, which benchmarks skill to run, or what a report section means."
+description: "Answer questions about the 11agi-ai-analytics plugin: which reporting skill fits a job, how the analyzers discover and classify harness usage, how pricing, timing, and cost states are derived, what each report section and warning means, and how the skills are maintained. Routes every question to the plugin's own contracts, references, scripts, and tests and answers with a citation. Use when a user asks how the AI analytics skills behave, why a report shows a value, which analytics skill to run, or what a report section means."
 ---
-# 11agi Benchmarks FAQ
+# 11agi AI Analytics FAQ
 
 Answer questions about this plugin by routing them to the plugin's own files, not from
 memory. This skill owns no behavior: the sibling skills' contracts, references, scripts,

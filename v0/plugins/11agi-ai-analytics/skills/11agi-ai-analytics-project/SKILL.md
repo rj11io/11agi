@@ -3,7 +3,7 @@ name: 11agi-ai-analytics-project
 description: "Inspect a repository plus its project-attributed Codex, Claude Code, Claude Cowork, Gemini CLI, Cline, Roo Code, and OpenCode records; detect unavailable remote Cowork sessions; classify harness surfaces and billing modes; normalize provider token counters; calculate attributable USD costs; measure wall and estimated active time; and write matching timestamped Markdown and HTML reports. Use for project LLM spend, token usage, model and effort cost, thread timing, harness coverage, or recursive cost analysis."
 ---
 
-# 11agi Benchmarks Project
+# 11agi AI Analytics Project
 
 Analyze local LLM activity without depending on a benchmark repository, benchmark schema, or external service. Write every default report package beneath the persistent `11agi-ai-analytics-project-reports` folder at the current thread's working-directory root; keep source transcripts and input files read-only.
 

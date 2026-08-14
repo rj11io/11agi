@@ -3,7 +3,7 @@ name: 11agi-ai-analytics-machine
 description: "Inspect all readable Codex, Claude Code, Claude Cowork, Gemini CLI, Cline, Roo Code, and OpenCode usage stores across the machine, plus exported usage files or folders from unsupported harnesses included on request; detect unavailable remote Cowork sessions; classify harness surfaces and billing modes; normalize token counters; calculate attributable USD costs; measure wall and estimated active time; and write Markdown and standalone HTML reports. Use for global LLM spend, token usage, model and effort cost, thread timing, harness coverage, cross-project analysis, or machine-wide reports over exported usage."
 ---
 
-# 11agi Benchmarks Machine
+# 11agi AI Analytics Machine
 
 Analyze machine-wide LLM activity without a project boundary, external service, or benchmark schema. Write every default report package beneath the persistent `11agi-ai-analytics-machine-reports` folder on the user's Desktop; keep source transcripts, task stores, and ledgers read-only.
 

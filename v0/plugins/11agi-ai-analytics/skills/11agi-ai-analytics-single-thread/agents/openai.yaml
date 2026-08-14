@@ -1,4 +1,4 @@
 interface:
-  display_name: "11agi Benchmarks Single Thread"
+  display_name: "11agi AI Analytics Single Thread"
   short_description: "Analyze a thread tree's cost and timing"
   default_prompt: "Use $11agi-ai-analytics-single-thread to analyze one exact thread tree, including surface and billing provenance plus recursively spawned Codex sub-agents, and create matching Markdown and HTML cost reports."
