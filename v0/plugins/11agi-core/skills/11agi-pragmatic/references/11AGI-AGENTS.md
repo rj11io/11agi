@@ -17,7 +17,3 @@ also apply all these principles when writing code comments, content, plans, repo
 
 when working in a repo, leave a detailed conventional commit message (include scope) for the operator to copy.
 <!-- END:11agi-pragmatic skill -->
-
-# Rules
-
-[RULES.md](./RULES.md) is the source of truth for every rule 11agi skills and plugins must follow. read it before creating, updating, or reviewing any skill or plugin. cite rule ids (R1-R12, B1-B4) in findings, commits, and reviews. when RULES.md and anything else disagree, RULES.md wins.

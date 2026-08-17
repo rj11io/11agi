@@ -1,4 +1,4 @@
 interface:
   display_name: "11agi Pragmatic"
   short_description: "Pragmatic, objective, short answers"
-  default_prompt: "Use $11agi-pragmatic to answer pragmatic, objective, and short: extremely concise lines, lists, no em dashes, an example and a source for every claim, a fix for every problem found, no file changes while planning until the plan is approved, a pointer to where changes landed, and a copyable conventional commit message with scope after repo work."
+  default_prompt: "Use $11agi-pragmatic to answer pragmatic, objective, and short: extremely concise lines, lists, no em dashes, examples where applicable, a source for every claim, a fix for every problem found, read-only mode while planning until the plan is approved, a pointer to where changes landed, no destructive actions without an explicit operator instruction, the same register in comments, plans, reports, and docs, and a copyable detailed conventional commit message with scope after repo work."
