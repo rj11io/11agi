@@ -50,6 +50,7 @@ try {
     { timestamp: "2020-01-15T12:01:00.000Z", cwd: join(fixtureRoot, "workspace-b"), sessionId: "claude-old", message: { id: "message-1", model: "claude-sonnet-4-6", usage: { input_tokens: 200, cache_creation_input_tokens: 20, cache_read_input_tokens: 80, output_tokens: 50 } } },
     { timestamp: "2020-01-15T12:03:00.000Z", cwd: join(fixtureRoot, "workspace-b"), sessionId: "claude-old", message: { id: "message-2", model: "claude-sonnet-4-6", usage: { input_tokens: 100, cache_creation_input_tokens: 10, cache_read_input_tokens: 40, output_tokens: 25 } } },
   ])
+  writeFileSync(join(claudeHome, "settings.json"), JSON.stringify({ cleanupPeriodDays: 3650 }))
   mkdirSync(claudeDesktopHome, { recursive: true })
   writeFileSync(join(claudeDesktopHome, "desktop-session.json"), JSON.stringify({ cliSessionId: "claude-old", sessionId: "desktop-claude-old", title: "Desktop Claude fixture", cwd: join(fixtureRoot, "workspace-b"), effort: "high" }))
   writeJsonl(join(geminiHome, "tmp", "hash", "chats", "recent.jsonl"), [
@@ -122,6 +123,15 @@ try {
   const html = readFileSync(summary.htmlReport, "utf8")
   assert.match(markdown, /^# AI benchmarks and analysis: Machine Report\n\n_powered by \[11agi-ai-analytics-machine\]\(https:\/\/agi\.rj11\.io\/skills\/11agi-ai-analytics-machine\)\._\n\n/)
   assert.match(markdown, /Desktop Claude fixture/)
+  assert.equal(summary.claudeTranscriptRetention.days, 3650)
+  assert.equal(summary.claudeTranscriptRetention.source, "~/claude/settings.json")
+  assert.equal(summary.claudeTranscriptRetention.sourceFile, join(claudeHome, "settings.json"))
+  assert.equal(summary.claudeTranscriptRetention.configured, true)
+  assert.match(markdown, /\| Claude Code transcript retention \| 3,650 days \(cleanupPeriodDays, ~\/claude\/settings\.json\) \|/)
+  assert.match(markdown, /\| Claude Code history complete since \| \d{4}-\d{2}-\d{2} \|/)
+  assert.match(markdown, /\| Oldest surviving Claude transcript modified \| \d{4}-\d{2}-\d{2}T/)
+  assert.match(markdown, /- Claude Code deletes local transcripts whose files were last modified more than 3,650 days ago/)
+  assert.equal(summaryDataset.stats.claudeTranscriptRetention.days, 3650)
   assert.match(markdown, /claude-desktop-code \/ subscription-or-api-equivalent/)
   const recentMonth = new Date(recent).toLocaleString("en-US", { month: "long", year: "numeric" })
   const recentDate = new Date(recent)

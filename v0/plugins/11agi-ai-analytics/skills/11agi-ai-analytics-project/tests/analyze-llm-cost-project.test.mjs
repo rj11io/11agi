@@ -115,6 +115,10 @@ try {
   assert.equal(summary.activeTimeMs, 720000)
 
   const markdown = readFileSync(report, "utf8")
+  assert.equal(summary.claudeTranscriptRetention.days, 30)
+  assert.equal(summary.claudeTranscriptRetention.source, "Claude Code default")
+  assert.match(markdown, /\| Claude Code transcript retention \| 30 days \(cleanupPeriodDays, Claude Code default\) \|/)
+  assert.match(markdown, /- Claude Code deletes local transcripts whose files were last modified more than 30 days ago \(cleanupPeriodDays, Claude Code default\)\. Claude usage before \d{4}-\d{2}-\d{2} is incomplete/)
   const html = readFileSync(summary.htmlReport, "utf8")
   assert.match(markdown, /^# AI benchmarks and analysis: Project Report\n\n_powered by \[11agi-ai-analytics-project\]\(https:\/\/agi\.rj11\.io\/skills\/11agi-ai-analytics-project\)\._\n\n/)
   assert.match(markdown, /Project Desktop Claude/)

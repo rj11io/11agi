@@ -92,6 +92,7 @@ import {
   vscodeTaskRoots,
   walk,
   walkSessionFiles,
+  claudeTranscriptRetention, claudeTranscriptRetentionLimitations, claudeTranscriptRetentionRows,
 } from "./benchmarks-core.mjs"
 
 const argv = process.argv.slice(2)
@@ -370,6 +371,7 @@ function discoverNativeSessions() {
   addTaskSource("roo", explicitRoo, "rooveterinaryinc.roo-cline")
   discovery.accountsConsidered = new Set(sources.map((source) => source.userHome)).size
   const discovered = []
+  const claudeFiles = []
   for (const source of sources) {
     for (const sessionRoot of source.roots) {
       const sessionFiles = walkSessionFiles(sessionRoot)
@@ -399,13 +401,15 @@ function discoverNativeSessions() {
         externalSessions.set(resolve(file), { ...metadata, harness: source.harness, account: source.account, userHome: source.userHome, label: rel })
         discovered.push(resolve(file))
         if (source.harness === "codex") discovery.codexSessions += 1
-        if (source.harness === "claude") discovery.claudeSessions += 1
+        if (source.harness === "claude") { discovery.claudeSessions += 1; claudeFiles.push(resolve(file)) }
         if (source.harness === "gemini") discovery.geminiSessions += 1
         if (source.harness === "cline") discovery.clineSessions += 1
         if (source.harness === "roo") discovery.rooSessions += 1
       }
     }
   }
+  discovery.claudeTranscriptRetention = claudeTranscriptRetention(sources.filter((source) => source.harness === "claude").map((source) => source.home), claudeFiles)
+  discovery.limitations.push(...claudeTranscriptRetentionLimitations(discovery.claudeTranscriptRetention))
   return discovered
 }
 
@@ -981,6 +985,7 @@ function report({ threads, stats, malformed, duplicateIds }) {
       ["Native session files metadata-checked", fmtInt(stats.nativeFilesConsidered)],
       ["Codex sessions", fmtInt(stats.codexSessions)],
       ["Claude sessions", fmtInt(stats.claudeSessions)],
+      ...claudeTranscriptRetentionRows(stats.claudeTranscriptRetention ?? null),
       ["Claude desktop metadata files", fmtInt(stats.claudeDesktopMetadataFiles)],
       ["Claude desktop metadata matches", fmtInt(stats.claudeDesktopMetadataMatches)],
       ["Cowork coverage state", stats.coworkRemoteSessionsUnavailable > 0 ? "remote usage incomplete" : stats.coworkSessions > 0 ? "measured" : "none detected"],
@@ -1209,6 +1214,7 @@ const stats = {
   nativeFilesConsidered: discovery.nativeFilesConsidered,
   codexSessions: discovery.codexSessions,
   claudeSessions: discovery.claudeSessions,
+  claudeTranscriptRetention: discovery.claudeTranscriptRetention ?? null,
   coworkSessions: discovery.coworkSessions,
   coworkLocalSessionsMeasured: discovery.coworkLocalSessionsMeasured,
   coworkRemoteSessionsDetected: discovery.coworkRemoteSessionsDetected,
@@ -1320,6 +1326,7 @@ console.log(JSON.stringify({
   nativeFilesMetadataChecked: stats.nativeFilesConsidered,
   codexSessions: stats.codexSessions,
   claudeSessions: stats.claudeSessions,
+  claudeTranscriptRetention: stats.claudeTranscriptRetention ?? null,
   coworkSessions: stats.coworkSessions,
   coworkLocalSessionsMeasured: stats.coworkLocalSessionsMeasured,
   coworkRemoteSessionsDetected: stats.coworkRemoteSessionsDetected,

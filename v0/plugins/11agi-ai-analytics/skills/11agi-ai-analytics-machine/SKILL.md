@@ -79,6 +79,10 @@ Render these top-level report sections in this order:
 
 Attribute a whole thread to its finish timestamp, falling back to its start timestamp. Include undated threads only in `All time` and flag them as limitations. Use the machine's local calendar boundaries for `Today`, month/quarter/year-to-date, and monthly/quarterly/yearly reports. Treat `Past 24 hours` and `Past 7/30/60/90 days` as rolling 24/168/720/1,440/2,160-hour windows ending at report generation time. Under each calendar archive, include one level-three subsection for every month, quarter, or year with dated activity, newest first, and render that period's totals and full breakdown as level-four subsections.
 
+## Transcript retention
+
+Claude Code deletes a local transcript once its file has gone unmodified for `cleanupPeriodDays` days (default 30, read from `settings.json` and `settings.local.json` in each Claude home, with the local file winning). Periods older than that window are therefore incomplete, and the same month shows fewer Claude threads and less cost each time the report is regenerated; Codex rollouts are not deleted this way, so OpenAI figures stay stable. Detect the effective window, show `Claude Code transcript retention`, `Claude Code history complete since`, and `Oldest surviving Claude transcript modified` rows in `Scan coverage`, store the same facts under `stats.claudeTranscriptRetention` in the dataset, and add a limitation that names the window and the first complete date. Never present a shrinking historical period as lower usage; point the user to earlier report packages for those periods and to a large `cleanupPeriodDays` for future history.
+
 ## Supported usage shapes
 
 The bundled parser handles:
@@ -159,6 +163,7 @@ Before reporting completion:
 - confirm the HTML is fluid and compact without an outer card, and the generation message follows all disclosures immediately before the signature in both formats;
 - confirm both state inspected files, recognized threads, known and unknown costs, pricing coverage, historical pricing selection, applied rate periods, temporal fallbacks, and limitations;
 - confirm both distinguish every Cowork coverage state and preserve measured totals while warning about excluded unavailable remote usage;
+- confirm `Scan coverage` shows the Claude Code transcript retention window and the first complete date, and that `Anomalies and limitations` repeats them as a limitation;
 - confirm both identify the bundled catalog version and update date, disclose earliest-available, latest-available, and main-price boundary fallbacks, and conditionally show actionable unmatched models, excluded token totals, and the exact pricing-update link without listing synthetic or zero-token placeholders;
 - confirm both end with a signature linking to `https://agi.rj11.io/skills/11agi-ai-analytics-machine`;
 - rerun once with unchanged inputs, confirm a second timestamped report package is created in the reports folder, and ensure both formats are stable apart from generated timestamps;

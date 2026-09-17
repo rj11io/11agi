@@ -116,6 +116,7 @@ tier on the ground-truth ladder.
 | Are unreadable or malformed records silently dropped from the totals? | `../11agi-ai-analytics-machine/scripts/analyze-llm-cost-global.mjs` | "malformed" | behavior |
 | What must every report contain, and how does the HTML behave? | `../11agi-ai-analytics-machine/SKILL.md` | "## Report requirements" | contract |
 | How is usage attributed to monthly, quarterly, and yearly periods? | `../11agi-ai-analytics-machine/SKILL.md` | "## Period attribution" | contract |
+| Why does an older month show fewer Claude threads and less cost each time I regenerate the report? | `../11agi-ai-analytics-machine/SKILL.md` | "## Transcript retention" | contract |
 | What does the Pricing coverage section of a report tell me? | `../11agi-ai-analytics-machine/scripts/analyze-llm-cost-global.mjs` | "## Pricing coverage" | behavior |
 | What does the Anomalies and limitations section flag? | `../11agi-ai-analytics-machine/scripts/analyze-llm-cost-global.mjs` | "## Anomalies and limitations" | behavior |
 | What does the Historical pricing selection detail show? | `../11agi-ai-analytics-machine/scripts/analyze-llm-cost-global.mjs` | "Historical pricing selection" | behavior |

@@ -84,6 +84,8 @@ Measure wall time from the first to last distinct timestamp observed for a threa
 
 Place `Totals` immediately after `Cost by root and child folder`, and place `Scan coverage` immediately before `Pricing coverage`, in both report formats.
 
+Claude Code deletes a local transcript once its file has gone unmodified for `cleanupPeriodDays` days (default 30, read from `settings.json` and `settings.local.json` in the Claude home, with the local file winning), so Claude usage older than that window is incomplete and shrinks between runs. Show `Claude Code transcript retention`, `Claude Code history complete since`, and `Oldest surviving Claude transcript modified` rows in `Scan coverage`, store them under `stats.claudeTranscriptRetention` in the dataset, and add a limitation naming the window and the first complete date.
+
 Format every USD value with a dollar sign, comma thousands separators, and exactly four decimal places, such as `$1,234.5678`.
 
 For Cost by tables, the following specific layout supersedes any general metric-order guidance below: put total `Cost` immediately after the provider/model/effort/folder identity columns, then use `Input`, `Cached`, `Input cost`, `Output`, `Output cost`, total `Tokens`, `Cost / 1M tokens`, `Threads`, `Cost / thread`, active time, cost per active hour, wall time, and cost per wall hour. Input cost includes uncached input, cache reads, and supported cache-write classes. Cost per 1M tokens divides known total cost by total measured/provider tokens and multiplies the result by one million; cost per thread divides known cost by all recognized threads, so either may be understated when coverage is incomplete.
@@ -125,6 +127,7 @@ Before reporting completion:
 - confirm `Cost by model by effort` is a level-two sibling immediately after `Cost by model`;
 - confirm `Totals` is a level-two sibling immediately after `Cost by root and child folder`;
 - confirm `Harness surface coverage`, `Cowork coverage`, `Scan coverage`, and `Pricing coverage` appear in that order, with `Cowork coverage` immediately before `Scan coverage` and `Scan coverage` immediately before `Pricing coverage`;
+- confirm `Scan coverage` shows the Claude Code transcript retention window and the first complete date, and that `Anomalies and limitations` repeats them as a limitation;
 - confirm every HTML table header is sortable, initial row order is unchanged, a newly selected column starts descending, and `Total` rows remain pinned last;
 - confirm every HTML level-two and level-three report section is a `<details>` disclosure without an `open` attribute, so all sections load collapsed;
 - confirm the HTML is fluid and compact without an outer card, and the generation message follows all disclosures immediately before the signature in both formats;

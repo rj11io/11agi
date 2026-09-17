@@ -92,6 +92,7 @@ import {
   vscodeTaskRoots,
   walk,
   walkSessionFiles,
+  claudeTranscriptRetention, claudeTranscriptRetentionLimitations, claudeTranscriptRetentionRows,
 } from "./benchmarks-core.mjs"
 
 const argv = process.argv.slice(2)
@@ -297,6 +298,7 @@ function discoverNativeSessions() {
     { harness: "roo", home: dirname(rooRoots[0]), roots: rooRoots },
   ]
   const matched = []
+  const claudeFiles = []
   for (const source of sources) {
     for (const sessionRoot of source.roots) {
       const sessionFiles = walkSessionFiles(sessionRoot)
@@ -340,13 +342,15 @@ function discoverNativeSessions() {
         matched.push(resolve(file))
         discovery.nativeSessionsMatched += 1
         if (source.harness === "codex") discovery.codexSessions += 1
-        if (source.harness === "claude") discovery.claudeSessions += 1
+        if (source.harness === "claude") { discovery.claudeSessions += 1; claudeFiles.push(resolve(file)) }
         if (source.harness === "gemini") discovery.geminiSessions += 1
         if (source.harness === "cline") discovery.clineSessions += 1
         if (source.harness === "roo") discovery.rooSessions += 1
       }
     }
   }
+  discovery.claudeTranscriptRetention = claudeTranscriptRetention([claudeHome], claudeFiles)
+  discovery.limitations.push(...claudeTranscriptRetentionLimitations(discovery.claudeTranscriptRetention))
   return matched
 }
 
@@ -756,6 +760,7 @@ function report({ threads, stats, malformed, duplicateIds }) {
       ["Project-associated native sessions", fmtInt(stats.nativeSessionsMatched)],
       ["Codex sessions", fmtInt(stats.codexSessions)],
       ["Claude sessions", fmtInt(stats.claudeSessions)],
+      ...claudeTranscriptRetentionRows(stats.claudeTranscriptRetention ?? null),
       ["Claude desktop metadata files", fmtInt(stats.claudeDesktopMetadataFiles)],
       ["Claude desktop metadata matches", fmtInt(stats.claudeDesktopMetadataMatches)],
       ["Cowork coverage state", stats.coworkRemoteSessionsUnavailable > 0 ? "remote usage incomplete" : stats.coworkSessions > 0 ? "measured" : "none detected"],
@@ -981,6 +986,7 @@ const stats = {
   nativeSessionsMatched: discovery.nativeSessionsMatched,
   codexSessions: discovery.codexSessions,
   claudeSessions: discovery.claudeSessions,
+  claudeTranscriptRetention: discovery.claudeTranscriptRetention ?? null,
   coworkSessions: discovery.coworkSessions,
   coworkLocalSessionsMeasured: discovery.coworkLocalSessionsMeasured,
   coworkRemoteSessionsDetected: discovery.coworkRemoteSessionsDetected,
@@ -1107,6 +1113,7 @@ console.log(JSON.stringify({
   nativeSessionsMatched: stats.nativeSessionsMatched,
   codexSessions: stats.codexSessions,
   claudeSessions: stats.claudeSessions,
+  claudeTranscriptRetention: stats.claudeTranscriptRetention ?? null,
   coworkSessions: stats.coworkSessions,
   coworkLocalSessionsMeasured: stats.coworkLocalSessionsMeasured,
   coworkRemoteSessionsDetected: stats.coworkRemoteSessionsDetected,

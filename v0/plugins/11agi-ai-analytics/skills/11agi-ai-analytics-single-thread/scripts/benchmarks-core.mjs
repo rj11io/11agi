@@ -101,6 +101,82 @@ export function costPart(tokens, rate) {
   return finite(rate) ? tokens * rate / 1_000_000 : null
 }
 
+// Claude Code deletes local transcripts whose files were last modified more than
+// `cleanupPeriodDays` days ago (default 30, read from settings.json and
+// settings.local.json in each Claude home). Every period older than that window
+// is therefore incomplete, and the same month shrinks from one report run to the
+// next. The window is surfaced as a limitation so a smaller number is not mistaken
+// for lower usage.
+export const CLAUDE_DEFAULT_CLEANUP_PERIOD_DAYS = 30
+export function claudeTranscriptRetention(claudeHomes, sessionFiles = [], now = new Date()) {
+  const homes = [...new Set(claudeHomes.map((home) => resolve(home)))].filter((home) => existsSync(home))
+  if (!homes.length) return null
+  let days = null
+  let source = null
+  let sourceFile = null
+  const invalidSettings = []
+  for (const home of homes) {
+    let homeDays = null
+    let homeSource = null
+    let homeSourceFile = null
+    // settings.local.json overrides settings.json inside one Claude home.
+    for (const name of ["settings.json", "settings.local.json"]) {
+      const file = join(home, name)
+      if (!existsSync(file)) continue
+      try {
+        const value = JSON.parse(readFileSync(file, "utf8"))?.cleanupPeriodDays
+        if (value === undefined || value === null) continue
+        const parsed = number(value)
+        if (parsed === null || parsed < 1) { invalidSettings.push(file); continue }
+        homeDays = parsed
+        homeSourceFile = file
+        // Reports never print absolute local paths; label the file relative to the home that owns the Claude directory.
+        homeSource = `~/${relative(dirname(home), file).replaceAll("\\", "/")}`
+      } catch {
+        invalidSettings.push(file)
+      }
+    }
+    if (homeDays === null) { homeDays = CLAUDE_DEFAULT_CLEANUP_PERIOD_DAYS; homeSource = "Claude Code default" }
+    // With several homes keep the shortest window: it bounds what every home still holds.
+    if (days === null || homeDays < days) { days = homeDays; source = homeSource; sourceFile = homeSourceFile }
+  }
+  let oldestSurvivingModifiedAt = null
+  for (const file of sessionFiles) {
+    try {
+      const modified = statSync(file).mtime
+      if (!oldestSurvivingModifiedAt || modified < oldestSurvivingModifiedAt) oldestSurvivingModifiedAt = modified
+    } catch { /* deleted between discovery and this check; the retention window still applies */ }
+  }
+  const completeSince = new Date(now.getTime() - days * 24 * 60 * 60 * 1000)
+  return {
+    days,
+    source,
+    sourceFile,
+    configured: sourceFile !== null,
+    completeSince: completeSince.toISOString(),
+    oldestSurvivingTranscriptModifiedAt: oldestSurvivingModifiedAt ? oldestSurvivingModifiedAt.toISOString() : null,
+    invalidSettings,
+  }
+}
+
+export function claudeTranscriptRetentionRows(retention) {
+  if (!retention) return [["Claude Code transcript retention", "n/a (no Claude home found)"]]
+  return [
+    ["Claude Code transcript retention", `${fmtInt(retention.days)} days (cleanupPeriodDays, ${retention.source})`],
+    ["Claude Code history complete since", retention.completeSince.slice(0, 10)],
+    ["Oldest surviving Claude transcript modified", retention.oldestSurvivingTranscriptModifiedAt ?? "n/a"],
+  ]
+}
+
+export function claudeTranscriptRetentionLimitations(retention) {
+  if (!retention) return []
+  const lines = [
+    `Claude Code deletes local transcripts whose files were last modified more than ${fmtInt(retention.days)} days ago (cleanupPeriodDays, ${retention.source}). Claude usage before ${retention.completeSince.slice(0, 10)} is incomplete in this report: a thread from before that date survives only if its transcript file was modified later. Older report packages are the record for those periods; to keep future history, set a large cleanupPeriodDays (for example 3650) in the Claude settings.json.`,
+  ]
+  for (const file of retention.invalidSettings) lines.push(`Claude settings file could not be read or has an invalid cleanupPeriodDays: ${basename(file)} in a Claude home; the Claude Code default of ${CLAUDE_DEFAULT_CLEANUP_PERIOD_DAYS} days was assumed.`)
+  return lines
+}
+
 export function coworkCoverageLines(stats) {
   const states = []
   if (stats.coworkLocalSessionsMeasured > 0) states.push("local measured")
