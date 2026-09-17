@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/rj11io/11agi/compare/v1.1.1...v1.1.2) (2026-09-17)
+
+
+### Bug Fixes
+
+* **ai-analytics:** disclose Claude Code transcript retention in reports ([972c595](https://github.com/rj11io/11agi/commit/972c595d0ecd969451e9a9679ee6814d0fdbbb72))
+
 ## [1.1.1](https://github.com/rj11io/11agi/compare/v1.1.0...v1.1.1) (2026-08-14)
 
 
